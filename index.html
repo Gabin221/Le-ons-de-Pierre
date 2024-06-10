@@ -44,7 +44,7 @@
 		<script>
 			function traceFonctionCarre() {
 				var x = [];
-				for(var i = -10; i <= 10; i+=0.5) {
+				for(var i = -6; i <= 6; i+=0.5) {
 					x.push(i);
 				}
 
@@ -81,36 +81,41 @@
 							lines: {
 								show: true
 							}
-						},   
+						},
 						yaxis: {
 							lines: {
 								show: true
 							}
-						}, 
+						}
 					},
 					xaxis: {
-						categories: x
+						categories: x,
+						labels: {
+							formatter: function (val) {
+								return (typeof val === 'number') ? val.toFixed(1) : val;
+							}
+						}
 					}
 				};
 
 				var chart = new ApexCharts(document.querySelector("#fonctionCarrePlot"), options);
 				chart.render();
 			}
-			
+
 			function traceFonctionRacineCarre() {
 				var x = [];
-				for(var i = 0; i <= 20; i++) {
+				for(var i = 0; i <= 10; i+=0.5) {
 					x.push(i);
 				}
 
 				var y = [];
-				for(var i = 0; i <= 20; i++) {
-					y.push(Math.round(Math.sqrt(i) * 10) / 10);
+				for(var i = 0; i < x.length; i++) {
+					y.push(Math.round(Math.sqrt(i) * 1000) / 1000);
 				}
 
 				var options = {
 					series: [{
-						name: "f(x) = x² donc",
+						name: "f(x) = sqrt(x) donc",
 						data: y
 					}],
 					chart: {
@@ -145,6 +150,11 @@
 					},
 					xaxis: {
 						categories: x,
+						labels: {
+							formatter: function (val) {
+								return (typeof val === 'number') ? val.toFixed(1) : val;
+							}
+						}
 					}
 					};
 
