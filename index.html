@@ -3,6 +3,7 @@
 <html lang="fr">
 	<head>
 		<title>Maths learner</title>
+		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 	</head>
 	<body>
 		<h1 style="text-align: center;">Maths learner</h1>
@@ -24,10 +25,14 @@
 		
 		<a id="fonctionsChapitre">Fonctions</a>
 		<p></p>
-		<a id="fonctionCarre">Fonction carré</a>
-		<p></p>
-		<a id="fonctionRacine">Fonction racine</a>
-		<p></p>
+		<a id="fonctionCarre" style="font-weight: bold;">Fonction carré</a>
+		
+		<div id="fonctionCarrePlot" style="border: 1px solid black; width: 80%; margin: auto; padding: 20px;"></div>
+
+		<a id="fonctionRacine" style="font-weight: bold;">Fonction racine</a>
+		
+		<div id="fonctionRacineCarrePlot" style="border: 1px solid black; width: 80%; margin: auto; padding: 20px;"></div>
+
 		<a id="fonctionExponentielle">Fonction exponentielle</a>
 		<p></p>
 		<a id="fonctionLogarithme">Fonction logarithme</a>
@@ -35,6 +40,121 @@
 		<a id="fonctionAbsolue">Fonction absolue</a>
 		<p></p>
 		<a id="fonctionsTrigonometriques">Fonction logarithme</a>
+
+		<script>
+			function traceFonctionCarre() {
+				var x = [];
+				for(var i = -10; i <= 10; i+=0.5) {
+					x.push(i);
+				}
+
+				var y = [];
+				for(var i = 0; i < x.length; i++) {
+					y.push(Math.pow(x[i], 2));
+				}
+
+				var options = {
+					series: [{
+						name: "f(x) = x² donc",
+						data: y
+					}],
+					chart: {
+						height: 350,
+						type: 'line',
+						zoom: {
+							enabled: false
+						}
+					},
+					dataLabels: {
+						enabled: false
+					},
+					stroke: {
+						curve: 'straight'
+					},
+					title: {
+						text: 'Graphique représentant le tracé de la fonction carré.',
+						align: 'center'
+					},
+					grid: {
+						show: true,
+						xaxis: {
+							lines: {
+								show: true
+							}
+						},   
+						yaxis: {
+							lines: {
+								show: true
+							}
+						}, 
+					},
+					xaxis: {
+						categories: x
+					}
+				};
+
+				var chart = new ApexCharts(document.querySelector("#fonctionCarrePlot"), options);
+				chart.render();
+			}
+			
+			function traceFonctionRacineCarre() {
+				var x = [];
+				for(var i = 0; i <= 20; i++) {
+					x.push(i);
+				}
+
+				var y = [];
+				for(var i = 0; i <= 20; i++) {
+					y.push(Math.round(Math.sqrt(i) * 10) / 10);
+				}
+
+				var options = {
+					series: [{
+						name: "f(x) = x² donc",
+						data: y
+					}],
+					chart: {
+					height: 350,
+					type: 'line',
+					zoom: {
+						enabled: false
+					}
+					},
+					dataLabels: {
+					enabled: false
+					},
+					stroke: {
+					curve: 'straight'
+					},
+					title: {
+					text: 'Graphique représentant le tracé de la fonction racine carré.',
+					align: 'center'
+					},
+					grid: {
+						show: true,
+						xaxis: {
+							lines: {
+								show: true
+							}
+						},   
+						yaxis: {
+							lines: {
+								show: true
+							}
+						}, 
+					},
+					xaxis: {
+						categories: x,
+					}
+					};
+
+				var chart = new ApexCharts(document.querySelector("#fonctionRacineCarrePlot"), options);
+				chart.render();
+			}
+			
+			traceFonctionCarre();
+			traceFonctionRacineCarre();
+		</script>
 
 	</body>
 </html>
