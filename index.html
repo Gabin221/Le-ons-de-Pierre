@@ -1,170 +1,219 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="fr">
-	<head>
-		<title>Maths learner</title>
-		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-	</head>
-	<body>
-		<h1 style="text-align: center;">Maths learner</h1>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths Learner</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.css" integrity="sha384-K1E1xaIzoWihlXfiT5fcmLNabsnrl+dqc0errnRwtMX14tKRA9cCYNDGnXiHEZMs" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.js" integrity="sha384-IolEJdmwZJpJkyCvXBnmGt8wXcP3nvRjxBjPv7/PWW7oODJhZ+qiY1sDpwgjcKLT" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #444;
+        }
+        p {
+            text-align: justify;
+        }
+        .chart {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Maths Learner</h1>
+        <h2>Sommaire</h2>
+        <ul>
+            <li><a href="#functions">Fonctions</a></li>
+            <li><a href="#trigonometry">Trigonométrie</a></li>
+            <li><a href="#sorting-numbers">Trier des nombres</a></li>
+            <li><a href="#nth-root">Racine n-ième</a></li>
+            <li><a href="#equations">Résolution d'équations</a></li>
+        </ul>
 
-		<p>Bienvenue sur <b>Maths learner</b>! Cette page va te permettre de réviser les pré-requis maths pour ton école d'ingénieur. Elle peut tourner en local, sans utilsier internet.</p>
-		<p>Voici donc le programme de cette page:</p>
+        <h2 id="functions">Fonctions</h2>
+        <h3>Fonction carrée</h3>
+        <p>La fonction carrée est définie par \( f(x) = x^2 \). Par exemple :</p>
+        <p>Simple : \( f(2) = 2^2 = 4 \)</p>
+        <p>Complexe : \( f(-3) = (-3)^2 = 9 \)</p>
+        <div id="square-chart" class="chart"></div>
+        <script>
+            var options = {
+                chart: {
+                    type: 'line'
+                },
+                series: [{
+                    name: 'x^2',
+                    data: Array.from({ length: 21 }, (v, k) => (k - 10) ** 2)
+                }],
+                xaxis: {
+                    categories: Array.from({ length: 21 }, (v, k) => k - 10)
+                }
+            }
+            var chart = new ApexCharts(document.querySelector("#square-chart"), options);
+            chart.render();
+        </script>
 
-		<div style="display: flex; flex-direction: column; border: 1px solid black; margin: 30px auto 30px auto; padding-bottom: 20px;">
-			<p style="text-align: center;">Sommaire:</p>
+        <h3>Fonction cubique</h3>
+        <p>La fonction cubique est définie par \( f(x) = x^3 \). Par exemple :</p>
+        <p>Simple : \( f(2) = 2^3 = 8 \)</p>
+        <p>Complexe : \( f(-3) = (-3)^3 = -27 \)</p>
+        <div id="cubic-chart" class="chart"></div>
+        <script>
+            var options = {
+                chart: {
+                    type: 'line'
+                },
+                series: [{
+                    name: 'x^3',
+                    data: Array.from({ length: 21 }, (v, k) => (k - 10) ** 3)
+                }],
+                xaxis: {
+                    categories: Array.from({ length: 21 }, (v, k) => k - 10)
+                }
+            }
+            var chart = new ApexCharts(document.querySelector("#cubic-chart"), options);
+            chart.render();
+        </script>
 
-			<a href="#fonctionsChapitre" style="margin-left: 20px;">Fonctions</a>
-				<a style="margin-left: 40px;" href="#fonctionCarre">Fonction carré</a>
-				<a style="margin-left: 40px;" href="#fonctionRacine">Fonction racine</a>
-				<a style="margin-left: 40px;" href="#fonctionExponentielle">Fonction exponentielle</a>
-				<a style="margin-left: 40px;" href="#fonctionLogarithme">Fonction logarithme</a>
-				<a style="margin-left: 40px;" href="#fonctionAbsolue">Fonction absolue</a>
-				<a style="margin-left: 40px;" href="#fonctionsTrigonometriques">Fonctions trigonométriques</a>
-		</div>
-		
-		<a id="fonctionsChapitre">Fonctions</a>
-		<p></p>
-		<a id="fonctionCarre" style="font-weight: bold;">Fonction carré</a>
-		
-		<div id="fonctionCarrePlot" style="border: 1px solid black; width: 80%; margin: auto; padding: 20px;"></div>
+        <h3>Fonction exponentielle</h3>
+        <p>La fonction exponentielle est définie par \( f(x) = e^x \). Par exemple :</p>
+        <p>Simple : \( f(1) = e^1 = e \)</p>
+        <p>Complexe : \( f(-1) = e^{-1} = \frac{1}{e} \)</p>
+        <div id="exp-chart" class="chart"></div>
+        <script>
+            var options = {
+                chart: {
+                    type: 'line'
+                },
+                series: [{
+                    name: 'e^x',
+                    data: Array.from({ length: 21 }, (v, k) => Math.exp(k - 10))
+                }],
+                xaxis: {
+                    categories: Array.from({ length: 21 }, (v, k) => k - 10)
+                }
+            }
+            var chart = new ApexCharts(document.querySelector("#exp-chart"), options);
+            chart.render();
+        </script>
 
-		<a id="fonctionRacine" style="font-weight: bold;">Fonction racine</a>
-		
-		<div id="fonctionRacineCarrePlot" style="border: 1px solid black; width: 80%; margin: auto; padding: 20px;"></div>
+        <h3>Fonction logarithmique</h3>
+        <p>La fonction logarithmique est définie par \( f(x) = \log(x) \). Par exemple :</p>
+        <p>Simple : \( f(1) = \log(1) = 0 \)</p>
+        <p>Complexe : \( f(10) = \log(10) = 1 \)</p>
+        <div id="log-chart" class="chart"></div>
+        <script>
+            var options = {
+                chart: {
+                    type: 'line'
+                },
+                series: [{
+                    name: 'log(x)',
+                    data: Array.from({ length: 20 }, (v, k) => Math.log(k + 1))
+                }],
+                xaxis: {
+                    categories: Array.from({ length: 20 }, (v, k) => k + 1)
+                }
+            }
+            var chart = new ApexCharts(document.querySelector("#log-chart"), options);
+            chart.render();
+        </script>
 
-		<a id="fonctionExponentielle">Fonction exponentielle</a>
-		<p></p>
-		<a id="fonctionLogarithme">Fonction logarithme</a>
-		<p></p>
-		<a id="fonctionAbsolue">Fonction absolue</a>
-		<p></p>
-		<a id="fonctionsTrigonometriques">Fonction logarithme</a>
+        <h2 id="trigonometry">Trigonométrie</h2>
+        <p>La trigonométrie étudie les relations entre les angles et les côtés des triangles. Par exemple, pour un triangle rectangle :</p>
+        <p>\(\sin(\theta) = \frac{opposé}{hypoténuse}\)</p>
+        <p>\(\cos(\theta) = \frac{adjacent}{hypoténuse}\)</p>
+        <p>\(\tan(\theta) = \frac{opposé}{adjacent}\)</p>
+        <div id="trig-chart" class="chart"></div>
+        <script>
+            var options = {
+                chart: {
+                    type: 'line'
+                },
+                series: [{
+                    name: 'Sine',
+                    data: Array.from({ length: 360 }, (v, k) => Math.sin(k * Math.PI / 180))
+                }, {
+                    name: 'Cosine',
+                    data: Array.from({ length: 360 }, (v, k) => Math.cos(k * Math.PI / 180))
+                }],
+                xaxis: {
+                    categories: Array.from({ length: 360 }, (v, k) => k)
+                }
+            }
 
-		<script>
-			function traceFonctionCarre() {
-				var x = [];
-				for(var i = -6; i <= 6; i+=0.5) {
-					x.push(i);
-				}
+            var chart = new ApexCharts(document.querySelector("#trig-chart"), options);
+            chart.render();
+        </script>
 
-				var y = [];
-				for(var i = 0; i < x.length; i++) {
-					y.push(Math.pow(x[i], 2));
-				}
+        <h2 id="sorting-numbers">Trier des nombres</h2>
+        <p>Trier des nombres peut devenir plus complexe lorsque nous traitons des racines, des puissances, ou des images de fonctions. Par exemple, trions les éléments suivants :</p>
+        <p>\(\sqrt{16}, \sqrt[3]{27}, 5^2, \log(100)\)</p>
+        <p>Calculons les valeurs :</p>
+        <p>\(\sqrt{16} = 4\)</p>
+        <p>\(\sqrt[3]{27} = 3\)</p>
+        <p>\(5^2 = 25\)</p>
+        <p>\(\log(100) = 2\)</p>
+        <p>Ordre croissant : \( \sqrt[3]{27}, \log(100), \sqrt{16}, 5^2 \)</p>
 
-				var options = {
-					series: [{
-						name: "f(x) = x² donc",
-						data: y
-					}],
-					chart: {
-						height: 350,
-						type: 'line',
-						zoom: {
-							enabled: false
-						}
-					},
-					dataLabels: {
-						enabled: false
-					},
-					stroke: {
-						curve: 'straight'
-					},
-					title: {
-						text: 'Graphique représentant le tracé de la fonction carré.',
-						align: 'center'
-					},
-					grid: {
-						show: true,
-						xaxis: {
-							lines: {
-								show: true
-							}
-						},
-						yaxis: {
-							lines: {
-								show: true
-							}
-						}
-					},
-					xaxis: {
-						categories: x,
-						labels: {
-							formatter: function (val) {
-								return (typeof val === 'number') ? val.toFixed(1) : val;
-							}
-						}
-					}
-				};
+        <h2 id="nth-root">Racine n-ième</h2>
+        <p>La racine n-ième d'un nombre \(a\) est un nombre \(x\) tel que \(x^n = a\). Elle est notée \(\sqrt[n]{a}\). Par exemple, la racine cubique (n = 3) de 27 est :</p>
+        <p>\[ \sqrt[3]{27} = 3 \]</p>
+        <p>Plus complexe : la racine quatrième de 81 :</p>
+        <p>\[ \sqrt[4]{81} = 3 \]</p>
 
-				var chart = new ApexCharts(document.querySelector("#fonctionCarrePlot"), options);
-				chart.render();
-			}
+        <h2 id="equations">Résolution d'équations</h2>
+        <h3>Équations du second degré</h3>
+        <p>Une équation du second degré est de la forme :</p>
+        <p>\[ ax^2 + bx + c = 0 \]</p>
+        <p>La solution est donnée par la formule quadratique :</p>
+        <p>\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]</p>
+        <p>Simple : \( x^2 - 3x + 2 = 0 \)</p>
+        <p>Solution : \( x = 1 \) et \( x = 2 \)</p>
+        <p>Complexe : \( 2x^2 - 4x + 1 = 0 \)</p>
+        <p>Solution : \( x = \frac{4 \pm \sqrt{16 - 8}}{4} = 1 \pm \frac{\sqrt{2}}{2} \)</p>
 
-			function traceFonctionRacineCarre() {
-				var x = [];
-				for(var i = 0; i <= 10; i+=0.5) {
-					x.push(i);
-				}
+        <h3>Système d'équations</h3>
+        <p>Un système d'équations est un ensemble de deux ou plusieurs équations avec les mêmes variables. Par exemple :</p>
+        <p>\[ \begin{cases} 
+        2x + 3y = 6 \\
+        x - y = 2 
+        \end{cases} \]</p>
+        <p>Pour résoudre ce système, nous pouvons utiliser la méthode de substitution ou d'élimination.</p>
 
-				var y = [];
-				for(var i = 0; i < x.length; i++) {
-					y.push(Math.round(Math.sqrt(i) * 1000) / 1000);
-				}
+        <h3>Équation logarithmique</h3>
+        <p>Une équation logarithmique contient des logarithmes avec des variables. Par exemple :</p>
+        <p>\[ \log_2(x) = 3 \]</p>
+        <p>Pour résoudre, nous réécrivons l'équation en forme exponentielle :</p>
+        <p>\[ x = 2^3 = 8 \]</p>
 
-				var options = {
-					series: [{
-						name: "f(x) = sqrt(x) donc",
-						data: y
-					}],
-					chart: {
-					height: 350,
-					type: 'line',
-					zoom: {
-						enabled: false
-					}
-					},
-					dataLabels: {
-					enabled: false
-					},
-					stroke: {
-					curve: 'straight'
-					},
-					title: {
-					text: 'Graphique représentant le tracé de la fonction racine carré.',
-					align: 'center'
-					},
-					grid: {
-						show: true,
-						xaxis: {
-							lines: {
-								show: true
-							}
-						},   
-						yaxis: {
-							lines: {
-								show: true
-							}
-						}, 
-					},
-					xaxis: {
-						categories: x,
-						labels: {
-							formatter: function (val) {
-								return (typeof val === 'number') ? val.toFixed(1) : val;
-							}
-						}
-					}
-					};
+        <h3>Mettre en équation un problème</h3>
+        <p>Pour résoudre un problème en mathématiques, il est souvent utile de traduire le problème en une ou plusieurs équations. Par exemple, si un problème indique que la somme de deux nombres est 10 et que l'un des nombres est deux fois l'autre, nous pouvons écrire :</p>
+        <p>\[ x + 2x = 10 \]</p>
+        <p>Ce qui se résout en :</p>
+        <p>\[ 3x = 10 \implies x = \frac{10}{3} \]</p>
 
-				var chart = new ApexCharts(document.querySelector("#fonctionRacineCarrePlot"), options);
-				chart.render();
-			}
-			
-			traceFonctionCarre();
-			traceFonctionRacineCarre();
-		</script>
-
-	</body>
+        <h3>Résoudre une équation complexe</h3>
+        <p>Les équations complexes peuvent impliquer plusieurs variables et paramètres. Par exemple :</p>
+        <p>\[ ax + by = c \]</p>
+        <p>Nous résolvons pour une des variables en fonction des autres :</p>
+        <p>\[ x = \frac{c - by}{a} \]</p>
+    </div>
+</body>
 </html>
