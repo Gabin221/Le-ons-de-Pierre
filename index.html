@@ -186,7 +186,7 @@
 					var labels = [];
 					for (var i = -360; i <= 360; i++) {
 						if (i === 0 || i === 45 || i === 90 || i === 135 || i === 180 || i === 225 || i === 270 || i === 315 || i === 360 || i === -45 || i === -90 || i === -135 || i === -180 || i === -225 || i === -270 || i === -315 || i === -360) {
-							labels.push(i/180 + "π");
+							labels.push(i / 180 + "π");
 						} else {
 							labels.push('');
 						}
@@ -194,7 +194,6 @@
 				
 					var tanData = Array.from({ length: 721 }, (v, k) => {
 						if (k % 90 === 0 && (k / 90) % 2 === 1) {
-							// Si k est un multiple impair de 90, la tangente est indéfinie
 							return null;
 						}
 						return Math.tan(k * Math.PI / 180);
@@ -215,29 +214,25 @@
 							data: tanData
 						}],
 						xaxis: {
-							categories: labels
+							categories: labels,
+							tickAmount: labels.length,
+							tickPlacement: 'on', // Placer les ticks directement sur les points de la variable labels
 						},
 						yaxis: {
-							min: -10,
-							max: 10
-						},
-						grid: {
-							xaxis: {
-								lines: {
-									show: false
+							min: -5,
+							max: 5,
+							labels: {
+								formatter: function(value) {
+									return value.toFixed(3);
 								}
-							},   
-							yaxis: {
-								lines: {
-									show: false
-								}
-							}, 
+							}
 						}
 					}
 				
 					var chart = new ApexCharts(document.querySelector("#trig-chart"), options);
 					chart.render();
 				</script>
+				
 			</div>
 
 			<div class="section" id="sorting-numbers">
