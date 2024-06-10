@@ -1,219 +1,284 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maths Learner</title>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.css" integrity="sha384-K1E1xaIzoWihlXfiT5fcmLNabsnrl+dqc0errnRwtMX14tKRA9cCYNDGnXiHEZMs" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.js" integrity="sha384-IolEJdmwZJpJkyCvXBnmGt8wXcP3nvRjxBjPv7/PWW7oODJhZ+qiY1sDpwgjcKLT" crossorigin="anonymous"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2, h3 {
-            text-align: center;
-            color: #444;
-        }
-        p {
-            text-align: justify;
-        }
-        .chart {
-            margin: 20px 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Maths Learner</h1>
-        <h2>Sommaire</h2>
-        <ul>
-            <li><a href="#functions">Fonctions</a></li>
-            <li><a href="#trigonometry">Trigonométrie</a></li>
-            <li><a href="#sorting-numbers">Trier des nombres</a></li>
-            <li><a href="#nth-root">Racine n-ième</a></li>
-            <li><a href="#equations">Résolution d'équations</a></li>
-        </ul>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Maths Learner</title>
+		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.css" integrity="sha384-K1E1xaIzoWihlXfiT5fcmLNabsnrl+dqc0errnRwtMX14tKRA9cCYNDGnXiHEZMs" crossorigin="anonymous">
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.js" integrity="sha384-IolEJdmwZJpJkyCvXBnmGt8wXcP3nvRjxBjPv7/PWW7oODJhZ+qiY1sDpwgjcKLT" crossorigin="anonymous"></script>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				line-height: 1.6;
+				margin: 20px;
+				background-color: #f4f4f4;
+				color: #333;
+			}
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 20px;
+				background-color: #fff;
+				border-radius: 8px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
+			h1, h3 {
+				text-align: center;
+				color: #444;
+			}
 
-        <h2 id="functions">Fonctions</h2>
-        <h3>Fonction carrée</h3>
-        <p>La fonction carrée est définie par \( f(x) = x^2 \). Par exemple :</p>
-        <p>Simple : \( f(2) = 2^2 = 4 \)</p>
-        <p>Complexe : \( f(-3) = (-3)^2 = 9 \)</p>
-        <div id="square-chart" class="chart"></div>
-        <script>
-            var options = {
-                chart: {
-                    type: 'line'
-                },
-                series: [{
-                    name: 'x^2',
-                    data: Array.from({ length: 21 }, (v, k) => (k - 10) ** 2)
-                }],
-                xaxis: {
-                    categories: Array.from({ length: 21 }, (v, k) => k - 10)
-                }
-            }
-            var chart = new ApexCharts(document.querySelector("#square-chart"), options);
-            chart.render();
-        </script>
+			h2 {
+				color: #444;
+				font-size: 24px;
+				margin: 30px 0 10px;
+				text-align: center;
+				border-bottom: 1px solid #444;
+				padding-bottom: 5px;
+				width: 100%;
+			}
+			p {
+				text-align: justify;
+			}
+			.chart {
+				margin: 20px 0;
+			}
+			.section {
+				margin-bottom: 40px;
+			}
+			#toc {
+				margin-bottom: 40px;
+			}
+			#toc ul {
+				list-style-type: none;
+				padding: 0;
+			}
+			#toc li {
+				margin: 5px 0;
+			}
+			#toc a {
+				text-decoration: none;
+				color: #007BFF;
+			}
+			#toc a:hover {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Maths Learner</h1>
 
-        <h3>Fonction cubique</h3>
-        <p>La fonction cubique est définie par \( f(x) = x^3 \). Par exemple :</p>
-        <p>Simple : \( f(2) = 2^3 = 8 \)</p>
-        <p>Complexe : \( f(-3) = (-3)^3 = -27 \)</p>
-        <div id="cubic-chart" class="chart"></div>
-        <script>
-            var options = {
-                chart: {
-                    type: 'line'
-                },
-                series: [{
-                    name: 'x^3',
-                    data: Array.from({ length: 21 }, (v, k) => (k - 10) ** 3)
-                }],
-                xaxis: {
-                    categories: Array.from({ length: 21 }, (v, k) => k - 10)
-                }
-            }
-            var chart = new ApexCharts(document.querySelector("#cubic-chart"), options);
-            chart.render();
-        </script>
+			<div id="toc">
+				<h2>Sommaire</h2>
+				<ul>
+					<li><a href="#introduction">Introduction</a></li>
+					<li><a href="#functions">Les Fonctions</a></li>
+					<li><a href="#trigonometry">Trigonométrie</a></li>
+					<li><a href="#sorting-numbers">Trier des nombres</a></li>
+					<li><a href="#roots">Racines n-ièmes</a></li>
+					<li><a href="#equations">Résolution d'équations</a></li>
+				</ul>
+			</div>
 
-        <h3>Fonction exponentielle</h3>
-        <p>La fonction exponentielle est définie par \( f(x) = e^x \). Par exemple :</p>
-        <p>Simple : \( f(1) = e^1 = e \)</p>
-        <p>Complexe : \( f(-1) = e^{-1} = \frac{1}{e} \)</p>
-        <div id="exp-chart" class="chart"></div>
-        <script>
-            var options = {
-                chart: {
-                    type: 'line'
-                },
-                series: [{
-                    name: 'e^x',
-                    data: Array.from({ length: 21 }, (v, k) => Math.exp(k - 10))
-                }],
-                xaxis: {
-                    categories: Array.from({ length: 21 }, (v, k) => k - 10)
-                }
-            }
-            var chart = new ApexCharts(document.querySelector("#exp-chart"), options);
-            chart.render();
-        </script>
+			<div class="section" id="introduction">
+				<h2>Introduction</h2>
+				<p>Bienvenue sur Maths Learner, une page dédiée à la révision des concepts mathématiques fondamentaux. Cette page couvre plusieurs sujets, y compris les fonctions, la trigonométrie, le tri des nombres, les racines n-ièmes, et la résolution d'équations. Chaque section fournit des explications claires et des exemples variés pour vous aider à mieux comprendre et maîtriser ces concepts.</p>
+			</div>
 
-        <h3>Fonction logarithmique</h3>
-        <p>La fonction logarithmique est définie par \( f(x) = \log(x) \). Par exemple :</p>
-        <p>Simple : \( f(1) = \log(1) = 0 \)</p>
-        <p>Complexe : \( f(10) = \log(10) = 1 \)</p>
-        <div id="log-chart" class="chart"></div>
-        <script>
-            var options = {
-                chart: {
-                    type: 'line'
-                },
-                series: [{
-                    name: 'log(x)',
-                    data: Array.from({ length: 20 }, (v, k) => Math.log(k + 1))
-                }],
-                xaxis: {
-                    categories: Array.from({ length: 20 }, (v, k) => k + 1)
-                }
-            }
-            var chart = new ApexCharts(document.querySelector("#log-chart"), options);
-            chart.render();
-        </script>
+			<div class="section" id="functions">
+				<h2>Les fonctions</h2>
+				<p>Les fonctions sont des relations entre deux ensembles, où chaque élément du premier ensemble est associé à un et un seul élément du deuxième ensemble. Voici quelques exemples de fonctions couramment utilisées :</p>
 
-        <h2 id="trigonometry">Trigonométrie</h2>
-        <p>La trigonométrie étudie les relations entre les angles et les côtés des triangles. Par exemple, pour un triangle rectangle :</p>
-        <p>\(\sin(\theta) = \frac{opposé}{hypoténuse}\)</p>
-        <p>\(\cos(\theta) = \frac{adjacent}{hypoténuse}\)</p>
-        <p>\(\tan(\theta) = \frac{opposé}{adjacent}\)</p>
-        <div id="trig-chart" class="chart"></div>
-        <script>
-            var options = {
-                chart: {
-                    type: 'line'
-                },
-                series: [{
-                    name: 'Sine',
-                    data: Array.from({ length: 360 }, (v, k) => Math.sin(k * Math.PI / 180))
-                }, {
-                    name: 'Cosine',
-                    data: Array.from({ length: 360 }, (v, k) => Math.cos(k * Math.PI / 180))
-                }],
-                xaxis: {
-                    categories: Array.from({ length: 360 }, (v, k) => k)
-                }
-            }
+				<h3>Fonctions carrée et cubique</h3>
+				<p>La fonction carrée est définie par \( f(x) = x^2 \) et la fonction cubique par \( f(x) = x^3 \). Voici quelques exemples :</p>
+				<p>Fonction carrée :</p>
+				<ul>
+					<li>\( f(2) = 2^2 = 4 \)</li>
+					<li>\( f(-3) = (-3)^2 = 9 \)</li>
+				</ul>
+				<p>Fonction cubique :</p>
+				<ul>
+					<li>\( f(2) = 2^3 = 8 \)</li>
+					<li>\( f(-3) = (-3)^3 = -27 \)</li>
+				</ul>
+				<div id="square-cubic-chart" class="chart"></div>
+				<script>
+					var options = {
+						chart: {
+							type: 'line'
+						},
+						series: [{
+							name: 'x^2',
+							data: Array.from({ length: 11 }, (v, k) => (k - 5) ** 2)
+						}, {
+							name: 'x^3',
+							data: Array.from({ length: 11 }, (v, k) => (k - 5) ** 3)
+						}],
+						xaxis: {
+							categories: Array.from({ length: 11 }, (v, k) => k - 5)
+						}
+					}
+					var chart = new ApexCharts(document.querySelector("#square-cubic-chart"), options);
+					chart.render();
+				</script>
 
-            var chart = new ApexCharts(document.querySelector("#trig-chart"), options);
-            chart.render();
-        </script>
+				<h3>Fonction exponentielle</h3>
+				<p>La fonction exponentielle est définie par \( f(x) = e^x \). Voici quelques exemples :</p>
+				<ul>
+					<li>\( f(1) = e^1 = e \)</li>
+					<li>\( f(-1) = e^{-1} = \frac{1}{e} \)</li>
+				</ul>
+				<div id="exp-chart" class="chart"></div>
+				<script>
+					var options = {
+						chart: {
+							type: 'line'
+						},
+						series: [{
+							name: 'e^x',
+							data: Array.from({ length: 11 }, (v, k) => Math.exp(k - 5))
+						}],
+						xaxis: {
+							categories: Array.from({ length: 11 }, (v, k) => k - 5)
+						}
+					}
+					var chart = new ApexCharts(document.querySelector("#exp-chart"), options);
+					chart.render();
+				</script>
 
-        <h2 id="sorting-numbers">Trier des nombres</h2>
-        <p>Trier des nombres peut devenir plus complexe lorsque nous traitons des racines, des puissances, ou des images de fonctions. Par exemple, trions les éléments suivants :</p>
-        <p>\(\sqrt{16}, \sqrt[3]{27}, 5^2, \log(100)\)</p>
-        <p>Calculons les valeurs :</p>
-        <p>\(\sqrt{16} = 4\)</p>
-        <p>\(\sqrt[3]{27} = 3\)</p>
-        <p>\(5^2 = 25\)</p>
-        <p>\(\log(100) = 2\)</p>
-        <p>Ordre croissant : \( \sqrt[3]{27}, \log(100), \sqrt{16}, 5^2 \)</p>
+				<h3>Fonction logarithmique</h3>
+				<p>La fonction logarithmique est définie par \( f(x) = \log(x) \). Voici quelques exemples :</p>
+				<ul>
+					<li>\( f(1) = \log(1) = 0 \)</li>
+					<li>\( f(10) = \log(10) = 1 \)</li>
+				</ul>
+				<div id="log-chart" class="chart"></div>
+				<script>
+					var options = {
+						chart: {
+							type: 'line'
+						},
+						series: [{
+							name: 'log(x)',
+							data: Array.from({ length: 20 }, (v, k) => Math.log(k + 0.00001))
+						}],
+						xaxis: {
+							categories: Array.from({ length: 20 }, (v, k) => k + 0.00001)
+						}
+					}
+					var chart = new ApexCharts(document.querySelector("#log-chart"), options);
+					chart.render();
+				</script>
+			</div>
 
-        <h2 id="nth-root">Racine n-ième</h2>
-        <p>La racine n-ième d'un nombre \(a\) est un nombre \(x\) tel que \(x^n = a\). Elle est notée \(\sqrt[n]{a}\). Par exemple, la racine cubique (n = 3) de 27 est :</p>
-        <p>\[ \sqrt[3]{27} = 3 \]</p>
-        <p>Plus complexe : la racine quatrième de 81 :</p>
-        <p>\[ \sqrt[4]{81} = 3 \]</p>
+			<div class="section" id="trigonometry">
+				<h2>Trigonométrie</h2>
+				<p>La trigonométrie est l'étude des relations entre les angles et les côtés des triangles. Les principales fonctions trigonométriques sont le sinus, le cosinus et la tangente. Pour un triangle rectangle :</p>
+				<ul>
+					<li>\(\sin(\theta) = \frac{opposé}{hypoténuse}\)</li>
+					<li>\(\cos(\theta) = \frac{adjacent}{hypoténuse}\)</li>
+					<li>\(\tan(\theta) = \frac{opposé}{adjacent}\)</li>
+				</ul>
+				<div id="trig-chart" class="chart"></div>
+				<script>
+					var labels = [];
+					for (var i = 0; i <= 360; i++) {
+                        if (i%10 === 0) {
+							labels.push(i);
+						} else {
+							labels.push('');
+						}
+                    }
 
-        <h2 id="equations">Résolution d'équations</h2>
-        <h3>Équations du second degré</h3>
-        <p>Une équation du second degré est de la forme :</p>
-        <p>\[ ax^2 + bx + c = 0 \]</p>
-        <p>La solution est donnée par la formule quadratique :</p>
-        <p>\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]</p>
-        <p>Simple : \( x^2 - 3x + 2 = 0 \)</p>
-        <p>Solution : \( x = 1 \) et \( x = 2 \)</p>
-        <p>Complexe : \( 2x^2 - 4x + 1 = 0 \)</p>
-        <p>Solution : \( x = \frac{4 \pm \sqrt{16 - 8}}{4} = 1 \pm \frac{\sqrt{2}}{2} \)</p>
+					var options = {
+						chart: {
+							type: 'line'
+						},
+						series: [{
+							name: 'Sinus',
+							data: Array.from({ length: 361 }, (v, k) => Math.sin(k * Math.PI / 180))
+						}, {
+							name: 'Cosinus',
+							data: Array.from({ length: 361 }, (v, k) => Math.cos(k * Math.PI / 180))
+						}],
+						xaxis: {
+							categories: labels
+						}
+					}
 
-        <h3>Système d'équations</h3>
-        <p>Un système d'équations est un ensemble de deux ou plusieurs équations avec les mêmes variables. Par exemple :</p>
-        <p>\[ \begin{cases} 
-        2x + 3y = 6 \\
-        x - y = 2 
-        \end{cases} \]</p>
-        <p>Pour résoudre ce système, nous pouvons utiliser la méthode de substitution ou d'élimination.</p>
+					var chart = new ApexCharts(document.querySelector("#trig-chart"), options);
+					chart.render();
+				</script>
+			</div>
 
-        <h3>Équation logarithmique</h3>
-        <p>Une équation logarithmique contient des logarithmes avec des variables. Par exemple :</p>
-        <p>\[ \log_2(x) = 3 \]</p>
-        <p>Pour résoudre, nous réécrivons l'équation en forme exponentielle :</p>
-        <p>\[ x = 2^3 = 8 \]</p>
+			<div class="section" id="sorting-numbers">
+				<h2>Trier des nombres</h2>
+				<p>Trier des nombres peut devenir plus complexe lorsque nous traitons des racines, des puissances ou des images de fonctions. Par exemple, trions les éléments suivants :</p>
+				<ul>
+					<li>\(\sqrt{16}\)</li>
+					<li>\(\sqrt[3]{27}\)</li>
+					<li>\(5^2\)</li>
+					<li>\(\log(100)\)</li>
+				</ul>
+				<p>Calculons les valeurs :</p>
+				<ul>
+					<li>\(\sqrt{16} = 4\)</li>
+					<li>\(\sqrt[3]{27} = 3\)</li>
+					<li>\(5^2 = 25\)</li>
+					<li>\(\log(100) = 2\)</li>
+				</ul>
+				<p>Ordre croissant : \( \sqrt[3]{27}, \log(100), \sqrt{16}, 5^2 \)</p>
+			</div>
 
-        <h3>Mettre en équation un problème</h3>
-        <p>Pour résoudre un problème en mathématiques, il est souvent utile de traduire le problème en une ou plusieurs équations. Par exemple, si un problème indique que la somme de deux nombres est 10 et que l'un des nombres est deux fois l'autre, nous pouvons écrire :</p>
-        <p>\[ x + 2x = 10 \]</p>
-        <p>Ce qui se résout en :</p>
-        <p>\[ 3x = 10 \implies x = \frac{10}{3} \]</p>
+			<div class="section" id="roots">
+				<h2>Racines n-ièmes</h2>
+				<p>La racine n-ième d'un nombre est une valeur qui, élevée à la puissance n, donne le nombre initial. Par exemple :</p>
+				<p>Simple : la racine carrée de 16 :</p>
+				<p>\[ \sqrt{16} = 4 \]</p>
+				<p>Complexe : la racine cubique de 27 :</p>
+				<p>\[ \sqrt[3]{27} = 3 \]</p>
+				<p>Très complexe : la racine quatrième de 81 :</p>
+				<p>\[ \sqrt[4]{81} = 3 \]</p>
+			</div>
 
-        <h3>Résoudre une équation complexe</h3>
-        <p>Les équations complexes peuvent impliquer plusieurs variables et paramètres. Par exemple :</p>
-        <p>\[ ax + by = c \]</p>
-        <p>Nous résolvons pour une des variables en fonction des autres :</p>
-        <p>\[ x = \frac{c - by}{a} \]</p>
-    </div>
-</body>
+			<div class="section" id="equations">
+				<h2>Résolution d'équations</h2>
+				<h3>Équations du second degré</h3>
+				<p>Une équation du second degré est de la forme :</p>
+				<p>\[ ax^2 + bx + c = 0 \]</p>
+				<p>La solution est donnée par la formule quadratique :</p>
+				<p>\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]</p>
+				<p>Simple : \( x^2 - 3x + 2 = 0 \)</p>
+				<p>Solution : \( x = 1 \) et \( x = 2 \)</p>
+				<p>Complexe : \( 2x^2 - 4x + 1 = 0 \)</p>
+				<p>Solution : \( x = 1 \pm \frac{\sqrt{2}}{2} \)</p>
+
+				<h3>Système d'équations</h3>
+				<p>Un système d'équations est un ensemble de deux ou plusieurs équations avec les mêmes variables. Par exemple :</p>
+				<p>\[ \begin{cases} 
+				2x + 3y = 6 \\
+				x - y = 2 
+				\end{cases} \]</p>
+				<p>Pour résoudre ce système, nous pouvons utiliser la méthode de substitution ou d'élimination.</p>
+
+				<h3>Équation logarithmique</h3>
+				<p>Une équation logarithmique contient des logarithmes avec des variables. Par exemple :</p>
+				<p>\[ \log_2(x) = 3 \]</p>
+				<p>Pour résoudre, nous réécrivons l'équation en forme exponentielle :</p>
+				<p>\[ x = 2^3 = 8 \]</p>
+
+				<h3>Mettre en équation un problème</h3>
+				<p>Pour résoudre un problème en mathématiques, il est souvent utile de traduire le problème en une ou plusieurs équations. Par exemple, si un problème indique que la somme de deux nombres est 10 et que l'un des nombres est deux fois l'autre, nous pouvons écrire :</p>
+				<p>\[ x + 2x = 10 \]</p>
+				<p>Ce qui se résout en :</p>
+				<p>\[ 3x = 10 \implies x = \frac{10}{3} \]</p>
+
+				<h3>Résoudre une équation complexe</h3>
+				<p>Les équations complexes peuvent impliquer plusieurs variables et paramètres. Par exemple :</p>
+				<p>\[ ax + by = c \]</p>
+				<p>Nous résolvons pour une des variables en fonction des autres :</p>
+				<p>\[ x = \frac{c - by}{a} \]</p>
+			</div>
+		</div>
+	</body>
 </html>
