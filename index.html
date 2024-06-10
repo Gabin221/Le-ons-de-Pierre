@@ -4,21 +4,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Maths Learner</title>
 		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.css" integrity="sha384-K1E1xaIzoWihlXfiT5fcmLNabsnrl+dqc0errnRwtMX14tKRA9cCYNDGnXiHEZMs" crossorigin="anonymous">
-		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.js" integrity="sha384-IolEJdmwZJpJkyCvXBnmGt8wXcP3nvRjxBjPv7/PWW7oODJhZ+qiY1sDpwgjcKLT" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+			onload="renderMathInElement(document.body);"></script>
 		<style>
 			body {
 				font-family: Arial, sans-serif;
 				line-height: 1.6;
 				margin: 20px;
-				background-color: #f4f4f4;
+				background-color: #333;
 				color: #333;
 			}
 			.container {
 				max-width: 800px;
 				margin: 0 auto;
 				padding: 20px;
-				background-color: #fff;
+				background-color: #f4f4f4;
 				border-radius: 8px;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 			}
@@ -46,7 +48,7 @@
 				margin-bottom: 40px;
 			}
 			#toc {
-				margin-bottom: 40px;
+				margin-bottom: 60px;
 			}
 			#toc ul {
 				list-style-type: none;
@@ -182,30 +184,57 @@
 				<div id="trig-chart" class="chart"></div>
 				<script>
 					var labels = [];
-					for (var i = 0; i <= 360; i++) {
-                        if (i%10 === 0) {
-							labels.push(i);
+					for (var i = -360; i <= 360; i++) {
+						if (i === 0 || i === 45 || i === 90 || i === 135 || i === 180 || i === 225 || i === 270 || i === 315 || i === 360 || i === -45 || i === -90 || i === -135 || i === -180 || i === -225 || i === -270 || i === -315 || i === -360) {
+							labels.push(i/180 + "π");
 						} else {
 							labels.push('');
 						}
-                    }
-
+					}
+				
+					var tanData = Array.from({ length: 721 }, (v, k) => {
+						if (k % 90 === 0 && (k / 90) % 2 === 1) {
+							// Si k est un multiple impair de 90, la tangente est indéfinie
+							return null;
+						}
+						return Math.tan(k * Math.PI / 180);
+					});
+				
 					var options = {
 						chart: {
 							type: 'line'
 						},
 						series: [{
 							name: 'Sinus',
-							data: Array.from({ length: 361 }, (v, k) => Math.sin(k * Math.PI / 180))
+							data: Array.from({ length: 721 }, (v, k) => Math.sin(k * Math.PI / 180))
 						}, {
 							name: 'Cosinus',
-							data: Array.from({ length: 361 }, (v, k) => Math.cos(k * Math.PI / 180))
+							data: Array.from({ length: 721 }, (v, k) => Math.cos(k * Math.PI / 180))
+						}, {
+							name: 'Tangente',
+							data: tanData
 						}],
 						xaxis: {
 							categories: labels
+						},
+						yaxis: {
+							min: -10,
+							max: 10
+						},
+						grid: {
+							xaxis: {
+								lines: {
+									show: false
+								}
+							},   
+							yaxis: {
+								lines: {
+									show: false
+								}
+							}, 
 						}
 					}
-
+				
 					var chart = new ApexCharts(document.querySelector("#trig-chart"), options);
 					chart.render();
 				</script>
