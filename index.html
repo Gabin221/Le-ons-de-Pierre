@@ -1,415 +1,569 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics Learner</title>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            background-color: #333;
-            color: #333;
-        }
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Mathematics Learner</title>
+		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				line-height: 1.6;
+				margin: 20px;
+				background-color: #333;
+				color: #333;
+			}
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f4f4;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 20px;
+				background-color: #f4f4f4;
+				border-radius: 8px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
 
-        h1,
-        h2 {
-            text-align: center;
-            color: #444;
-        }
+			h1,
+			h3 {
+				text-align: center;
+				color: #444;
+			}
 
-        h3 {
-            color: #444;
-            font-size: 24px;
-            margin: 30px 0 10px;
-            text-align: center;
-            border-bottom: 1px solid #444;
-            padding-bottom: 5px;
-            width: 100%;
-        }
+			h2 {
+				color: #444;
+				font-size: 24px;
+				margin: 30px 0 10px;
+				text-align: center;
+				border-bottom: 1px solid #444;
+				padding-bottom: 5px;
+				width: 100%;
+			}
 
-        p {
-            text-align: justify;
-        }
+			p {
+				text-align: justify;
+			}
 
-        .chart {
-            margin: 20px 0;
-        }
+			.chart {
+				margin: 20px 0;
+			}
 
-        .section {
-            margin-bottom: 40px;
-        }
+			.section {
+				margin-bottom: 40px;
+			}
 
-        #toc {
-            margin-bottom: 60px;
-        }
+			#toc {
+				margin-bottom: 60px;
+			}
 
-        #toc ul {
-            list-style-type: none;
-            padding: 0;
-        }
+			#toc ul {
+				list-style-type: none;
+				padding: 0;
+			}
 
-        #toc li {
-            margin: 5px 0;
-        }
+			#toc li {
+				margin: 5px 0;
+			}
 
-        #toc a {
-            text-decoration: none;
-            color: #007BFF;
-        }
+			#toc a {
+				text-decoration: none;
+				color: #007BFF;
+			}
 
-        #toc a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
+			#toc a:hover {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Mathematics Learner</h1>
 
-<body>
-    <div class="container">
-        <h1>Mathematics Learner</h1>
+			<div id="toc">
+				<h2>Sommaire</h2>
+				<ul>
+					<li><a href="#introduction">Introduction</a></li>
+					<li><a href="#functions">Fonctions</a></li>
+					<li><a href="#equations">Résolutions d'équations</a></li>
+					<li><a href="#trigonometry">Trigonométrie</a></li>
+					<li><a href="#derivatives-integrals">Dérivées et Intégrales</a></li>
+					<li><a href="#min-max-functions">Minimum et Maximum de Fonctions</a></li>
+					<li><a href="#factorization-development">Factorisation et Développement</a></li>
+					<li><a href="#scientific-notation">Écriture Scientifique</a></li>
+					<li><a href="#vector-calculus">Calcul Vectoriel</a></li>
+					<li><a href="#matrix-calculus">Calcul Matriciel</a></li>
+					<li><a href="#euclidean-geometry">Géométrie Euclidienne</a></li>
+				</ul>
+			</div>
 
-        <div id="toc">
-            <h2>Sommaire</h2>
-            <ul>
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#functions">Fonctions</a></li>
-                <li><a href="#equations">Résolutions d'équations</a></li>
-                <li><a href="#trigonometry">Trigonométrie</a></li>
-                <li><a href="#derivatives-integrals">Dérivées et Intégrales</a></li>
-                <li><a href="#min-max-functions">Minimum et Maximum de Fonctions</a></li>
-                <li><a href="#factorization-development">Factorisation et Développement</a></li>
-                <li><a href="#scientific-notation">Écriture Scientifique</a></li>
-                <li><a href="#vector-calculus">Calcul Vectoriel</a></li>
-                <li><a href="#matrix-calculus">Calcul Matriciel</a></li>
-                <li><a href="#euclidean-geometry">Géométrie Euclidienne</a></li>
-            </ul>
-        </div>
+			<div class="section" id="introduction">
+				<h2>Introduction</h2>
+				<p>Bienvenue sur Maths Learner, une page dédiée à la révision des concepts mathématiques fondamentaux. Cette page couvre plusieurs sujets, y compris les fonctions, la trigonométrie, le tri des nombres, les racines n-ièmes, et la résolution d'équations. Chaque section fournit des explications claires et des exemples variés pour vous aider à mieux comprendre et maîtriser ces concepts.</p>
+			</div>
 
-        <div class="section" id="introduction">
-            <!-- Garder l'introduction inchangée -->
-        </div>
-
-        <div class="section" id="functions">
-			<h2>Fonctions</h2>
-			<p>Les fonctions sont des relations mathématiques qui associent chaque élément d'un ensemble de départ à exactement un élément d'un ensemble d'arrivée. Elles sont omniprésentes en mathématiques et en sciences, et sont utilisées pour modéliser divers phénomènes.</p>
-			
-			<h3>Fonction linéaire</h3>
-			<p>Une fonction linéaire est de la forme \( f(x) = mx + b \), où \( m \) est la pente de la droite et \( b \) est l'ordonnée à l'origine.</p>
-			<div class="chart" id="linear-function-chart"></div>
-			<script>
-				var options = {
-					chart: {
-						type: 'line'
-					},
-					series: [{
-						name: 'Fonction linéaire',
-						data: [[-5, -2], [5, 3]] // Points pour tracer la fonction
-					}],
-					xaxis: {
-						title: {
-							text: 'x'
+			<div class="section" id="functions">
+				<h2>Fonctions</h2>
+				<p>Les fonctions sont des relations mathématiques qui associent chaque élément d'un ensemble de départ à exactement un élément d'un ensemble d'arrivée. Elles sont omniprésentes en mathématiques et en sciences, et sont utilisées pour modéliser divers phénomènes.</p>
+				
+				<h3>Fonction linéaire</h3>
+				<p>Une fonction linéaire est de la forme \( f(x) = mx + b \), où \( m \) est la pente de la droite et \( b \) est l'ordonnée à l'origine.</p>
+				<div class="chart" id="linear-function-chart"></div>
+				<script>
+					var options = {
+						chart: {
+							type: 'line',
+							height: '400px'
+						},
+						series: [{
+							name: 'Fonction linéaire',
+							data: [[-5, -2], [5, 3]] // Points pour tracer la fonction
+						}],
+						xaxis: {
+							title: {
+								text: 'x'
+							}
+						},
+						yaxis: {
+							title: {
+								text: 'f(x)'
+							}
 						}
-					},
-					yaxis: {
-						title: {
-							text: 'f(x)'
+					};
+					var chart = new ApexCharts(document.querySelector("#linear-function-chart"), options);
+					chart.render();
+				</script>
+			
+				<h3>Fonctions carrée et cubique</h3>
+				<p>La fonction carrée est définie par \( f(x) = x^2 \) et la fonction cubique par \( f(x) = x^3 \). Voici quelques exemples :</p>
+				<p>Fonction carrée :</p>
+				<ul>
+					<li>\( f(2) = 2^2 = 4 \)</li>
+					<li>\( f(-3) = (-3)^2 = 9 \)</li>
+				</ul>
+				<p>Fonction cubique :</p>
+				<ul>
+					<li>\( f(2) = 2^3 = 8 \)</li>
+					<li>\( f(-3) = (-3)^3 = -27 \)</li>
+				</ul>
+				<div id="square-cubic-chart" class="chart"></div>
+				<script>
+					var options = {
+						chart: {
+							type: 'line',
+							height: '400px'
+						},
+						series: [{
+							name: 'x^2',
+							data: Array.from({ length: 7 }, (v, k) => (k - 3) ** 2)
+						}, {
+							name: 'x^3',
+							data: Array.from({ length: 7 }, (v, k) => (k - 3) ** 3)
+						}],
+						xaxis: {
+							categories: Array.from({ length: 7 }, (v, k) => k - 3),
+							title: {
+								text: 'x'
+							}
+						},
+						yaxis: {
+							title: {
+								text: 'f(x)'
+							}
 						}
 					}
-				};
-				var chart = new ApexCharts(document.querySelector("#linear-function-chart"), options);
-				chart.render();
-			</script>
-		
-			<h3>Fonction quadratique</h3>
-			<p>Une fonction quadratique est de la forme \( f(x) = ax^2 + bx + c \), où \( a \), \( b \), et \( c \) sont des constantes.</p>
-			<div class="chart" id="quadratic-function-chart"></div>
-			<script>
-				var options = {
-					chart: {
-						type: 'line'
-					},
-					series: [{
-						name: 'Fonction quadratique',
-						data: [[-5, 4], [0, 1], [5, 4]] // Points pour tracer la fonction
-					}],
-					xaxis: {
-						title: {
-							text: 'x'
-						}
-					},
-					yaxis: {
-						title: {
-							text: 'f(x)'
-						}
-					}
-				};
-				var chart = new ApexCharts(document.querySelector("#quadratic-function-chart"), options);
-				chart.render();
-			</script>
-		
-			<!-- Ajouter d'autres types de fonctions ici, par exemple des fonctions exponentielles, logarithmiques, etc. -->
-		</div>
-		
+					var chart = new ApexCharts(document.querySelector("#square-cubic-chart"), options);
+					chart.render();
+				</script>
 
-        <div class="section" id="equations">
-			<h2>Résolutions d'équations</h2>
-			<h3>Équations du second degré</h3>
-			<p>Une équation du second degré est de la forme \( ax^2 + bx + c = 0 \), où \( a \), \( b \), et \( c \) sont des constantes.</p>
-			<p>La solution est donnée par la formule quadratique :</p>
-			<p>\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]</p>
-			<div class="chart" id="quadratic-equation-chart"></div>
-			<script>
-				var options = {
-					chart: {
-						type: 'line'
-					},
-					series: [{
-						name: 'Équation du second degré',
-						data: [[-5, -5], [5, 5]] // Points pour tracer la solution
-					}],
-					xaxis: {
-						title: {
-							text: 'x'
-						}
-					},
-					yaxis: {
-						title: {
-							text: 'f(x)'
+				<h3>Fonction exponentielle</h3>
+				<p>La fonction exponentielle est définie par \( f(x) = e^x \). Voici quelques exemples :</p>
+				<ul>
+					<li>\( f(1) = e^1 = e \)</li>
+					<li>\( f(-1) = e^{-1} = \frac{1}{e} \)</li>
+				</ul>
+				<div id="exp-chart" class="chart"></div>
+				<script>
+					var options = {
+						chart: {
+							type: 'line',
+							height: '400px'
+						},
+						series: [{
+							name: 'e^x',
+							data: Array.from({ length: 11 }, (v, k) => Math.exp(k - 5))
+						}],
+						xaxis: {
+							categories: Array.from({ length: 11 }, (v, k) => k - 5),
+							title: {
+								text: 'x'
+							}
+						},
+						yaxis: {
+							title: {
+								text: 'f(x)'
+							},
+							labels: {
+								formatter: function(value) {
+									return value.toFixed(3);
+								}
+							}
 						}
 					}
-				};
-				var chart = new ApexCharts(document.querySelector("#quadratic-equation-chart"), options);
-				chart.render();
-			</script>
-		
-			<!-- Ajouter d'autres types d'équations ici, comme les équations exponentielles, logarithmiques, etc. -->
-		</div>
-		
+					var chart = new ApexCharts(document.querySelector("#exp-chart"), options);
+					chart.render();
+				</script>
 
-        <div class="section" id="trigonometry">
-			<h2>Trigonométrie</h2>
-			<p>La trigonométrie est la branche des mathématiques qui étudie les relations entre les angles et les longueurs des côtés des triangles. Les fonctions trigonométriques telles que le sinus, le cosinus et la tangente sont essentielles pour résoudre de nombreux problèmes en mathématiques et en sciences.</p>
-		
-			<h3>Tableau des valeurs remarquables</h3>
-			<p>Voici un tableau des valeurs remarquables des fonctions trigonométriques :</p>
-			<table>
-				<tr>
-					<th>Angle (degrés)</th>
-					<th>Sinus</th>
-					<th>Cosinus</th>
-					<th>Tangente</th>
-				</tr>
-				<tr>
-					<td>0°</td>
-					<td>0</td>
-					<td>1</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td>30°</td>
-					<td>\( \frac{1}{2} \)</td>
-					<td>\( \frac{\sqrt{3}}{2} \)</td>
-					<td>\( \frac{\sqrt{3}}{3} \)</td>
-				</tr>
-				<tr>
-					<td>45°</td>
-					<td>\( \frac{\sqrt{2}}{2} \)</td>
-					<td>\( \frac{\sqrt{2}}{2} \)</td>
-					<td>1</td>
-				</tr>
-				<tr>
-					<td>60°</td>
-					<td>\( \frac{\sqrt{3}}{2} \)</td>
-					<td>\( \frac{1}{2} \)</td>
-					<td>\( \sqrt{3} \)</td>
-				</tr>
-				<tr>
-					<td>90°</td>
-					<td>1</td>
-					<td>0</td>
-					<td>Indéfini</td>
-				</tr>
-			</table>
-		
-			<h3>Cercle trigonométrique</h3>
-			<p>Le cercle trigonométrique est un outil visuel utile pour comprendre les relations trigonométriques. Il représente un cercle unité avec un rayon de 1.</p>
-			<div class="chart" id="trigonometric-circle-chart"></div>
-			<script>
-				var options = {
-					chart: {
-						type: 'circle'
-					},
-					series: [{
-						name: 'Cercle trigonométrique',
-						data: [0, 30, 45, 60, 90], // Angles à afficher sur le cercle
-						labels: ['0°', '30°', '45°', '60°', '90°'] // Labels pour les angles
-					}]
-				};
-				var chart = new ApexCharts(document.querySelector("#trigonometric-circle-chart"), options);
-				chart.render();
-			</script>
-		</div>
-		
-
-        <div class="section" id="derivatives-integrals">
-			<h2>Dérivées et Intégrales</h2>
-			<p>Les dérivées et les intégrales sont des concepts fondamentaux en calcul différentiel et intégral. Elles permettent de calculer respectivement les taux de variation instantanés et les aires sous des courbes, et sont largement utilisées en physique, en ingénierie et dans d'autres domaines des sciences appliquées.</p>
-		
-			<h3>Tableau des dérivées et des intégrales</h3>
-			<p>Voici un tableau des dérivées et des intégrales des fonctions courantes :</p>
-			<table>
-				<tr>
-					<th>Fonction</th>
-					<th>Dérivée</th>
-					<th>Intégrale</th>
-				</tr>
-				<tr>
-					<td>\( f(x) = c \)</td>
-					<td>0</td>
-					<td>\( cx + C \)</td>
-				</tr>
-				<tr>
-					<td>\( f(x) = x^n \)</td>
-					<td>\( nx^{n-1} \)</td>
-					<td>\( \frac{1}{n+1}x^{n+1} + C \)</td>
-				</tr>
-				<tr>
-					<td>\( f(x) = e^x \)</td>
-					<td>\( e^x \)</td>
-					<td>\( e^x + C \)</td>
-				</tr>
-				<tr>
-					<td>\( f(x) = \ln(x) \)</td>
-					<td>\( \frac{1}{x} \)</td>
-					<td>\( x\ln(x) - x + C \)</td>
-				</tr>
-				<tr>
-					<td>\( f(x) = \sin(x) \)</td>
-					<td>\( \cos(x) \)</td>
-					<td>\( -\cos(x) + C \)</td>
-				</tr>
-				<tr>
-					<td>\( f(x) = \cos(x) \)</td>
-					<td>\( -\sin(x) \)</td>
-					<td>\( \sin(x) + C \)</td>
-				</tr>
-			</table>
-		</div>
-		
-
-        <div class="section" id="min-max">
-			<h2>Recherche des minimums et des maximums d'une fonction</h2>
-			<p>Dans l'analyse mathématique, trouver les minimums et les maximums d'une fonction est essentiel pour comprendre le comportement de cette fonction. Ces points critiques peuvent être utilisés pour résoudre des problèmes d'optimisation dans divers domaines.</p>
-			
-			<h3>Exemple de recherche de minimum et maximum</h3>
-			<p>Considérons la fonction \( f(x) = x^2 - 4x + 3 \).</p>
-			<div class="chart" id="min-max-function-chart"></div>
-			<script>
-				var options = {
-					chart: {
-						type: 'line'
-					},
-					series: [{
-						name: 'f(x)',
-						data: [[-1, 8], [2, -1]] // Points pour tracer la fonction
-					}],
-					xaxis: {
-						title: {
-							text: 'x'
-						}
-					},
-					yaxis: {
-						title: {
-							text: 'f(x)'
+				<h3>Fonction logarithmique</h3>
+				<p>La fonction logarithmique est définie par \( f(x) = \log(x) \). Voici quelques exemples :</p>
+				<ul>
+					<li>\( f(1) = \log(1) = 0 \)</li>
+					<li>\( f(10) = \log(10) = 1 \)</li>
+				</ul>
+				<div id="log-chart" class="chart"></div>
+				<script>
+					var options = {
+						chart: {
+							type: 'line',
+							height: '400px'
+						},
+						series: [{
+							name: 'log(x)',
+							data: Array.from({ length: 20 }, (v, k) => Math.log(k + 0.00001))
+						}],
+						xaxis: {
+							categories: Array.from({ length: 20 }, (v, k) => k + 0.00001),
+							title: {
+								text: 'x'
+							}
+						},
+						yaxis: {
+							title: {
+								text: 'f(x)'
+							},
+							labels: {
+								formatter: function(value) {
+									return value.toFixed(3);
+								}
+							}
 						}
 					}
-				};
-				var chart = new ApexCharts(document.querySelector("#min-max-function-chart"), options);
-				chart.render();
-			</script>
-			<p>Pour trouver les minimums et maximums, nous devons d'abord calculer les dérivées de la fonction et trouver ses points critiques. Ensuite, nous examinons la concavité de la fonction pour déterminer si ces points sont des minimums ou des maximums.</p>
-		</div>
-		
+					var chart = new ApexCharts(document.querySelector("#log-chart"), options);
+					chart.render();
+				</script>
+			</div>
 
-        <div class="section" id="factorisation-development">
-			<h2>Factorisation et Développement</h2>
-			<p>La factorisation et le développement sont des techniques importantes en algèbre pour simplifier les expressions mathématiques. Ils sont souvent utilisés pour résoudre des équations, simplifier des fractions rationnelles, ou factoriser des polynômes.</p>
-			
-			<h3>Exemple de factorisation et développement</h3>
-			<p>Considérons l'expression \( (x + 2)(x - 3) \).</p>
-			<p>Pour factoriser cette expression, nous utilisons la formule \( (a - b)(a + b) = a^2 - b^2 \).</p>
-			<p>En utilisant cette formule, nous obtenons \( x^2 - 3x + 2x - 6 \).</p>
-			<p>En regroupant les termes similaires, nous obtenons \( x^2 - x - 6 \).</p>
-			<p>Donc, l'expression \( (x + 2)(x - 3) \) est égale à \( x^2 - x - 6 \).</p>
-		</div>
-		
+			<div class="section" id="trigonometry">
+				<h3>Les fonctions trigonométriques</h3>
+				<p>Les principales fonctions trigonométriques sont le sinus définie par \( f(x) = \sin(x) \), le cosinus définie par \( f(x) = \cos(x) \) et la tangente définie par \( f(x) = \tan(x) \).</p>
+				<div id="trig-chart" class="chart"></div>
+				<script>
+					var labels = [];
+					for (var i = -360; i <= 360; i++) {
+						if (i === 0 || i === 45 || i === 90 || i === 135 || i === 180 || i === 225 || i === 270 || i === 315 || i === 360 || i === -45 || i === -90 || i === -135 || i === -180 || i === -225 || i === -270 || i === -315 || i === -360) {
+							labels.push(i / 180 + "π");
+						} else {
+							labels.push('');
+						}
+					}
+				
+					var tanData = Array.from({ length: 721 }, (v, k) => {
+						if (k % 90 === 0 && (k / 90) % 2 === 1) {
+							return null;
+						}
+						return Math.tan(k * Math.PI / 180);
+					});
+				
+					var options = {
+						chart: {
+							type: 'line',
+							height: '400px'
+						},
+						series: [{
+							name: 'Sinus',
+							data: Array.from({ length: 721 }, (v, k) => Math.sin(k * Math.PI / 180))
+						}, {
+							name: 'Cosinus',
+							data: Array.from({ length: 721 }, (v, k) => Math.cos(k * Math.PI / 180))
+						}, {
+							name: 'Tangente',
+							data: tanData
+						}],
+						xaxis: {
+							categories: labels,
+							tickAmount: labels.length,
+							tickPlacement: 'on',
+							title: {
+								text: 'x'
+							}
+						},
+						yaxis: {
+							min: -5,
+							max: 5,
+							labels: {
+								formatter: function(value) {
+									return value.toFixed(3);
+								}
+							},
+							title: {
+								text: 'f(x)'
+							}
+						}
+					}
+				
+					var chart = new ApexCharts(document.querySelector("#trig-chart"), options);
+					chart.render();
+				</script>
+			</div>
 
-        <div class="section" id="scientific-notation">
-			<h2>Écriture Scientifique</h2>
-			<p>L'écriture scientifique est une notation utilisée pour représenter des nombres très grands ou très petits de manière concise. Elle est couramment utilisée en sciences et en ingénierie pour faciliter les calculs et la communication de valeurs numériques.</p>
+			<div class="section" id="equations">
+				<h2>Résolutions d'équations</h2>
+				<h3>Équations du second degré</h3>
+				<p>Une équation du second degré est de la forme \( ax^2 + bx + c = 0 \), où \( a \), \( b \), et \( c \) sont des constantes.</p>
+				<p>La solution est donnée par la formule quadratique :</p>
+				<p>\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]</p>
+				<div class="chart" id="quadratic-equation-chart"></div>
+				<script>
+					var options = {
+						chart: {
+							type: 'line',
+							height: '400px'
+						},
+						series: [{
+							name: 'Équation du second degré',
+							data: [[-5, -5], [5, 5]] // Points pour tracer la solution
+						}],
+						xaxis: {
+							title: {
+								text: 'x'
+							}
+						},
+						yaxis: {
+							title: {
+								text: 'f(x)'
+							}
+						}
+					};
+					var chart = new ApexCharts(document.querySelector("#quadratic-equation-chart"), options);
+					chart.render();
+				</script>
 			
-			<h3>Exemple d'écriture scientifique</h3>
-			<p>Le nombre \( 300,000,000 \) peut être écrit en notation scientifique comme \( 3 \times 10^8 \).</p>
-			<p>De même, le nombre \( 0.0000000023 \) peut être écrit comme \( 2.3 \times 10^{-9} \).</p>
-			<p>En notation scientifique, un nombre est écrit sous la forme \( a \times 10^n \), où \( a \) est un nombre décimal avec un seul chiffre non nul avant la virgule, et \( n \) est un entier.</p>
-		</div>
-		
+				<!-- Ajouter d'autres types d'équations ici, comme les équations exponentielles, logarithmiques, etc. -->
+			</div>
+			
 
-        <div class="section" id="vector-calculus">
-			<h2>Calcul Vectoriel</h2>
-			<p>Le calcul vectoriel est une branche des mathématiques qui traite des vecteurs, qui sont des quantités ayant à la fois une magnitude et une direction. Il est largement utilisé en physique, en ingénierie et en informatique pour modéliser et résoudre des problèmes impliquant des grandeurs physiques telles que la vitesse, la force et le champ électrique.</p>
+			<div class="section" id="trigonometry">
+				<h2>Trigonométrie</h2>
+				<p>La trigonométrie est la branche des mathématiques qui étudie les relations entre les angles et les longueurs des côtés des triangles. Les fonctions trigonométriques telles que le sinus, le cosinus et la tangente sont essentielles pour résoudre de nombreux problèmes en mathématiques et en sciences.</p>
 			
-			<h3>Opérations de base sur les vecteurs</h3>
-			<ul>
-				<li>Addition de vecteurs</li>
-				<li>Soustraction de vecteurs</li>
-				<li>Produit scalaire</li>
-				<li>Produit vectoriel</li>
-			</ul>
-		</div>
-		
+				<h3>Tableau des valeurs remarquables</h3>
+				<p>Voici un tableau des valeurs remarquables des fonctions trigonométriques :</p>
+				<table>
+					<tr>
+						<th>Angle (degrés)</th>
+						<th>Sinus</th>
+						<th>Cosinus</th>
+						<th>Tangente</th>
+					</tr>
+					<tr>
+						<td>0°</td>
+						<td>0</td>
+						<td>1</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>30°</td>
+						<td>\( \frac{1}{2} \)</td>
+						<td>\( \frac{\sqrt{3}}{2} \)</td>
+						<td>\( \frac{\sqrt{3}}{3} \)</td>
+					</tr>
+					<tr>
+						<td>45°</td>
+						<td>\( \frac{\sqrt{2}}{2} \)</td>
+						<td>\( \frac{\sqrt{2}}{2} \)</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>60°</td>
+						<td>\( \frac{\sqrt{3}}{2} \)</td>
+						<td>\( \frac{1}{2} \)</td>
+						<td>\( \sqrt{3} \)</td>
+					</tr>
+					<tr>
+						<td>90°</td>
+						<td>1</td>
+						<td>0</td>
+						<td>Indéfini</td>
+					</tr>
+				</table>
+			
+				<h3>Cercle trigonométrique</h3>
+				<p>Le cercle trigonométrique est un outil visuel utile pour comprendre les relations trigonométriques. Il représente un cercle unité avec un rayon de 1.</p>
+				<div class="chart" id="trigonometric-circle-chart"></div>
+				<script>
+					var options = {
+						chart: {
+							type: 'circle'
+						},
+						series: [{
+							name: 'Cercle trigonométrique',
+							data: [0, 30, 45, 60, 90], // Angles à afficher sur le cercle
+							labels: ['0°', '30°', '45°', '60°', '90°'] // Labels pour les angles
+						}]
+					};
+					var chart = new ApexCharts(document.querySelector("#trigonometric-circle-chart"), options);
+					chart.render();
+				</script>
+			</div>
+			
 
-        <div class="section" id="matrix-calculus">
-			<h2>Calcul Matriciel</h2>
-			<p>Le calcul matriciel est une branche des mathématiques qui étudie les matrices, qui sont des tableaux rectangulaires de nombres. Il est largement utilisé dans divers domaines tels que l'algèbre linéaire, les statistiques, l'ingénierie et l'informatique pour résoudre des systèmes d'équations linéaires, effectuer des transformations géométriques, et bien plus encore.</p>
+			<div class="section" id="derivatives-integrals">
+				<h2>Dérivées et Intégrales</h2>
+				<p>Les dérivées et les intégrales sont des concepts fondamentaux en calcul différentiel et intégral. Elles permettent de calculer respectivement les taux de variation instantanés et les aires sous des courbes, et sont largement utilisées en physique, en ingénierie et dans d'autres domaines des sciences appliquées.</p>
 			
-			<h3>Opérations de base sur les matrices</h3>
-			<ul>
-				<li>Addition de matrices</li>
-				<li>Soustraction de matrices</li>
-				<li>Multiplication de matrices</li>
-				<li>Inversion de matrices</li>
-			</ul>
-		</div>
-		
+				<h3>Tableau des dérivées et des intégrales</h3>
+				<p>Voici un tableau des dérivées et des intégrales des fonctions courantes :</p>
+				<table>
+					<tr>
+						<th>Fonction</th>
+						<th>Dérivée</th>
+						<th>Intégrale</th>
+					</tr>
+					<tr>
+						<td>\( f(x) = c \)</td>
+						<td>0</td>
+						<td>\( cx + C \)</td>
+					</tr>
+					<tr>
+						<td>\( f(x) = x^n \)</td>
+						<td>\( nx^{n-1} \)</td>
+						<td>\( \frac{1}{n+1}x^{n+1} + C \)</td>
+					</tr>
+					<tr>
+						<td>\( f(x) = e^x \)</td>
+						<td>\( e^x \)</td>
+						<td>\( e^x + C \)</td>
+					</tr>
+					<tr>
+						<td>\( f(x) = \ln(x) \)</td>
+						<td>\( \frac{1}{x} \)</td>
+						<td>\( x\ln(x) - x + C \)</td>
+					</tr>
+					<tr>
+						<td>\( f(x) = \sin(x) \)</td>
+						<td>\( \cos(x) \)</td>
+						<td>\( -\cos(x) + C \)</td>
+					</tr>
+					<tr>
+						<td>\( f(x) = \cos(x) \)</td>
+						<td>\( -\sin(x) \)</td>
+						<td>\( \sin(x) + C \)</td>
+					</tr>
+				</table>
+			</div>
+			
 
-        <div class="section" id="euclidean-geometry">
-			<h2>Géométrie Euclidienne</h2>
-			<p>La géométrie euclidienne est une branche des mathématiques qui étudie les propriétés et les relations des figures géométriques dans un espace à nombre fini de dimensions. Elle est fondée sur les axiomes d'Euclide et est utilisée pour analyser les formes, les grandeurs et les transformations dans l'espace.</p>
+			<div class="section" id="min-max">
+				<h2>Recherche des minimums et des maximums d'une fonction</h2>
+				<p>Dans l'analyse mathématique, trouver les minimums et les maximums d'une fonction est essentiel pour comprendre le comportement de cette fonction. Ces points critiques peuvent être utilisés pour résoudre des problèmes d'optimisation dans divers domaines.</p>
+				
+				<h3>Exemple de recherche de minimum et maximum</h3>
+				<p>Considérons la fonction \( f(x) = x^2 - 4x + 3 \).</p>
+				<div class="chart" id="min-max-function-chart"></div>
+				<script>
+					var options = {
+						chart: {
+							type: 'line',
+							height: '400px'
+						},
+						series: [{
+							name: 'f(x)',
+							data: [[-1, 8], [2, -1]] // Points pour tracer la fonction
+						}],
+						xaxis: {
+							title: {
+								text: 'x'
+							}
+						},
+						yaxis: {
+							title: {
+								text: 'f(x)'
+							}
+						}
+					};
+					var chart = new ApexCharts(document.querySelector("#min-max-function-chart"), options);
+					chart.render();
+				</script>
+				<p>Pour trouver les minimums et maximums, nous devons d'abord calculer les dérivées de la fonction et trouver ses points critiques. Ensuite, nous examinons la concavité de la fonction pour déterminer si ces points sont des minimums ou des maximums.</p>
+			</div>
 			
-			<h3>Principales concepts en géométrie euclidienne</h3>
-			<ul>
-				<li>Points, lignes et plans</li>
-				<li>Angles et triangles</li>
-				<li>Cercles et coniques</li>
-				<li>Transformations géométriques : translation, rotation, homothétie</li>
-				<li>Théorèmes fondamentaux : théorème de Pythagore, théorème de Thalès</li>
-			</ul>
+
+			<div class="section" id="factorisation-development">
+				<h2>Factorisation et Développement</h2>
+				<p>La factorisation et le développement sont des techniques importantes en algèbre pour simplifier les expressions mathématiques. Ils sont souvent utilisés pour résoudre des équations, simplifier des fractions rationnelles, ou factoriser des polynômes.</p>
+				
+				<h3>Exemple de factorisation et développement</h3>
+				<p>Considérons l'expression \( (x + 2)(x - 3) \).</p>
+				<p>Pour factoriser cette expression, nous utilisons la formule \( (a - b)(a + b) = a^2 - b^2 \).</p>
+				<p>En utilisant cette formule, nous obtenons \( x^2 - 3x + 2x - 6 \).</p>
+				<p>En regroupant les termes similaires, nous obtenons \( x^2 - x - 6 \).</p>
+				<p>Donc, l'expression \( (x + 2)(x - 3) \) est égale à \( x^2 - x - 6 \).</p>
+			</div>
+			
+
+			<div class="section" id="scientific-notation">
+				<h2>Écriture Scientifique</h2>
+				<p>L'écriture scientifique est une notation utilisée pour représenter des nombres très grands ou très petits de manière concise. Elle est couramment utilisée en sciences et en ingénierie pour faciliter les calculs et la communication de valeurs numériques.</p>
+				
+				<h3>Exemple d'écriture scientifique</h3>
+				<p>Le nombre \( 300,000,000 \) peut être écrit en notation scientifique comme \( 3 \times 10^8 \).</p>
+				<p>De même, le nombre \( 0.0000000023 \) peut être écrit comme \( 2.3 \times 10^{-9} \).</p>
+				<p>En notation scientifique, un nombre est écrit sous la forme \( a \times 10^n \), où \( a \) est un nombre décimal avec un seul chiffre non nul avant la virgule, et \( n \) est un entier.</p>
+			</div>
+			
+
+			<div class="section" id="vector-calculus">
+				<h2>Calcul Vectoriel</h2>
+				<p>Le calcul vectoriel est une branche des mathématiques qui traite des vecteurs, qui sont des quantités ayant à la fois une magnitude et une direction. Il est largement utilisé en physique, en ingénierie et en informatique pour modéliser et résoudre des problèmes impliquant des grandeurs physiques telles que la vitesse, la force et le champ électrique.</p>
+				
+				<h3>Opérations de base sur les vecteurs</h3>
+				<ul>
+					<li>Addition de vecteurs</li>
+					<li>Soustraction de vecteurs</li>
+					<li>Produit scalaire</li>
+					<li>Produit vectoriel</li>
+				</ul>
+			</div>
+			
+
+			<div class="section" id="matrix-calculus">
+				<h2>Calcul Matriciel</h2>
+				<p>Le calcul matriciel est une branche des mathématiques qui étudie les matrices, qui sont des tableaux rectangulaires de nombres. Il est largement utilisé dans divers domaines tels que l'algèbre linéaire, les statistiques, l'ingénierie et l'informatique pour résoudre des systèmes d'équations linéaires, effectuer des transformations géométriques, et bien plus encore.</p>
+				
+				<h3>Opérations de base sur les matrices</h3>
+				<ul>
+					<li>Addition de matrices</li>
+					<li>Soustraction de matrices</li>
+					<li>Multiplication de matrices</li>
+					<li>Inversion de matrices</li>
+				</ul>
+			</div>
+			
+
+			<div class="section" id="euclidean-geometry">
+				<h2>Géométrie Euclidienne</h2>
+				<p>La géométrie euclidienne est une branche des mathématiques qui étudie les propriétés et les relations des figures géométriques dans un espace à nombre fini de dimensions. Elle est fondée sur les axiomes d'Euclide et est utilisée pour analyser les formes, les grandeurs et les transformations dans l'espace.</p>
+				
+				<h3>Principales concepts en géométrie euclidienne</h3>
+				<ul>
+					<li>Points, lignes et plans</li>
+					<li>Angles et triangles</li>
+					<li>Cercles et coniques</li>
+					<li>Transformations géométriques : translation, rotation, homothétie</li>
+					<li>Théorèmes fondamentaux : théorème de Pythagore, théorème de Thalès</li>
+				</ul>
+			</div>
+			
 		</div>
-		
-    </div>
-</body>
+	</body>
 </html>
