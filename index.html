@@ -176,7 +176,7 @@
 			<div class="chart" id="linear-function-chart"></div>
 			<script>
 				var x = [];
-				for (var i = -3; i <= 5; i++) {
+				for (var i = -3; i <= 5; i+=0.5) {
 					x.push(i);
 				}
 				var yminus = [];
@@ -201,6 +201,11 @@
 						categories: x,
 						title: {
 							text: 'x'
+						},
+						labels: {
+							formatter: function (value) {
+							return value;
+							}
 						}
 					},
 					yaxis: {
@@ -228,6 +233,16 @@
 			</ul>
 			<div id="square-cubic-chart" class="chart"></div>
 			<script>
+				var x = [];
+				for (var i = -3; i <= 5; i+=0.5) {
+					x.push(i);
+				}
+				var yminus = [];
+				var yplus = [];
+				for (var i = 0; i < x.length; i++) {
+                    yminus.push(x[i]**2);
+					yplus.push(x[i]**3);
+                }
 				var options = {
 					chart: {
 						type: 'line',
@@ -235,15 +250,20 @@
 					},
 					series: [{
 						name: 'x^2',
-						data: Array.from({ length: 7 }, (v, k) => (k - 3) ** 2)
+						data: yminus
 					}, {
 						name: 'x^3',
-						data: Array.from({ length: 7 }, (v, k) => (k - 3) ** 3)
+						data: yplus
 					}],
 					xaxis: {
-						categories: Array.from({ length: 7 }, (v, k) => k - 3),
+						categories: x,
 						title: {
 							text: 'x'
+						},
+						labels: {
+							formatter: function (value) {
+							return value;
+							}
 						}
 					},
 					yaxis: {
@@ -257,13 +277,23 @@
 			</script>
 
 			<h3>Fonction exponentielle</h3>
-			<p>La fonction exponentielle est définie par \( f(x) = e^x \). Voici quelques exemples :</p>
+			<p>La fonction exponentielle est définie par \( f(x) = e^x \), avec \( e \approx 2.71828\). La fonction exponentielle est donc uniquement un nombre qui est élevé à une puissance donnée, la fonction exponentielle obéit donc les mêmes propriétés que les puissances. Voici quelques exemples :</p>
 			<ul>
 				<li>\( f(1) = e^1 = e \)</li>
 				<li>\( f(-1) = e^{-1} = \frac{1}{e} \)</li>
 			</ul>
 			<div id="exp-chart" class="chart"></div>
 			<script>
+				var x = [];
+				for (var i = -3; i <= 4; i+=0.5) {
+					x.push(i);
+				}
+				var yminus = [];
+				var yplus = [];
+				for (var i = 0; i < x.length; i++) {
+                    yminus.push(Math.exp(x[i]));
+					yplus.push(Math.exp(-1*x[i]));
+                }
 				var options = {
 					chart: {
 						type: 'line',
@@ -271,12 +301,20 @@
 					},
 					series: [{
 						name: 'e^x',
-						data: Array.from({ length: 11 }, (v, k) => Math.exp(k - 5))
+						data: yminus
+					}, {
+						name: 'e^(-x)',
+						data: yplus
 					}],
 					xaxis: {
-						categories: Array.from({ length: 11 }, (v, k) => k - 5),
+						categories: x,
 						title: {
 							text: 'x'
+						},
+						labels: {
+							formatter: function (value) {
+							return value;
+							}
 						}
 					},
 					yaxis: {
@@ -302,19 +340,37 @@
 			</ul>
 			<div id="log-chart" class="chart"></div>
 			<script>
+				var x = [];
+				for (var i = 0.1; i <= 10+0.1; i+=0.1) {
+					x.push(i);
+				}
+				var yminus = [];
+				var yplus = [];
+				for (var i = 0; i < x.length; i++) {
+                    yminus.push(Math.log10(x[i]));
+					yplus.push(Math.log2(x[i]));
+                }
 				var options = {
 					chart: {
 						type: 'line',
 						height: '400px'
 					},
 					series: [{
-						name: 'log(x)',
-						data: Array.from({ length: 20 }, (v, k) => Math.log(k + 0.00001))
+						name: 'log10(x)',
+						data: yminus
+					}, {
+						name: 'log2(x)',
+						data: yplus
 					}],
 					xaxis: {
-						categories: Array.from({ length: 20 }, (v, k) => k + 0.00001),
+						categories: x,
 						title: {
 							text: 'x'
+						},
+						labels: {
+							formatter: function (value) {
+								return value;
+							}
 						}
 					},
 					yaxis: {
