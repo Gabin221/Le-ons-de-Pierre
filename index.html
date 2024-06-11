@@ -274,6 +274,11 @@
 					yaxis: {
 						title: {
 							text: 'f(x)'
+						},
+						labels: {
+							formatter: function (value) {
+							return value.toFixed(0);
+							}
 						}
 					}
 				}
@@ -328,7 +333,7 @@
 						},
 						labels: {
 							formatter: function (value) {
-								return value.toFixed(3);
+								return value;
 							}
 						}
 					}
@@ -346,8 +351,16 @@
 			<div id="log-chart" class="chart"></div>
 			<script>
 				var x = [];
+				var labels = [];
+				var compteur = 0;
 				for (var i = 0.1; i <= 10+0.1; i+=0.1) {
-					x.push(i);
+					if (compteur%4 === 0) {
+						labels.push(i.toFixed(1));
+					} else {
+						labels.push('');
+					}
+					x.push(i.toFixed(1));
+					compteur++;
 				}
 				var yminus = [];
 				var yplus = [];
@@ -368,7 +381,7 @@
 						data: yplus
 					}],
 					xaxis: {
-						categories: x,
+						categories: labels,
 						title: {
 							text: 'x'
 						},
@@ -384,7 +397,7 @@
 						},
 						labels: {
 							formatter: function (value) {
-								return value.toFixed(3);
+								return value;
 							}
 						}
 					}
@@ -442,7 +455,7 @@
 						max: 5,
 						labels: {
 							formatter: function (value) {
-								return value.toFixed(3);
+								return value.toFixed(0);
 							}
 						},
 						title: {
