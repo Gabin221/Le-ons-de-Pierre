@@ -132,6 +132,11 @@
 			color: #fff;
 			background: #000 !important;
 		}
+		.arrow {
+            fill: none;
+            stroke: black;
+            stroke-width: 2;
+        }
 	</style>
 </head>
 
@@ -767,7 +772,7 @@
 				appliquées.</p>
 
 			<h3>Tableau des dérivées et des intégrales</h3>
-			<p>Voici un tableau des dérivées et des intégrales des fonctions courantes :</p>
+			<p>Voici un tableau des dérivées et des intégrales des fonctions courantes (<b>à vérifier</b>):</p>
 			<table>
 				<tr>
 					<th>Fonction</th>
@@ -780,9 +785,19 @@
 					<td>\( cx + C \)</td>
 				</tr>
 				<tr>
+					<td>\( f(u) = c \)</td>
+					<td>0</td>
+					<td>\( cu + C \)</td>
+				</tr>
+				<tr>
 					<td>\( f(x) = x^n \)</td>
 					<td>\( nx^{n-1} \)</td>
 					<td>\( \frac{1}{n+1}x^{n+1} + C \)</td>
+				</tr>
+				<tr>
+					<td>\( f(u) = u^n \)</td>
+					<td>\( nu'u^{n-1} \)</td>
+					<td>\( \frac{1}{n+1}u^{n+1} + C \)</td>
 				</tr>
 				<tr>
 					<td>\( f(x) = e^x \)</td>
@@ -790,9 +805,19 @@
 					<td>\( e^x + C \)</td>
 				</tr>
 				<tr>
+					<td>\( f(u) = e^u \)</td>
+					<td>\( e^u \)</td>
+					<td>\( e^u + C \)</td>
+				</tr>
+				<tr>
 					<td>\( f(x) = \ln(x) \)</td>
 					<td>\( \frac{1}{x} \)</td>
 					<td>\( x\ln(x) - x + C \)</td>
+				</tr>
+				<tr>
+					<td>\( f(u) = \ln(u) \)</td>
+					<td>\( \frac{1}{u} \)</td>
+					<td>\( u\ln(u) - u + C \)</td>
 				</tr>
 				<tr>
 					<td>\( f(x) = \sin(x) \)</td>
@@ -800,11 +825,77 @@
 					<td>\( -\cos(x) + C \)</td>
 				</tr>
 				<tr>
+					<td>\( f(u) = \sin(u) \)</td>
+					<td>\( \cos(u) \)</td>
+					<td>\( -\cos(u) + C \)</td>
+				</tr>
+				<tr>
 					<td>\( f(x) = \cos(x) \)</td>
 					<td>\( -\sin(x) \)</td>
 					<td>\( \sin(x) + C \)</td>
 				</tr>
+				<tr>
+					<td>\( f(u) = \cos(u) \)</td>
+					<td>\( -\sin(u) \)</td>
+					<td>\( \sin(u) + C \)</td>
+				</tr>
 			</table>
+			
+			<p><b>Remarques:</b> pour retenir certaines de ces dérivées, voici ce qu'il faut se dire:</p>
+			<ul>
+				<li>Nous pouvons toujours déduire la dérivée et la primitive de \( x \) à partir de la dérivée et de la primitive de \( x \).</li>
+				<li>Nous n'avons pas besoin de connaître la dérivée et la primitive de la fonction racine car \( \sqrt[n]{a} = a^{\frac{1}{n}} \) donc par exemple \( \sqrt[3]{a} = a^{\frac{1}{3}} \).</li>
+				<li>Nous pouvons faire le même genre de raisonnement concernant la dérivée et la primitive de la fonction inverse car \( \frac{1}{a} = a^{-1} \).</li>
+				<li>Pour les primitives et les dérivées des fonctions trigonométriques, il faut juste retenir cette phrase: <b>Avec le temps, tout dérive.</b> et avoir en tête le cercle trigonométrique:</li>
+			</ul>
+			<div id="cercleTrigo"></div>
+			<script>
+				var angles = [];
+				for (var i = Math.PI/2; i <= 2*Math.PI; i+=0.01) {
+					angles.push(i);
+				}
+
+				var cercleTrigo = [];
+				for (var i = 0; i <= angles.length; i++) {
+                    cercleTrigo.push([Math.cos(i), Math.sin(i)]);
+                }
+
+				var options = {
+					chart: {
+						type: 'line',
+						height: '400px',
+						width: '400px'
+					},
+					series: [{
+						data: cercleTrigo
+					}],
+					xaxis: {
+						labels: {
+							formatter: function (value) {
+								return "";
+							}
+						}
+					},
+					yaxis: {
+						labels: {
+							formatter: function (value) {
+								return "";
+							}
+						}
+					},
+					stroke: {
+						show: true,
+						curve: 'straight',
+						lineCap: 'butt',
+						colors: undefined,
+						width: 2,
+						dashArray: 0, 
+					}
+				}
+
+				var chart = new ApexCharts(document.querySelector("#cercleTrigo"), options);
+				chart.render();
+			</script>
 		</div>
 
 
