@@ -1,781 +1,863 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Mathematics Learner</title>
-		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
-		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
-		<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-		<style>
-			body {
-				font-family: Arial, sans-serif;
-				line-height: 1.6;
-				margin: 20px;
-				background-color: #333;
-				color: #333;
-			}
 
-			.container {
-				max-width: 800px;
-				margin: 0 auto;
-				padding: 20px;
-				background-color: #f4f4f4;
-				border-radius: 8px;
-				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			}
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mathematics Learner</title>
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+		integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
+		integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd"
+		crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+		integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+		onload="renderMathInElement(document.body);"></script>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			line-height: 1.6;
+			margin: 20px;
+			background-color: #333;
+			color: #333;
+		}
 
-			h1,
-			h3 {
-				text-align: center;
-				color: #444;
-			}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #f4f4f4;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
 
-			h2 {
-				color: #444;
-				font-size: 24px;
-				margin: 30px 0 10px;
-				text-align: center;
-				border-bottom: 1px solid #444;
-				padding-bottom: 5px;
-				width: 100%;
-			}
+		h1,
+		h3 {
+			text-align: center;
+			color: #444;
+		}
 
-			p {
-				text-align: justify;
-			}
+		h2 {
+			color: #444;
+			font-size: 24px;
+			margin: 30px 0 10px;
+			text-align: center;
+			border-bottom: 1px solid #444;
+			padding-bottom: 5px;
+			width: 100%;
+		}
 
-			.chart {
-				margin: 20px 0;
-			}
+		p {
+			text-align: justify;
+		}
 
-			.section {
-				margin-bottom: 40px;
-			}
+		.chart {
+			margin: 20px 0;
+		}
 
-			#toc {
-				margin-bottom: 60px;
-			}
+		.section {
+			margin-bottom: 40px;
+		}
 
-			#toc ul {
-				list-style-type: none;
-				padding: 0;
-			}
+		#toc {
+			margin-bottom: 60px;
+		}
 
-			#toc li {
-				margin: 5px 0;
-			}
+		#toc ul {
+			list-style-type: none;
+			padding: 0;
+		}
 
-			#toc a {
-				text-decoration: none;
-				color: #007BFF;
-			}
+		#toc li {
+			margin: 5px 0;
+		}
 
-			#toc a:hover {
-				text-decoration: underline;
-			}
-			#PIs {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: space-around;
-			}
-			.btn:hover {
-				transform: scale(1.05);
-			}
-			table {
-				border-collapse: collapse;
-				border: 2px solid rgb(140 140 140);
-				font-family: sans-serif;
-				font-size: 0.8rem;
-				letter-spacing: 1px;
-				margin: auto;
-			}
-			th, td {
-				border: 1px solid rgb(160 160 160);
-				padding: 8px 10px;
-				text-align: center;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<h1>Mathematics Learner</h1>
+		#toc a {
+			text-decoration: none;
+			color: #007BFF;
+		}
 
-			<div id="toc">
-				<h2>Sommaire</h2>
-				<ul>
-					<li><a href="#introduction">Introduction</a></li>
-					<li><a href="#functions">Fonctions</a></li>
-					<li><a href="#equations">Résolutions d'équations</a></li>
-					<li><a href="#trigonometry">Trigonométrie</a></li>
-					<li><a href="#derivatives-integrals">Dérivées et Intégrales</a></li>
-					<li><a href="#min-max-functions">Minimum et Maximum de Fonctions</a></li>
-					<li><a href="#factorization-development">Factorisation et Développement</a></li>
-					<li><a href="#scientific-notation">Écriture Scientifique</a></li>
-					<li><a href="#vector-calculus">Calcul Vectoriel</a></li>
-					<li><a href="#matrix-calculus">Calcul Matriciel</a></li>
-					<li><a href="#euclidean-geometry">Géométrie Euclidienne</a></li>
-				</ul>
-			</div>
+		#toc a:hover {
+			text-decoration: underline;
+		}
 
-			<div class="section" id="introduction">
-				<h2>Introduction</h2>
-				<p>Bienvenue sur Maths Learner, une page dédiée à la révision des concepts mathématiques fondamentaux. Cette page couvre plusieurs sujets, y compris les fonctions, la trigonométrie, le tri des nombres, les racines n-ièmes, et la résolution d'équations. Chaque section fournit des explications claires et des exemples variés pour vous aider à mieux comprendre et maîtriser ces concepts.</p>
-			</div>
+		#PIs {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
 
-			<div class="section" id="functions">
-				<h2>Fonctions</h2>
-				<p>Les fonctions sont des relations mathématiques qui associent chaque élément d'un ensemble de départ à exactement un élément d'un ensemble d'arrivée. Elles sont omniprésentes en mathématiques et en sciences, et sont utilisées pour modéliser divers phénomènes.</p>
-				
-				<h3>Fonction linéaire</h3>
-				<p>Une fonction linéaire est de la forme \( f(x) = mx + b \), où \( m \) est la pente de la droite et \( b \) est l'ordonnée à l'origine.</p>
-				<div class="chart" id="linear-function-chart"></div>
-				<script>
-					var options = {
-						chart: {
-							type: 'line',
-							height: '400px'
-						},
-						series: [{
-							name: 'Fonction linéaire',
-							data: [[-5, -2], [5, 3]] // Points pour tracer la fonction
-						}],
-						xaxis: {
-							title: {
-								text: 'x'
-							}
-						},
-						yaxis: {
-							title: {
-								text: 'f(x)'
-							}
-						}
-					};
-					var chart = new ApexCharts(document.querySelector("#linear-function-chart"), options);
-					chart.render();
-				</script>
-			
-				<h3>Fonctions carrée et cubique</h3>
-				<p>La fonction carrée est définie par \( f(x) = x^2 \) et la fonction cubique par \( f(x) = x^3 \). Voici quelques exemples :</p>
-				<p>Fonction carrée :</p>
-				<ul>
-					<li>\( f(2) = 2^2 = 4 \)</li>
-					<li>\( f(-3) = (-3)^2 = 9 \)</li>
-				</ul>
-				<p>Fonction cubique :</p>
-				<ul>
-					<li>\( f(2) = 2^3 = 8 \)</li>
-					<li>\( f(-3) = (-3)^3 = -27 \)</li>
-				</ul>
-				<div id="square-cubic-chart" class="chart"></div>
-				<script>
-					var options = {
-						chart: {
-							type: 'line',
-							height: '400px'
-						},
-						series: [{
-							name: 'x^2',
-							data: Array.from({ length: 7 }, (v, k) => (k - 3) ** 2)
-						}, {
-							name: 'x^3',
-							data: Array.from({ length: 7 }, (v, k) => (k - 3) ** 3)
-						}],
-						xaxis: {
-							categories: Array.from({ length: 7 }, (v, k) => k - 3),
-							title: {
-								text: 'x'
-							}
-						},
-						yaxis: {
-							title: {
-								text: 'f(x)'
-							}
-						}
-					}
-					var chart = new ApexCharts(document.querySelector("#square-cubic-chart"), options);
-					chart.render();
-				</script>
+		.btn:hover {
+			transform: scale(1.05);
+		}
 
-				<h3>Fonction exponentielle</h3>
-				<p>La fonction exponentielle est définie par \( f(x) = e^x \). Voici quelques exemples :</p>
-				<ul>
-					<li>\( f(1) = e^1 = e \)</li>
-					<li>\( f(-1) = e^{-1} = \frac{1}{e} \)</li>
-				</ul>
-				<div id="exp-chart" class="chart"></div>
-				<script>
-					var options = {
-						chart: {
-							type: 'line',
-							height: '400px'
-						},
-						series: [{
-							name: 'e^x',
-							data: Array.from({ length: 11 }, (v, k) => Math.exp(k - 5))
-						}],
-						xaxis: {
-							categories: Array.from({ length: 11 }, (v, k) => k - 5),
-							title: {
-								text: 'x'
-							}
-						},
-						yaxis: {
-							title: {
-								text: 'f(x)'
-							},
-							labels: {
-								formatter: function(value) {
-									return value.toFixed(3);
-								}
-							}
-						}
-					}
-					var chart = new ApexCharts(document.querySelector("#exp-chart"), options);
-					chart.render();
-				</script>
+		table {
+			border-collapse: collapse;
+			border: 2px solid rgb(140 140 140);
+			font-family: sans-serif;
+			font-size: 0.8rem;
+			letter-spacing: 1px;
+			margin: auto;
+		}
 
-				<h3>Fonction logarithmique</h3>
-				<p>La fonction logarithmique est définie par \( f(x) = \log(x) \). Voici quelques exemples :</p>
-				<ul>
-					<li>\( f(1) = \log(1) = 0 \)</li>
-					<li>\( f(10) = \log(10) = 1 \)</li>
-				</ul>
-				<div id="log-chart" class="chart"></div>
-				<script>
-					var options = {
-						chart: {
-							type: 'line',
-							height: '400px'
-						},
-						series: [{
-							name: 'log(x)',
-							data: Array.from({ length: 20 }, (v, k) => Math.log(k + 0.00001))
-						}],
-						xaxis: {
-							categories: Array.from({ length: 20 }, (v, k) => k + 0.00001),
-							title: {
-								text: 'x'
-							}
-						},
-						yaxis: {
-							title: {
-								text: 'f(x)'
-							},
-							labels: {
-								formatter: function(value) {
-									return value.toFixed(3);
-								}
-							}
-						}
-					}
-					var chart = new ApexCharts(document.querySelector("#log-chart"), options);
-					chart.render();
-				</script>
-				
-				<h3>Les fonctions trigonométriques</h3>
-				<p>Les principales fonctions trigonométriques sont le sinus définie par \( f(x) = \sin(x) \), le cosinus définie par \( f(x) = \cos(x) \) et la tangente définie par \( f(x) = \tan(x) \).</p>
-				<div id="trig-chart" class="chart"></div>
-				<script>
-					var labels = [];
-					for (var i = -360; i <= 360; i++) {
-						if (i === 0 || i === 45 || i === 90 || i === 135 || i === 180 || i === 225 || i === 270 || i === 315 || i === 360 || i === -45 || i === -90 || i === -135 || i === -180 || i === -225 || i === -270 || i === -315 || i === -360) {
-							labels.push(i / 180 + "π");
-						} else {
-							labels.push('');
-						}
-					}
-				
-					var tanData = Array.from({ length: 721 }, (v, k) => {
-						if (k % 90 === 0 && (k / 90) % 2 === 1) {
-							return null;
-						}
-						return Math.tan(k * Math.PI / 180);
-					});
-				
-					var options = {
-						chart: {
-							type: 'line',
-							height: '400px'
-						},
-						series: [{
-							name: 'Sinus',
-							data: Array.from({ length: 721 }, (v, k) => Math.sin(k * Math.PI / 180))
-						}, {
-							name: 'Cosinus',
-							data: Array.from({ length: 721 }, (v, k) => Math.cos(k * Math.PI / 180))
-						}, {
-							name: 'Tangente',
-							data: tanData
-						}],
-						xaxis: {
-							categories: labels,
-							tickAmount: labels.length,
-							tickPlacement: 'on',
-							title: {
-								text: 'x'
-							}
-						},
-						yaxis: {
-							min: -5,
-							max: 5,
-							labels: {
-								formatter: function(value) {
-									return value.toFixed(3);
-								}
-							},
-							title: {
-								text: 'f(x)'
-							}
-						}
-					}
-				
-					var chart = new ApexCharts(document.querySelector("#trig-chart"), options);
-					chart.render();
-				</script>
-			</div>
+		th,
+		td {
+			border: 1px solid rgb(160 160 160);
+			padding: 8px 10px;
+			text-align: center;
+		}
 
-			<div class="section" id="equations">
-				<h2>Résolutions d'équations</h2>
-				<h3>Équations du second degré</h3>
-				<p>Une équation du second degré est de la forme \( ax^2 + bx + c = 0 \), où \( a \), \( b \), et \( c \) sont des constantes.</p>
-				<p>La solution est donnée par la formule quadratique :</p>
-				<p>\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]</p>
-				<div class="chart" id="quadratic-equation-chart"></div>
-				<script>
-					var options = {
-						chart: {
-							type: 'line',
-							height: '400px'
-						},
-						series: [{
-							name: 'Équation du second degré',
-							data: [[-5, -5], [5, 5]] // Points pour tracer la solution
-						}],
-						xaxis: {
-							title: {
-								text: 'x'
-							}
-						},
-						yaxis: {
-							title: {
-								text: 'f(x)'
-							}
-						}
-					};
-					var chart = new ApexCharts(document.querySelector("#quadratic-equation-chart"), options);
-					chart.render();
-				</script>
-			
-				<!-- Ajouter d'autres types d'équations ici, comme les équations exponentielles, logarithmiques, etc. -->
-			</div>
+		div.dessin {
+			background: #fff;
+			padding: 0px;
+			text-align: center;
+			height: 300px;
+			min-width: 300px;
+		}
 
-			<div class="section" id="trigonometry">
-				<h2>Trigonométrie</h2>
-				<p>La trigonométrie est la branche des mathématiques qui étudie les relations entre les angles et les longueurs des côtés des triangles. Les fonctions trigonométriques telles que le sinus, le cosinus et la tangente sont essentielles pour résoudre de nombreux problèmes en mathématiques et en sciences.</p>
-			
-				<h3>Tableau des valeurs remarquables</h3>
-				<p>Voici un tableau des valeurs remarquables des fonctions trigonométriques :</p>
-				<table>
-					<tr>
-						<th>Angle (degrés)</th>
-						<th>Sinus</th>
-						<th>Cosinus</th>
-						<th>Tangente</th>
-					</tr>
-					<tr>
-						<td>0°</td>
-						<td>0</td>
-						<td>1</td>
-						<td>0</td>
-					</tr>
-					<tr>
-						<td>30°</td>
-						<td>\( \frac{1}{2} \)</td>
-						<td>\( \frac{\sqrt{3}}{2} \)</td>
-						<td>\( \frac{\sqrt{3}}{3} \)</td>
-					</tr>
-					<tr>
-						<td>45°</td>
-						<td>\( \frac{\sqrt{2}}{2} \)</td>
-						<td>\( \frac{\sqrt{2}}{2} \)</td>
-						<td>1</td>
-					</tr>
-					<tr>
-						<td>60°</td>
-						<td>\( \frac{\sqrt{3}}{2} \)</td>
-						<td>\( \frac{1}{2} \)</td>
-						<td>\( \sqrt{3} \)</td>
-					</tr>
-					<tr>
-						<td>90°</td>
-						<td>1</td>
-						<td>0</td>
-						<td>Indéfini</td>
-					</tr>
-				</table>
-			
-				<h3>Cercle trigonométrique</h3>
-				<p>Le cercle trigonométrique est un outil visuel utile pour comprendre les relations trigonométriques. Il représente un cercle unité avec un rayon de 1.</p>
-				<div class="chart" id="trigonometric-circle-chart"><canvas id="myCanvas"></canvas></div>
-				<div id="PIs"></div>
-				<script>
-					var myCanvas=document.getElementById("myCanvas");
-					var container=myCanvas.parentElement;
-					const PI=Math.PI;
-					var angle=1*PI/3;
-					var animationID=0;
-					var valeurs=[
-						"0", "PI/6", "PI/4", "PI/3", "PI/2", "2*PI/3", "3*PI/4", "5*PI/6", "PI"
-					];
-					var valeursBoutons=[
-						"0", "π/6", "π/4", "π/3", "π/2", "2*π/3", "3*π/4", "5*π/6", "π"
-					];
-					
-					var PIs=document.getElementById("PIs");
-					for (var i=0; i<valeurs.length; i++) {
-						var btn=document.createElement("div");
-						btn.className="btn";
-						btn.innerHTML=""+valeursBoutons[i];
-						btn.style.cursor="pointer";
-						btn.setAttribute("onclick", "angle="+eval(valeurs[i])+"; displayTrigo("+eval(valeurs[i])+")");
-						btn.setAttribute("id","angle"+i);
-						PIs.appendChild(btn);
-					}
-					
-					function startAnimation() {
-						if (animationID==0) {
-							animationTrigo();
-						}
-					}
-					function stopAnimation() {
-						if (animationID>=0) {
-							window.cancelAnimationFrame(animationID);
-							animationID=0;
-						}
-					}
-					
-					window.addEventListener("resize", function() {
-						displayTrigo(angle);
-					});
-					
-					function animationTrigo(timer) {
-						angle+=0.01;
-						if (angle>2*PI) {
-							angle=0;
-						}
-						displayTrigo(angle);
-						animationID=window.requestAnimationFrame(animationTrigo);
-					}
-					
-					myCanvas.addEventListener("mousemove", function(evt) {
-						if (animationID>0) {
-							return false;
-						}
-						displayTrigo(angle);
-						TJScanvas.ctx.beginPath()
-						TJScanvas.ctx.fillStyle="#f00";
-						TJScanvas.ctx.arc(evt.offsetX, evt.offsetY, 8, 0, 2*PI );
-						TJScanvas.ctx.fill();
-						var x=((evt.offsetX-TJScanvas.deltaX)/TJScanvas.echelle).toFixed(3);
-						var y=((evt.offsetY-TJScanvas.deltaY)/TJScanvas.echelle).toFixed(3);
-						TJScanvas.ctx.strokeStyle="#f00";  
-						TJScanvas.drawLine(0,0,x,y);
-						if (x>0) {
-							angle=-1*Math.atan(y/x);
-						} else {
-							angle=PI-1*Math.atan(y/x);
-						}
-					});
-					var TJScanvas={
-						width: 0,
-						height: 0,
-						padding: 0, 
-						deltaX:0,
-						deltaY:0,
-						echelle:0,
-						ctx:null,
-						clearCanvas: function() {
-							this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-						},
-						drawLine: function(x1, y1, x2, y2) {
-							this.ctx.beginPath();  
-							this.ctx.moveTo(x1*this.echelle+this.deltaX, y1*this.echelle+this.deltaY);
-							this.ctx.lineTo(x2*this.echelle+this.deltaX, y2*this.echelle+this.deltaY);
-							this.ctx.stroke();  
-						},
-						drawCircle: function(x, y, r, a1=0, a2=2*PI) {
-							this.ctx.beginPath();  
-							this.ctx.arc( x*this.echelle+this.deltaX, y*this.echelle+this.deltaY, r*this.echelle, a1, a2);
-							this.ctx.stroke();  
-						},
-						fillCircle: function(x, y, r, a1=0, a2=2*PI) {
-							this.ctx.beginPath();  
-							this.ctx.arc( x*this.echelle+this.deltaX, y*this.echelle+this.deltaY, r*this.echelle, a1, a2);
-							this.ctx.fill();  
-						},
-						text: function(txt, x, y, dX=0, dY=0) {
-							this.ctx.fillText(txt, x*this.echelle+this.deltaX+dX, y*this.echelle+this.deltaY+dY);
-						}
-					};
-					function displayTrigo(angle) {
-						TJScanvas.width=container.getBoundingClientRect().width;
-						TJScanvas.height=container.getBoundingClientRect().height;
-						TJScanvas.height=Math.min(TJScanvas.width,500);  
-						container.style.height=TJScanvas.height+"px";
-						myCanvas.setAttribute("width", TJScanvas.width);
-						myCanvas.setAttribute("height", TJScanvas.height);
-						TJScanvas.ctx=myCanvas.getContext("2d");
-						TJScanvas.clearCanvas();
-						
-						TJScanvas.ctx.font="bold 14px arial";
-						TJScanvas.ctx.fillStyle="rgb(0,140,0)";
-						
-						TJScanvas.padding=25;
-						TJScanvas.deltaX=TJScanvas.width/2;
-						TJScanvas.deltaY=TJScanvas.height/2;
-						TJScanvas.echelle=(TJScanvas.height-2*TJScanvas.padding)/2 / 1.1;  
-						
-						TJScanvas.drawLine(-1.1,0,1.1,0);
-						TJScanvas.drawLine(0,-1.1,0,1.1);
-						TJScanvas.drawCircle(0,0,1);
-						TJScanvas.ctx.fillStyle="rgb(0,0,0)";
-						TJScanvas.text("1", 1, 0, 5, 20);
-						TJScanvas.text("-1", -1, 0, -20, 20);
-						TJScanvas.text("1", 0, -1, 5, -5);
-						TJScanvas.text("-1", 0, 1, 5, 17);
-						
-						angleTrigo=angle;
-						angle=-1*angle;
-						var x=Math.cos(angle), y=Math.sin(angle);
-						TJScanvas.fillCircle(x, y, 5/TJScanvas.echelle); 
-						TJScanvas.ctx.strokeStyle="rgb(0,140,0)";
-						TJScanvas.ctx.lineWidth=2;
-						TJScanvas.drawCircle(0, 0, 0.2, angle, 0);
-						TJScanvas.drawLine(0,0,x,y);
-						
-						TJScanvas.ctx.lineWidth=1;
-						TJScanvas.ctx.setLineDash([3,3]);
-						TJScanvas.drawLine(x,0,x,y);
-						TJScanvas.drawLine(0,y,x,y);
-						
-						
-						TJScanvas.ctx.fillStyle="rgb(0,140,0)";
-						var txt="cos(" + angleTrigo.toFixed(3) + ") = " + Math.cos(angleTrigo).toFixed(3);
-						var w=TJScanvas.ctx.measureText(txt).width;
-						if (y<0) {
-							TJScanvas.text(txt, x, 0, -1*w/2, 15);
-						} else {
-							TJScanvas.text(txt, x, 0, -1*w/2, -10);
-						}
-						var txt="sin(" + angleTrigo.toFixed(3) + ") = " + Math.sin(angleTrigo).toFixed(3);
-						var w=TJScanvas.ctx.measureText(txt).width;
-						if (x<0) {
-							TJScanvas.text(txt, 0, y,5, 4);
-						} else {
-							TJScanvas.text(txt, 0, y, -1*w-5, 4);
-						}
-						
-						var txt="("+Math.cos(angleTrigo).toFixed(3)+","+Math.sin(angleTrigo).toFixed(3)+")";
-						var w=TJScanvas.ctx.measureText(txt).width;
-						if (x<0) {
-							TJScanvas.text(txt, x, y, -8-w, 4);
-						} else {
-							TJScanvas.text(txt, x, y, 8, 4);
-						}
-						
-						var txtAngle="";
-						for (var i=0; i<valeurs.length; i++) {
-							document.getElementById("angle"+i).style.backgroundColor="#fff";  
-							if (angleTrigo.toFixed(3)==eval(valeurs[i]).toFixed(3)) {
-								var txtAngle=" = "+valeurs[i];
-								var elementActuel = document.getElementById("angle"+i);
-								elementActuel.style.backgroundColor="#1E1E1E";
-								elementActuel.style.padding="10px";
-								elementActuel.style.marginBottom="10px";
-								elementActuel.style.borderRadius="10px";
-								elementActuel.style.boxShadow="0 0 10px rgba(0, 0, 0, 0.5)";
-								elementActuel.style.width="30%";
-								elementActuel.style.textAlign="center";
-								elementActuel.style.boxSizing="border-box";
-								elementActuel.style.transition="transform 0.2s";
-								elementActuel.style.textDecoration="none";
-								elementActuel.style.color="white";
-							} else {
-								var txtAngle=" = "+angleTrigo.toFixed(3);
-								var elementActuel = document.getElementById("angle"+i);
-								elementActuel.style.backgroundColor="#1E1E1E";
-								elementActuel.style.padding="10px";
-								elementActuel.style.marginBottom="10px";
-								elementActuel.style.borderRadius="10px";
-								elementActuel.style.boxShadow="0 0 10px rgba(0, 0, 0, 0.5)";
-								elementActuel.style.width="30%";
-								elementActuel.style.textAlign="center";
-								elementActuel.style.boxSizing="border-box";
-								elementActuel.style.transition="transform 0.2s";
-								elementActuel.style.textDecoration="none";
-								elementActuel.style.color="white";
-							}
-						}
-						TJScanvas.ctx.font="italic 14px arial";
-						var txt="angle"+txtAngle;
-						var w=TJScanvas.ctx.measureText(txt).width;
-						TJScanvas.text(txt, 0.2*Math.cos(angle/2), 0.2*Math.sin(angle/2), 5, 0);
-					}
-					window.onload=function() {
-						displayTrigo(angle);
-					}
-				</script>
-			</div>
-			
+		canvas #myCanvas {}
 
-			<div class="section" id="derivatives-integrals">
-				<h2>Dérivées et Intégrales</h2>
-				<p>Les dérivées et les intégrales sont des concepts fondamentaux en calcul différentiel et intégral. Elles permettent de calculer respectivement les taux de variation instantanés et les aires sous des courbes, et sont largement utilisées en physique, en ingénierie et dans d'autres domaines des sciences appliquées.</p>
-			
-				<h3>Tableau des dérivées et des intégrales</h3>
-				<p>Voici un tableau des dérivées et des intégrales des fonctions courantes :</p>
-				<table>
-					<tr>
-						<th>Fonction</th>
-						<th>Dérivée</th>
-						<th>Intégrale</th>
-					</tr>
-					<tr>
-						<td>\( f(x) = c \)</td>
-						<td>0</td>
-						<td>\( cx + C \)</td>
-					</tr>
-					<tr>
-						<td>\( f(x) = x^n \)</td>
-						<td>\( nx^{n-1} \)</td>
-						<td>\( \frac{1}{n+1}x^{n+1} + C \)</td>
-					</tr>
-					<tr>
-						<td>\( f(x) = e^x \)</td>
-						<td>\( e^x \)</td>
-						<td>\( e^x + C \)</td>
-					</tr>
-					<tr>
-						<td>\( f(x) = \ln(x) \)</td>
-						<td>\( \frac{1}{x} \)</td>
-						<td>\( x\ln(x) - x + C \)</td>
-					</tr>
-					<tr>
-						<td>\( f(x) = \sin(x) \)</td>
-						<td>\( \cos(x) \)</td>
-						<td>\( -\cos(x) + C \)</td>
-					</tr>
-					<tr>
-						<td>\( f(x) = \cos(x) \)</td>
-						<td>\( -\sin(x) \)</td>
-						<td>\( \sin(x) + C \)</td>
-					</tr>
-				</table>
-			</div>
-			
+		div.btn {
+			display: inline-block;
+			margin: 5px;
+			padding: 6px;
+			border: 1px solid #000;
+			border-radius: 5px;
+			cursor: pointer;
+			background: #fff;
+			color: #000;
+		}
 
-			<div class="section" id="min-max">
-				<h2>Recherche des minimums et des maximums d'une fonction</h2>
-				<p>Dans l'analyse mathématique, trouver les minimums et les maximums d'une fonction est essentiel pour comprendre le comportement de cette fonction. Ces points critiques peuvent être utilisés pour résoudre des problèmes d'optimisation dans divers domaines.</p>
-				
-				<h3>Exemple de recherche de minimum et maximum</h3>
-				<p>Considérons la fonction \( f(x) = x^2 - 4x + 3 \).</p>
-				<div class="chart" id="min-max-function-chart"></div>
-				<script>
-					var options = {
-						chart: {
-							type: 'line',
-							height: '400px'
-						},
-						series: [{
-							name: 'f(x)',
-							data: [[-1, 8], [2, -1]] // Points pour tracer la fonction
-						}],
-						xaxis: {
-							title: {
-								text: 'x'
-							}
-						},
-						yaxis: {
-							title: {
-								text: 'f(x)'
-							}
-						}
-					};
-					var chart = new ApexCharts(document.querySelector("#min-max-function-chart"), options);
-					chart.render();
-				</script>
-				<p>Pour trouver les minimums et maximums, nous devons d'abord calculer les dérivées de la fonction et trouver ses points critiques. Ensuite, nous examinons la concavité de la fonction pour déterminer si ces points sont des minimums ou des maximums.</p>
-			</div>
-			
+		div.btn:hover {
+			color: #fff;
+			background: #000 !important;
+		}
+	</style>
+</head>
 
-			<div class="section" id="factorisation-development">
-				<h2>Factorisation et Développement</h2>
-				<p>La factorisation et le développement sont des techniques importantes en algèbre pour simplifier les expressions mathématiques. Ils sont souvent utilisés pour résoudre des équations, simplifier des fractions rationnelles, ou factoriser des polynômes.</p>
-				
-				<h3>Exemple de factorisation et développement</h3>
-				<p>Considérons l'expression \( (x + 2)(x - 3) \).</p>
-				<p>Pour factoriser cette expression, nous utilisons la formule \( (a - b)(a + b) = a^2 - b^2 \).</p>
-				<p>En utilisant cette formule, nous obtenons \( x^2 - 3x + 2x - 6 \).</p>
-				<p>En regroupant les termes similaires, nous obtenons \( x^2 - x - 6 \).</p>
-				<p>Donc, l'expression \( (x + 2)(x - 3) \) est égale à \( x^2 - x - 6 \).</p>
-			</div>
-			
+<body>
+	<div class="container">
+		<h1>Mathematics Learner</h1>
 
-			<div class="section" id="scientific-notation">
-				<h2>Écriture Scientifique</h2>
-				<p>L'écriture scientifique est une notation utilisée pour représenter des nombres très grands ou très petits de manière concise. Elle est couramment utilisée en sciences et en ingénierie pour faciliter les calculs et la communication de valeurs numériques.</p>
-				
-				<h3>Exemple d'écriture scientifique</h3>
-				<p>Le nombre \( 300,000,000 \) peut être écrit en notation scientifique comme \( 3 \times 10^8 \).</p>
-				<p>De même, le nombre \( 0.0000000023 \) peut être écrit comme \( 2.3 \times 10^{-9} \).</p>
-				<p>En notation scientifique, un nombre est écrit sous la forme \( a \times 10^n \), où \( a \) est un nombre décimal avec un seul chiffre non nul avant la virgule, et \( n \) est un entier.</p>
-			</div>
-			
-
-			<div class="section" id="vector-calculus">
-				<h2>Calcul Vectoriel</h2>
-				<p>Le calcul vectoriel est une branche des mathématiques qui traite des vecteurs, qui sont des quantités ayant à la fois une magnitude et une direction. Il est largement utilisé en physique, en ingénierie et en informatique pour modéliser et résoudre des problèmes impliquant des grandeurs physiques telles que la vitesse, la force et le champ électrique.</p>
-				
-				<h3>Opérations de base sur les vecteurs</h3>
-				<ul>
-					<li>Addition de vecteurs</li>
-					<li>Soustraction de vecteurs</li>
-					<li>Produit scalaire</li>
-					<li>Produit vectoriel</li>
-				</ul>
-			</div>
-			
-
-			<div class="section" id="matrix-calculus">
-				<h2>Calcul Matriciel</h2>
-				<p>Le calcul matriciel est une branche des mathématiques qui étudie les matrices, qui sont des tableaux rectangulaires de nombres. Il est largement utilisé dans divers domaines tels que l'algèbre linéaire, les statistiques, l'ingénierie et l'informatique pour résoudre des systèmes d'équations linéaires, effectuer des transformations géométriques, et bien plus encore.</p>
-				
-				<h3>Opérations de base sur les matrices</h3>
-				<ul>
-					<li>Addition de matrices</li>
-					<li>Soustraction de matrices</li>
-					<li>Multiplication de matrices</li>
-					<li>Inversion de matrices</li>
-				</ul>
-			</div>
-			
-
-			<div class="section" id="euclidean-geometry">
-				<h2>Géométrie Euclidienne</h2>
-				<p>La géométrie euclidienne est une branche des mathématiques qui étudie les propriétés et les relations des figures géométriques dans un espace à nombre fini de dimensions. Elle est fondée sur les axiomes d'Euclide et est utilisée pour analyser les formes, les grandeurs et les transformations dans l'espace.</p>
-				
-				<h3>Principales concepts en géométrie euclidienne</h3>
-				<ul>
-					<li>Points, lignes et plans</li>
-					<li>Angles et triangles</li>
-					<li>Cercles et coniques</li>
-					<li>Transformations géométriques : translation, rotation, homothétie</li>
-					<li>Théorèmes fondamentaux : théorème de Pythagore, théorème de Thalès</li>
-				</ul>
-			</div>
-			
+		<div id="toc">
+			<h2>Sommaire</h2>
+			<ul>
+				<li><a href="#introduction">Introduction</a></li>
+				<li><a href="#functions">Fonctions</a></li>
+				<li><a href="#equations">Résolutions d'équations</a></li>
+				<li><a href="#trigonometry">Trigonométrie</a></li>
+				<li><a href="#derivatives-integrals">Dérivées et Intégrales</a></li>
+				<li><a href="#min-max-functions">Minimum et Maximum de Fonctions</a></li>
+				<li><a href="#factorization-development">Factorisation et Développement</a></li>
+				<li><a href="#scientific-notation">Écriture Scientifique</a></li>
+				<li><a href="#vector-calculus">Calcul Vectoriel</a></li>
+				<li><a href="#matrix-calculus">Calcul Matriciel</a></li>
+				<li><a href="#euclidean-geometry">Géométrie Euclidienne</a></li>
+			</ul>
 		</div>
-	</body>
+
+		<div class="section" id="introduction">
+			<h2>Introduction</h2>
+			<p>Bienvenue sur Maths Learner, une page dédiée à la révision des concepts mathématiques fondamentaux. Cette
+				page couvre plusieurs sujets, y compris les fonctions, la trigonométrie, le tri des nombres, les racines
+				n-ièmes, et la résolution d'équations. Chaque section fournit des explications claires et des exemples
+				variés pour vous aider à mieux comprendre et maîtriser ces concepts.</p>
+		</div>
+
+		<div class="section" id="functions">
+			<h2>Fonctions</h2>
+			<p>Les fonctions sont des relations mathématiques qui associent chaque élément d'un ensemble de départ à
+				exactement un élément d'un ensemble d'arrivée. Elles sont omniprésentes en mathématiques et en sciences,
+				et sont utilisées pour modéliser divers phénomènes.</p>
+
+			<h3>Fonction linéaire</h3>
+			<p>Une fonction linéaire est de la forme \( f(x) = mx + b \), où \( m \) est la pente de la droite et \( b
+				\) est l'ordonnée à l'origine.</p>
+			<div class="chart" id="linear-function-chart"></div>
+			<script>
+				var options = {
+					chart: {
+						type: 'line',
+						height: '400px'
+					},
+					series: [{
+						name: 'Fonction linéaire',
+						data: [[-5, -2], [5, 3]] // Points pour tracer la fonction
+					}],
+					xaxis: {
+						title: {
+							text: 'x'
+						}
+					},
+					yaxis: {
+						title: {
+							text: 'f(x)'
+						}
+					}
+				};
+				var chart = new ApexCharts(document.querySelector("#linear-function-chart"), options);
+				chart.render();
+			</script>
+
+			<h3>Fonctions carrée et cubique</h3>
+			<p>La fonction carrée est définie par \( f(x) = x^2 \) et la fonction cubique par \( f(x) = x^3 \). Voici
+				quelques exemples :</p>
+			<p>Fonction carrée :</p>
+			<ul>
+				<li>\( f(2) = 2^2 = 4 \)</li>
+				<li>\( f(-3) = (-3)^2 = 9 \)</li>
+			</ul>
+			<p>Fonction cubique :</p>
+			<ul>
+				<li>\( f(2) = 2^3 = 8 \)</li>
+				<li>\( f(-3) = (-3)^3 = -27 \)</li>
+			</ul>
+			<div id="square-cubic-chart" class="chart"></div>
+			<script>
+				var options = {
+					chart: {
+						type: 'line',
+						height: '400px'
+					},
+					series: [{
+						name: 'x^2',
+						data: Array.from({ length: 7 }, (v, k) => (k - 3) ** 2)
+					}, {
+						name: 'x^3',
+						data: Array.from({ length: 7 }, (v, k) => (k - 3) ** 3)
+					}],
+					xaxis: {
+						categories: Array.from({ length: 7 }, (v, k) => k - 3),
+						title: {
+							text: 'x'
+						}
+					},
+					yaxis: {
+						title: {
+							text: 'f(x)'
+						}
+					}
+				}
+				var chart = new ApexCharts(document.querySelector("#square-cubic-chart"), options);
+				chart.render();
+			</script>
+
+			<h3>Fonction exponentielle</h3>
+			<p>La fonction exponentielle est définie par \( f(x) = e^x \). Voici quelques exemples :</p>
+			<ul>
+				<li>\( f(1) = e^1 = e \)</li>
+				<li>\( f(-1) = e^{-1} = \frac{1}{e} \)</li>
+			</ul>
+			<div id="exp-chart" class="chart"></div>
+			<script>
+				var options = {
+					chart: {
+						type: 'line',
+						height: '400px'
+					},
+					series: [{
+						name: 'e^x',
+						data: Array.from({ length: 11 }, (v, k) => Math.exp(k - 5))
+					}],
+					xaxis: {
+						categories: Array.from({ length: 11 }, (v, k) => k - 5),
+						title: {
+							text: 'x'
+						}
+					},
+					yaxis: {
+						title: {
+							text: 'f(x)'
+						},
+						labels: {
+							formatter: function (value) {
+								return value.toFixed(3);
+							}
+						}
+					}
+				}
+				var chart = new ApexCharts(document.querySelector("#exp-chart"), options);
+				chart.render();
+			</script>
+
+			<h3>Fonction logarithmique</h3>
+			<p>La fonction logarithmique est définie par \( f(x) = \log(x) \). Voici quelques exemples :</p>
+			<ul>
+				<li>\( f(1) = \log(1) = 0 \)</li>
+				<li>\( f(10) = \log(10) = 1 \)</li>
+			</ul>
+			<div id="log-chart" class="chart"></div>
+			<script>
+				var options = {
+					chart: {
+						type: 'line',
+						height: '400px'
+					},
+					series: [{
+						name: 'log(x)',
+						data: Array.from({ length: 20 }, (v, k) => Math.log(k + 0.00001))
+					}],
+					xaxis: {
+						categories: Array.from({ length: 20 }, (v, k) => k + 0.00001),
+						title: {
+							text: 'x'
+						}
+					},
+					yaxis: {
+						title: {
+							text: 'f(x)'
+						},
+						labels: {
+							formatter: function (value) {
+								return value.toFixed(3);
+							}
+						}
+					}
+				}
+				var chart = new ApexCharts(document.querySelector("#log-chart"), options);
+				chart.render();
+			</script>
+
+			<h3>Les fonctions trigonométriques</h3>
+			<p>Les principales fonctions trigonométriques sont le sinus définie par \( f(x) = \sin(x) \), le cosinus
+				définie par \( f(x) = \cos(x) \) et la tangente définie par \( f(x) = \tan(x) \).</p>
+			<div id="trig-chart" class="chart"></div>
+			<script>
+				var labels = [];
+				for (var i = -360; i <= 360; i++) {
+					if (i === 0 || i === 45 || i === 90 || i === 135 || i === 180 || i === 225 || i === 270 || i === 315 || i === 360 || i === -45 || i === -90 || i === -135 || i === -180 || i === -225 || i === -270 || i === -315 || i === -360) {
+						labels.push(i / 180 + "π");
+					} else {
+						labels.push('');
+					}
+				}
+
+				var tanData = Array.from({ length: 721 }, (v, k) => {
+					if (k % 90 === 0 && (k / 90) % 2 === 1) {
+						return null;
+					}
+					return Math.tan(k * Math.PI / 180);
+				});
+
+				var options = {
+					chart: {
+						type: 'line',
+						height: '400px'
+					},
+					series: [{
+						name: 'Sinus',
+						data: Array.from({ length: 721 }, (v, k) => Math.sin(k * Math.PI / 180))
+					}, {
+						name: 'Cosinus',
+						data: Array.from({ length: 721 }, (v, k) => Math.cos(k * Math.PI / 180))
+					}, {
+						name: 'Tangente',
+						data: tanData
+					}],
+					xaxis: {
+						categories: labels,
+						tickAmount: labels.length,
+						tickPlacement: 'on',
+						title: {
+							text: 'x'
+						}
+					},
+					yaxis: {
+						min: -5,
+						max: 5,
+						labels: {
+							formatter: function (value) {
+								return value.toFixed(3);
+							}
+						},
+						title: {
+							text: 'f(x)'
+						}
+					}
+				}
+
+				var chart = new ApexCharts(document.querySelector("#trig-chart"), options);
+				chart.render();
+			</script>
+		</div>
+
+		<div class="section" id="equations">
+			<h2>Résolutions d'équations</h2>
+			<h3>Équations du second degré</h3>
+			<p>Une équation du second degré est de la forme \( ax^2 + bx + c = 0 \), où \( a \), \( b \), et \( c \)
+				sont des constantes.</p>
+			<p>La solution est donnée par la formule quadratique :</p>
+			<p>\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]</p>
+			<div class="chart" id="quadratic-equation-chart"></div>
+			<script>
+				var options = {
+					chart: {
+						type: 'line',
+						height: '400px'
+					},
+					series: [{
+						name: 'Équation du second degré',
+						data: [[-5, -5], [5, 5]] // Points pour tracer la solution
+					}],
+					xaxis: {
+						title: {
+							text: 'x'
+						}
+					},
+					yaxis: {
+						title: {
+							text: 'f(x)'
+						}
+					}
+				};
+				var chart = new ApexCharts(document.querySelector("#quadratic-equation-chart"), options);
+				chart.render();
+			</script>
+
+			<!-- Ajouter d'autres types d'équations ici, comme les équations exponentielles, logarithmiques, etc. -->
+		</div>
+
+		<div class="section" id="trigonometry">
+			<h2>Trigonométrie</h2>
+			<p>La trigonométrie est la branche des mathématiques qui étudie les relations entre les angles et les
+				longueurs des côtés des triangles. Les fonctions trigonométriques telles que le sinus, le cosinus et la
+				tangente sont essentielles pour résoudre de nombreux problèmes en mathématiques et en sciences.</p>
+
+			<h3>Tableau des valeurs remarquables</h3>
+			<p>Voici un tableau des valeurs remarquables des fonctions trigonométriques :</p>
+			<table>
+				<tr>
+					<th>Angle (degrés)</th>
+					<th>Angle (radians)</th>
+					<th>Sinus</th>
+					<th>Cosinus</th>
+					<th>Tangente</th>
+				</tr>
+				<tr>
+					<td>0°</td>
+					<td>0</td>
+					<td>0</td>
+					<td>1</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td>30°</td>
+					<td>\( \frac{\pi}{6} \)</td>
+					<td>\( \frac{1}{2} \)</td>
+					<td>\( \frac{\sqrt{3}}{2} \)</td>
+					<td>\( \frac{\sqrt{3}}{3} \)</td>
+				</tr>
+				<tr>
+					<td>45°</td>
+					<td>\( \frac{\pi}{4} \)</td>
+					<td>\( \frac{\sqrt{2}}{2} \)</td>
+					<td>\( \frac{\sqrt{2}}{2} \)</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>60°</td>
+					<td>\( \frac{\pi}{3} \)</td>
+					<td>\( \frac{\sqrt{3}}{2} \)</td>
+					<td>\( \frac{1}{2} \)</td>
+					<td>\( \sqrt{3} \)</td>
+				</tr>
+				<tr>
+					<td>90°</td>
+					<td>\( \frac{\pi}{2} \)</td>
+					<td>1</td>
+					<td>0</td>
+					<td>Indéfini</td>
+				</tr>
+			</table>
+
+			<h3>Cercle trigonométrique</h3>
+			<p>Le cercle trigonométrique est un outil visuel utile pour comprendre les relations trigonométriques. Il
+				représente un cercle unité avec un rayon de 1.</p>
+			<div class="chart" id="trigonometric-circle-chart"><canvas id="myCanvas"></canvas></div>
+			<div id="PIs"></div>
+			<script>
+				var myCanvas = document.getElementById("myCanvas");
+				var container = myCanvas.parentElement;
+				const PI = Math.PI;
+				var angle = 1 * PI / 3;
+				var animationID = 0;
+				var valeurs = ["0", "PI/6", "PI/4", "PI/3", "PI/2", "2*PI/3", "3*PI/4", "5*PI/6", "PI"];
+				var valeursBoutons = ["0", "π/6", "π/4", "π/3", "π/2", "2*π/3", "3*π/4", "5*π/6", "π"];
+				/* Création des boutons de valeurs particulières */
+				var PIs = document.getElementById("PIs");
+				for (var i = 0; i < valeurs.length; i++) {
+					var btn = document.createElement("div");
+					btn.className = "btn";
+					btn.innerHTML = "" + valeursBoutons[i];
+					btn.style.cursor = "pointer";
+					btn.setAttribute("onclick", "angle=" + eval(valeurs[i]) + "; displayTrigo(" + eval(valeurs[i]) + ")");
+					btn.setAttribute("id", "angle" + i);
+					PIs.appendChild(btn);
+				}
+				/* Fonctions déclenchées par les boutons */
+				function startAnimation() {
+					if (animationID == 0) { animationTrigo(); }
+				}
+				function stopAnimation() {
+					if (animationID >= 0) {
+						window.cancelAnimationFrame(animationID);
+						animationID = 0;
+					}
+				}
+				/* Détection du changement de taille de la fenêtre */
+				window.addEventListener("resize", function () {
+					displayTrigo(angle);
+				});
+				/* Fonction de callback de requestAnimationFrame */
+				function animationTrigo(timer) {
+					angle += 0.01;
+					if (angle > 2 * PI) { angle = 0; } /* Si un tour complet */
+					displayTrigo(angle);
+					animationID = window.requestAnimationFrame(animationTrigo);
+				}
+				/* Détection du mouvement de souris sur le canvas */
+				myCanvas.addEventListener("mousemove", function (evt) {
+					if (animationID > 0) { return false; } /* On sort si mode animation */
+					/* On redessine le canvas avec les informations de position de souris */
+					displayTrigo(angle);
+					TJScanvas.ctx.beginPath()
+					TJScanvas.ctx.fillStyle = "#f00";
+					TJScanvas.ctx.arc(evt.offsetX, evt.offsetY, 8, 0, 2 * PI);
+					TJScanvas.ctx.fill();
+					/* Conversion des coordonnées de souris en pixels dans le référentiel */
+					var x = (evt.offsetX - TJScanvas.deltaX) / TJScanvas.echelle;
+					x = x.toFixed(3);
+					var y = (evt.offsetY - TJScanvas.deltaY) / TJScanvas.echelle;
+					y = y.toFixed(3);
+					//   TJScanvas.ctx.fillText("("+evt.offsetX+"px, "+evt.offsetY+"px) => ("+x+","+y+")", evt.offsetX-90, evt.offsetY-15);
+					TJScanvas.ctx.strokeStyle = "#f00";
+					TJScanvas.drawLine(0, 0, x, y);
+
+					/* Calcul de l'angle avec arctangeante */
+					if (x > 0) {
+						angle = -1 * Math.atan(y / x);
+					} else {
+						angle = PI - 1 * Math.atan(y / x);
+					}
+				});
+				/* TJScanvas est l'objet permettant d'afficher le canvas */
+				var TJScanvas = {
+					width: 0,
+					height: 0,
+					padding: 0,
+					deltaX: 0,
+					deltaY: 0,
+					echelle: 0,
+					ctx: null,
+					clearCanvas: function () {
+						this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+					},
+					drawLine: function (x1, y1, x2, y2) {
+						this.ctx.beginPath();
+						this.ctx.moveTo(x1 * this.echelle + this.deltaX, y1 * this.echelle + this.deltaY);
+						this.ctx.lineTo(x2 * this.echelle + this.deltaX, y2 * this.echelle + this.deltaY);
+						this.ctx.stroke();
+					},
+					drawCircle: function (x, y, r, a1 = 0, a2 = 2 * PI) {
+						this.ctx.beginPath();
+						this.ctx.arc(x * this.echelle + this.deltaX, y * this.echelle + this.deltaY, r * this.echelle, a1, a2);
+						this.ctx.stroke();
+					},
+					fillCircle: function (x, y, r, a1 = 0, a2 = 2 * PI) {
+						this.ctx.beginPath();
+						this.ctx.arc(x * this.echelle + this.deltaX, y * this.echelle + this.deltaY, r * this.echelle, a1, a2);
+						this.ctx.fill();
+					},
+					text: function (txt, x, y, dX = 0, dY = 0) {
+						this.ctx.fillText(txt, x * this.echelle + this.deltaX + dX, y * this.echelle + this.deltaY + dY);
+					}
+				};
+				/* Fonction principale d'affichage du cercle trigonométrique */
+				function displayTrigo(angle) {
+					/* Forcer la taille du canvas avec la taille du div container */
+					TJScanvas.width = container.getBoundingClientRect().width;
+					TJScanvas.height = container.getBoundingClientRect().height;
+					/* Optimisation de la hauteur de canvas */
+					TJScanvas.height = Math.min(TJScanvas.width, 500);
+					container.style.height = TJScanvas.height + "px";
+					myCanvas.setAttribute("width", TJScanvas.width);
+					myCanvas.setAttribute("height", TJScanvas.height);
+
+					/* Effacer le canvas avant de le redessiner entièrement */
+					TJScanvas.ctx = myCanvas.getContext("2d");
+					TJScanvas.clearCanvas();
+
+					/* Correspondance reférentiel interne et taille du canvas */
+					/* position (0,0) au centre du  */
+					TJScanvas.padding = 25; /* Bordures libres en px */
+					TJScanvas.deltaX = TJScanvas.width / 2;  /* translationX du point (0,0) */
+					TJScanvas.deltaY = TJScanvas.height / 2; /* translationY du point (0,0) */
+					TJScanvas.echelle = (TJScanvas.height - 2 * TJScanvas.padding) / 2 / 1.1;
+
+					/* tracé du référentiel */
+					TJScanvas.drawLine(-1.1, 0, 1.1, 0);
+					TJScanvas.drawLine(0, -1.1, 0, 1.1);
+					TJScanvas.drawCircle(0, 0, 1);
+					TJScanvas.ctx.fillStyle = "rgb(0,0,0)";
+					TJScanvas.text("1", 1, 0, 5, 20);
+					TJScanvas.text("-1", -1, 0, -20, 20);
+					TJScanvas.text("1", 0, -1, 5, -5);
+					TJScanvas.text("-1", 0, 1, 5, 17);
+
+					/* Tracé des informations de trigonométrie */
+					angleTrigo = angle;
+					angle = -1 * angle;
+					var x = Math.cos(angle), y = Math.sin(angle);
+					TJScanvas.fillCircle(x, y, 5 / TJScanvas.echelle);
+					TJScanvas.ctx.strokeStyle = "rgb(0,140,0)";
+					TJScanvas.ctx.lineWidth = 2;
+					TJScanvas.drawCircle(0, 0, 0.2, angle, 0); /* arc de angle */
+					TJScanvas.drawLine(0, 0, x, y); /* Rayon */
+
+					TJScanvas.ctx.lineWidth = 1;
+					TJScanvas.ctx.setLineDash([3, 3]);
+					TJScanvas.drawLine(x, 0, x, y); /* axe des Y */
+					TJScanvas.drawLine(0, y, x, y); /* axe des X */
+
+					/* Libelles */
+					TJScanvas.ctx.fillStyle = "rgb(0,140,0)";
+					var txt = "cos(" + angleTrigo.toFixed(3) + ") = " + Math.cos(angleTrigo).toFixed(3);
+					var w = TJScanvas.ctx.measureText(txt).width;
+					if (y < 0) {
+						TJScanvas.text(txt, x, 0, -1 * w / 2, 15);
+					} else {
+						TJScanvas.text(txt, x, 0, -1 * w / 2, -10);
+					}
+					var txt = "sin(" + angleTrigo.toFixed(3) + ") = " + Math.sin(angleTrigo).toFixed(3);
+					var w = TJScanvas.ctx.measureText(txt).width;
+					if (x < 0) {
+						TJScanvas.text(txt, 0, y, 5, 4);
+					} else {
+						TJScanvas.text(txt, 0, y, -1 * w - 5, 4);
+					}
+
+					var txt = "(" + Math.cos(angleTrigo).toFixed(3) + "," + Math.sin(angleTrigo).toFixed(3) + ")";
+					var w = TJScanvas.ctx.measureText(txt).width;
+					if (x < 0) {
+						TJScanvas.text(txt, x, y, -8 - w, 4);
+					} else {
+						TJScanvas.text(txt, x, y, 8, 4);
+					}
+					/* Tableau des angles remarquables en fraction de PI */
+					var txtAngle = "";
+					for (var i = 0; i < valeurs.length; i++) {
+						document.getElementById("angle" + i).style.backgroundColor = "#fff";
+						if (angleTrigo.toFixed(3) == eval(valeurs[i]).toFixed(3)) {
+							var txtAngle = " = " + valeurs[i];
+							var elementActuel = document.getElementById("angle" + i);
+							elementActuel.style.backgroundColor = "#1E1E1E";
+							elementActuel.style.padding = "10px";
+							elementActuel.style.marginBottom = "10px";
+							elementActuel.style.borderRadius = "10px";
+							elementActuel.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.5)";
+							elementActuel.style.width = "30%";
+							elementActuel.style.textAlign = "center";
+							elementActuel.style.boxSizing = "border-box";
+							elementActuel.style.transition = "transform 0.2s";
+							elementActuel.style.textDecoration = "none";
+							elementActuel.style.color = "white";
+						} else {
+							var txtAngle = " = " + angleTrigo.toFixed(3);
+							var elementActuel = document.getElementById("angle" + i);
+							elementActuel.style.backgroundColor = "#1E1E1E";
+							elementActuel.style.padding = "10px";
+							elementActuel.style.marginBottom = "10px";
+							elementActuel.style.borderRadius = "10px";
+							elementActuel.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.5)";
+							elementActuel.style.width = "30%";
+							elementActuel.style.textAlign = "center";
+							elementActuel.style.boxSizing = "border-box";
+							elementActuel.style.transition = "transform 0.2s";
+							elementActuel.style.textDecoration = "none";
+							elementActuel.style.color = "white";
+						}
+					}
+					TJScanvas.ctx.font = "italic 14px arial";
+					var txt = "angle" + txtAngle;
+					var w = TJScanvas.ctx.measureText(txt).width;
+					TJScanvas.text(txt, 0.2 * Math.cos(angle / 2), 0.2 * Math.sin(angle / 2), 5, 0);
+				}
+				window.onload = function () {
+					displayTrigo(angle);
+				}
+			</script>
+		</div>
+
+
+		<div class="section" id="derivatives-integrals">
+			<h2>Dérivées et Intégrales</h2>
+			<p>Les dérivées et les intégrales sont des concepts fondamentaux en calcul différentiel et intégral. Elles
+				permettent de calculer respectivement les taux de variation instantanés et les aires sous des courbes,
+				et sont largement utilisées en physique, en ingénierie et dans d'autres domaines des sciences
+				appliquées.</p>
+
+			<h3>Tableau des dérivées et des intégrales</h3>
+			<p>Voici un tableau des dérivées et des intégrales des fonctions courantes :</p>
+			<table>
+				<tr>
+					<th>Fonction</th>
+					<th>Dérivée</th>
+					<th>Intégrale</th>
+				</tr>
+				<tr>
+					<td>\( f(x) = c \)</td>
+					<td>0</td>
+					<td>\( cx + C \)</td>
+				</tr>
+				<tr>
+					<td>\( f(x) = x^n \)</td>
+					<td>\( nx^{n-1} \)</td>
+					<td>\( \frac{1}{n+1}x^{n+1} + C \)</td>
+				</tr>
+				<tr>
+					<td>\( f(x) = e^x \)</td>
+					<td>\( e^x \)</td>
+					<td>\( e^x + C \)</td>
+				</tr>
+				<tr>
+					<td>\( f(x) = \ln(x) \)</td>
+					<td>\( \frac{1}{x} \)</td>
+					<td>\( x\ln(x) - x + C \)</td>
+				</tr>
+				<tr>
+					<td>\( f(x) = \sin(x) \)</td>
+					<td>\( \cos(x) \)</td>
+					<td>\( -\cos(x) + C \)</td>
+				</tr>
+				<tr>
+					<td>\( f(x) = \cos(x) \)</td>
+					<td>\( -\sin(x) \)</td>
+					<td>\( \sin(x) + C \)</td>
+				</tr>
+			</table>
+		</div>
+
+
+		<div class="section" id="min-max">
+			<h2>Recherche des minimums et des maximums d'une fonction</h2>
+			<p>Dans l'analyse mathématique, trouver les minimums et les maximums d'une fonction est essentiel pour
+				comprendre le comportement de cette fonction. Ces points critiques peuvent être utilisés pour résoudre
+				des problèmes d'optimisation dans divers domaines.</p>
+
+			<h3>Exemple de recherche de minimum et maximum</h3>
+			<p>Considérons la fonction \( f(x) = x^2 - 4x + 3 \).</p>
+			<div class="chart" id="min-max-function-chart"></div>
+			<script>
+				var options = {
+					chart: {
+						type: 'line',
+						height: '400px'
+					},
+					series: [{
+						name: 'f(x)',
+						data: [[-1, 8], [2, -1]] // Points pour tracer la fonction
+					}],
+					xaxis: {
+						title: {
+							text: 'x'
+						}
+					},
+					yaxis: {
+						title: {
+							text: 'f(x)'
+						}
+					}
+				};
+				var chart = new ApexCharts(document.querySelector("#min-max-function-chart"), options);
+				chart.render();
+			</script>
+			<p>Pour trouver les minimums et maximums, nous devons d'abord calculer les dérivées de la fonction et
+				trouver ses points critiques. Ensuite, nous examinons la concavité de la fonction pour déterminer si ces
+				points sont des minimums ou des maximums.</p>
+		</div>
+
+
+		<div class="section" id="factorisation-development">
+			<h2>Factorisation et Développement</h2>
+			<p>La factorisation et le développement sont des techniques importantes en algèbre pour simplifier les
+				expressions mathématiques. Ils sont souvent utilisés pour résoudre des équations, simplifier des
+				fractions rationnelles, ou factoriser des polynômes.</p>
+
+			<h3>Exemple de factorisation et développement</h3>
+			<p>Considérons l'expression \( (x + 2)(x - 3) \).</p>
+			<p>Pour factoriser cette expression, nous utilisons la formule \( (a - b)(a + b) = a^2 - b^2 \).</p>
+			<p>En utilisant cette formule, nous obtenons \( x^2 - 3x + 2x - 6 \).</p>
+			<p>En regroupant les termes similaires, nous obtenons \( x^2 - x - 6 \).</p>
+			<p>Donc, l'expression \( (x + 2)(x - 3) \) est égale à \( x^2 - x - 6 \).</p>
+		</div>
+
+
+		<div class="section" id="scientific-notation">
+			<h2>Écriture Scientifique</h2>
+			<p>L'écriture scientifique est une notation utilisée pour représenter des nombres très grands ou très petits
+				de manière concise. Elle est couramment utilisée en sciences et en ingénierie pour faciliter les calculs
+				et la communication de valeurs numériques.</p>
+
+			<h3>Exemple d'écriture scientifique</h3>
+			<p>Le nombre \( 300,000,000 \) peut être écrit en notation scientifique comme \( 3 \times 10^8 \).</p>
+			<p>De même, le nombre \( 0.0000000023 \) peut être écrit comme \( 2.3 \times 10^{-9} \).</p>
+			<p>En notation scientifique, un nombre est écrit sous la forme \( a \times 10^n \), où \( a \) est un nombre
+				décimal avec un seul chiffre non nul avant la virgule, et \( n \) est un entier.</p>
+		</div>
+
+
+		<div class="section" id="vector-calculus">
+			<h2>Calcul Vectoriel</h2>
+			<p>Le calcul vectoriel est une branche des mathématiques qui traite des vecteurs, qui sont des quantités
+				ayant à la fois une magnitude et une direction. Il est largement utilisé en physique, en ingénierie et
+				en informatique pour modéliser et résoudre des problèmes impliquant des grandeurs physiques telles que
+				la vitesse, la force et le champ électrique.</p>
+
+			<h3>Opérations de base sur les vecteurs</h3>
+			<ul>
+				<li>Addition de vecteurs</li>
+				<li>Soustraction de vecteurs</li>
+				<li>Produit scalaire</li>
+				<li>Produit vectoriel</li>
+			</ul>
+		</div>
+
+
+		<div class="section" id="matrix-calculus">
+			<h2>Calcul Matriciel</h2>
+			<p>Le calcul matriciel est une branche des mathématiques qui étudie les matrices, qui sont des tableaux
+				rectangulaires de nombres. Il est largement utilisé dans divers domaines tels que l'algèbre linéaire,
+				les statistiques, l'ingénierie et l'informatique pour résoudre des systèmes d'équations linéaires,
+				effectuer des transformations géométriques, et bien plus encore.</p>
+
+			<h3>Opérations de base sur les matrices</h3>
+			<ul>
+				<li>Addition de matrices</li>
+				<li>Soustraction de matrices</li>
+				<li>Multiplication de matrices</li>
+				<li>Inversion de matrices</li>
+			</ul>
+		</div>
+
+
+		<div class="section" id="euclidean-geometry">
+			<h2>Géométrie Euclidienne</h2>
+			<p>La géométrie euclidienne est une branche des mathématiques qui étudie les propriétés et les relations des
+				figures géométriques dans un espace à nombre fini de dimensions. Elle est fondée sur les axiomes
+				d'Euclide et est utilisée pour analyser les formes, les grandeurs et les transformations dans l'espace.
+			</p>
+
+			<h3>Principales concepts en géométrie euclidienne</h3>
+			<ul>
+				<li>Points, lignes et plans</li>
+				<li>Angles et triangles</li>
+				<li>Cercles et coniques</li>
+				<li>Transformations géométriques : translation, rotation, homothétie</li>
+				<li>Théorèmes fondamentaux : théorème de Pythagore, théorème de Thalès</li>
+			</ul>
+		</div>
+
+	</div>
+</body>
+
 </html>
