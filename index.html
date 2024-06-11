@@ -176,12 +176,14 @@
 			<div class="chart" id="linear-function-chart"></div>
 			<script>
 				var x = [];
-				for (var i = -5; i <= 5; i++) {
+				for (var i = -3; i <= 5; i++) {
 					x.push(i);
 				}
-				var y = [];
+				var yminus = [];
+				var yplus = [];
 				for (var i = 0; i < x.length; i++) {
-                    y.push(6*x[i] - 4);
+                    yminus.push(6*x[i] - 4);
+					yplus.push(-4*x[i] + 4);
                 }
 				var options = {
 					chart: {
@@ -189,8 +191,11 @@
 						height: '400px'
 					},
 					series: [{
-						name: 'Fonction linéaire',
-						data: y
+						name: '6x - 4',
+						data: yminus
+					}, {
+						name: '-4x + 4',
+						data: yplus
 					}],
 					xaxis: {
 						categories: x,
