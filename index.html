@@ -369,7 +369,6 @@
 			
 				<!-- Ajouter d'autres types d'équations ici, comme les équations exponentielles, logarithmiques, etc. -->
 			</div>
-			
 
 			<div class="section" id="trigonometry">
 				<h2>Trigonométrie</h2>
@@ -438,6 +437,7 @@
 						var btn=document.createElement("div");
 						btn.className="btn";
 						btn.innerHTML=""+valeursBoutons[i];
+						btn.style.cursor="pointer";
 						btn.setAttribute("onclick", "angle="+eval(valeurs[i])+"; displayTrigo("+eval(valeurs[i])+")");
 						btn.setAttribute("id","angle"+i);
 						PIs.appendChild(btn);
@@ -530,7 +530,6 @@
 						
 						TJScanvas.ctx.font="bold 14px arial";
 						TJScanvas.ctx.fillStyle="rgb(0,140,0)";
-						TJScanvas.ctx.fillText(TJScanvas.width+"x"+TJScanvas.height, 5, 15); 
 						
 						TJScanvas.padding=25;
 						TJScanvas.deltaX=TJScanvas.width/2;
@@ -562,14 +561,14 @@
 						
 						
 						TJScanvas.ctx.fillStyle="rgb(0,140,0)";
-						var txt="cos(" + angleTrigo.toFixed(3) + ")";
+						var txt="cos(" + angleTrigo.toFixed(3) + ") = " + Math.cos(angleTrigo).toFixed(3);
 						var w=TJScanvas.ctx.measureText(txt).width;
 						if (y<0) {
 							TJScanvas.text(txt, x, 0, -1*w/2, 15);
 						} else {
 							TJScanvas.text(txt, x, 0, -1*w/2, -10);
 						}
-						var txt="sin(" + angleTrigo.toFixed(3) + ")";
+						var txt="sin(" + angleTrigo.toFixed(3) + ") = " + Math.sin(angleTrigo).toFixed(3);
 						var w=TJScanvas.ctx.measureText(txt).width;
 						if (x<0) {
 							TJScanvas.text(txt, 0, y,5, 4);
