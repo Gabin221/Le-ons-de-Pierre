@@ -175,6 +175,14 @@
 				\) est l'ordonnée à l'origine.</p>
 			<div class="chart" id="linear-function-chart"></div>
 			<script>
+				var x = [];
+				for (var i = -5; i <= 5; i++) {
+					x.push(i);
+				}
+				var y = [];
+				for (var i = 0; i < x.length; i++) {
+                    y.push(6*x[i] - 4);
+                }
 				var options = {
 					chart: {
 						type: 'line',
@@ -182,9 +190,10 @@
 					},
 					series: [{
 						name: 'Fonction linéaire',
-						data: [[-5, -2], [5, 3]] // Points pour tracer la fonction
+						data: y
 					}],
 					xaxis: {
+						categories: x,
 						title: {
 							text: 'x'
 						}
