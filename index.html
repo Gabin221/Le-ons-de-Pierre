@@ -223,9 +223,8 @@
 				chart.render();
 			</script>
 
-			<h3>Fonctions carrée et cubique</h3>
-			<p>La fonction carrée est définie par \( f(x) = x^2 \) et la fonction cubique par \( f(x) = x^3 \). Voici
-				quelques exemples :</p>
+			<h3>Fonction puissance</h3>
+			<p>La fonction puissance est définie par \( f(x) = x^n \). Voici quelques exemples :</p>
 			<p>Fonction carrée :</p>
 			<ul>
 				<li>\( f(2) = 2^2 = 4 \)</li>
@@ -351,23 +350,21 @@
 			<div id="log-chart" class="chart"></div>
 			<script>
 				var x = [];
-				var labels = [];
-				var compteur = 0;
-				for (var i = 0.1; i <= 10+0.1; i+=0.1) {
-					if (compteur%4 === 0) {
-						labels.push(i.toFixed(1));
-					} else {
-						labels.push('');
+			
+				for (var i = 0; i <= 10; i += 0.1) {
+					if (i != 0) {
+						x.push(Math.round(i));
 					}
-					x.push(i.toFixed(1));
-					compteur++;
 				}
+			
 				var yminus = [];
 				var yplus = [];
+			
 				for (var i = 0; i < x.length; i++) {
-                    yminus.push(Math.log10(x[i]));
-					yplus.push(Math.log2(x[i]));
-                }
+					yminus.push(Math.log10(x[i]).toFixed(2));
+					yplus.push(Math.log2(x[i]).toFixed(2));
+				}
+			
 				var options = {
 					chart: {
 						type: 'line',
@@ -381,7 +378,7 @@
 						data: yplus
 					}],
 					xaxis: {
-						categories: labels,
+						categories: x,
 						title: {
 							text: 'x'
 						},
@@ -401,11 +398,12 @@
 							}
 						}
 					}
-				}
+				};
+			
 				var chart = new ApexCharts(document.querySelector("#log-chart"), options);
 				chart.render();
 			</script>
-
+			
 			<h3>Les fonctions trigonométriques</h3>
 			<p>Les principales fonctions trigonométriques sont le sinus définie par \( f(x) = \sin(x) \), le cosinus
 				définie par \( f(x) = \cos(x) \) et la tangente définie par \( f(x) = \tan(x) \).</p>
