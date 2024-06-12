@@ -936,56 +936,17 @@
 				<li>Nous pouvons toujours déduire la dérivée et la primitive de \( x \) à partir de la dérivée et de la primitive de \( x \).</li>
 				<li>Nous n'avons pas besoin de connaître la dérivée et la primitive de la fonction racine car \( \sqrt[n]{a} = a^{\frac{1}{n}} \) donc par exemple \( \sqrt[3]{a} = a^{\frac{1}{3}} \).</li>
 				<li>Nous pouvons faire le même genre de raisonnement concernant la dérivée et la primitive de la fonction inverse car \( \frac{1}{a} = a^{-1} \).</li>
-				<li>Pour les primitives et les dérivées des fonctions trigonométriques, il faut juste retenir cette phrase: <b>Avec le temps, tout dérive.</b> et avoir en tête le cercle trigonométrique:</li>
+				<li>
+					Pour les primitives et les dérivées des fonctions trigonométriques, il faut juste retenir cette phrase: <b>Avec le temps, tout dérive.</b> et avoir en tête le cercle trigonométrique:
+					<div style="display: flex; justify-content: center;">
+						<img src="Images/cercleTrigoDeriveeIntegrale.png"/>
+					</div>
+
+					Si on regarde le graphique ci-dessus, on peut imaginer par exemple que c'est une horloge. La phrase ci-dessus permet juste de se rappeler que si on lit dans le sens des aiguilles d'une montre, on dérive la fonction. Si par exemple on cherche la dérivée de la fonction \( -cos(x) \), on cherche où est écrit \( -cos(x) \), on tourne dans le sens de la flèche <b>dérivée</b> et on lit la valeur écrite, ici \( -sin(x) \). Pour une intégrale, c'est pareil mais dans l'autre sens.
+				</li>
 			</ul>
-			<div id="cercleTrigo"></div>
-			<script>
-				var angles = [];
-				for (var i = Math.PI/2; i <= 2*Math.PI; i+=0.01) {
-					angles.push(i);
-				}
-
-				var cercleTrigo = [];
-				for (var i = 0; i <= angles.length; i++) {
-                    cercleTrigo.push([Math.cos(i), Math.sin(i)]);
-                }
-
-				var options = {
-					chart: {
-						type: 'line',
-						height: '400px',
-						width: '400px'
-					},
-					series: [{
-						data: cercleTrigo
-					}],
-					xaxis: {
-						labels: {
-							formatter: function (value) {
-								return "";
-							}
-						}
-					},
-					yaxis: {
-						labels: {
-							formatter: function (value) {
-								return "";
-							}
-						}
-					},
-					stroke: {
-						show: true,
-						curve: 'straight',
-						lineCap: 'butt',
-						colors: undefined,
-						width: 2,
-						dashArray: 0, 
-					}
-				}
-
-				var chart = new ApexCharts(document.querySelector("#cercleTrigo"), options);
-				chart.render();
-			</script>
+			
+			<p>En mathématiques, toutes les primitives sont trouvées à une constante additionnelle près. Cependant, en physique on verra très souvent que nous considèrerons que les constantes sont nulles car nous pouvons toujours prendre des valeurs de conditions initiales telles que la constante s'annule. Ainsi, nous avons dans tous les cas une infinité de primitives possible pour une même fonction.</p>
 		</div>
 
 		<div class="section" id="min-max">
