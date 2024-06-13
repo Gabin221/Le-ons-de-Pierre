@@ -25,3 +25,7 @@ Cette page couvre une variété de sujets mathématiques, y compris :
 - **Clarté et Précision** : Explications avec des exemples.
 - **Interactivité** : Exercices pratiques pour renforcer la compréhension.
 - **Communauté** : Plateforme pour échanger et discuter.
+
+## Fichier Python : solveur_equations.py
+
+Dans le dossier `python`, nous avons un fichier `solveur_equations.py` qui contient un solveur d'équations mathématiques générées aléatoirement. 
