@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def hello():
-	x = np.linspace(-4, 3, 1000)
+	x = np.linspace(-5, 5, 1000)
 	y = 4*x**2 + 5*x - 4
 
 	plt.figure()
@@ -13,6 +13,8 @@ def hello():
 	plt.plot([(-5 + np.sqrt(89))/8], [0], marker="o", label=r"$ x_{2} = \frac{-5 + \sqrt{89}}{8} $")
 	plt.grid(True)
 	plt.legend()
+	plt.xlim(-4, 3)
+	plt.ylim(-10, 50)
 	plt.savefig("resolutionEquationSecondDegre.png")
 	plt.show()
 
