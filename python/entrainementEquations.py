@@ -68,16 +68,16 @@ def generate_equation(choice):
         
         if selected_type == "cos":
             equation = f"{a}*cos({b}*x)"
-            solutions = sp.solveset(a*sp.cos(b*sp.Symbol('x')), sp.Symbol('x'))
-            solutions = [sol.evalf() for sol in solutions if sol.is_real]
+            solutions = sp.solve(a*sp.cos(b*sp.Symbol('x')), sp.Symbol('x'))
+            solutions = [sol for sol in solutions if sol.is_real]
         elif selected_type == "sin":
             equation = f"{a}*sin({b}*x)"
-            solutions = sp.solveset(a*sp.sin(b*sp.Symbol('x')), sp.Symbol('x'))
-            solutions = [sol.evalf() for sol in solutions if sol.is_real]
+            solutions = sp.solve(a*sp.sin(b*sp.Symbol('x')), sp.Symbol('x'))
+            solutions = [sol for sol in solutions if sol.is_real]
         elif selected_type == "tan":
             equation = f"{a}*tan({b}*x)"
-            solutions = sp.solveset(a*sp.tan(b*sp.Symbol('x')), sp.Symbol('x'))
-            solutions = [sol.evalf() for sol in solutions if sol.is_real]
+            solutions = sp.solve(a*sp.tan(b*sp.Symbol('x')), sp.Symbol('x'))
+            solutions = [sol for sol in solutions if sol.is_real]
         
     return sp.pretty(equation), solutions
 
@@ -109,11 +109,11 @@ def main():
             continue
         
         equation, solutions = generate_equation(choice)
-        print(f"\nÉquation générée : {equation}")
+        print(f"\nÉquation générée : {equation} = 0")
         
-        ready = input("Êtes-vous prêt à voir les solutions de cette équation ? (oui) : ")
+        ready = input("Êtes-vous prêt à voir les solutions de cette équation ? (o) : ")
         
-        if ready.lower() == 'oui':
+        if ready.lower() == 'o':
             if solutions:
                 print("La/les solution(s) de l'équation sont :")
                 for solution in solutions:
