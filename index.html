@@ -500,6 +500,31 @@
 
 		<div class="section" id="equations">
 			<h2>Résolutions d'équations</h2>
+			<p>Dans cette partie, nous allons voir quelques exemples de différents types d'équations à résoudre. Dans tous les cas, une bonne pratique à avoir est que une fois que nous avons trouvé la/les solution(s), une bonne idée serait d'injecter les solutions dans l'équation de base. Ainsi, nous allons assez vite trouver une égalité de deux scalaires ce qui montrera que notre solution fonctionne. Nous allons illustrer cela avec les équations du premier degré, mais ceci s'applique à tout type d'équation.</p>
+
+			<h3>Équations du premier degré</h3>
+			<p>Une équation du premier degré est de la forme \( ax + b = 0 \), où \( a \) et \( b \) sont des constantes. Quand nous nous retrouvons face à ce genre d'équation, nous cherchons en général à trouver la solution de ce polynôme. Le polynôme étant de degré 1, nous avons une unique solution possible.</p>
+			<p>Par exemple, prenons l'équation \( 5x + 7 = -1 \):</p>
+			<p>\[ \begin{equation*}
+					\begin{split}
+						5x + 7 & = -1\\
+						5x & = -8\\
+						x & = -\frac{8}{5}
+					\end{split}
+				\end{equation*} \]
+			</p>
+
+			<p>Nous allons désormais vérifier que notre solution fonctionne bien et que nous ne sommes pas trompé:</p>
+			<p>\[ \begin{equation*}
+					\begin{split}
+						5 \times -\frac{8}{5} + 7 & = -1\\
+						-8 + 7 & = -1\\
+						-1 & = -1
+					\end{split}
+				\end{equation*} \]
+			</p>
+			<p>Etant donné que nous avons trouvé que \( -1 = -1 \), nous avons vérifié que notre solution fonctionne bien. Nous devons faire ceci à chaque fois que nous avons une solution à une équation.</p>
+
 			<h3>Équations du second degré</h3>
 			<p>Une équation du second degré est de la forme \( ax^2 + bx + c = 0 \), où \( a \), \( b \), et \( c \) sont des constantes. Quand nous nous retrouvons face à ce genre d'équation, nous cherchons en général à trouver les racines de ce polynôme. Le polynôme étant de degré 2 (car la plus grande puissance que nous avons est 2), nous avons deux solutions possibles: \( x_{+} \) et \( x_{-} \) (ou \( x_{1} \) et \( x_{2} \)). Voici donc comment trouver ces solutions.</p>
 			<p>La méthode principalement utilisée consiste à utiliser le discriminant: \( \Delta = b^{2} - 4ac \). En fonction du signe de ce discriminant, nous avons 3 suites possibles. La première est deux solutions réelles, la deuxième est 2 solutions réelles confondues (ou de multiplicité 2) et la dernière est 2 solutions complexes.</p>
@@ -530,84 +555,36 @@
 				</li>
 			</ol>
 
-			<p>Prenons pour exemple l'équation \( 3x^{2} + x - 4 = 0 \). Nous allons d'abord calculer le discriminant:</p>
+			<p>Prenons pour exemple l'équation \( 4x^{2} + 5x - 4 = 0 \). Nous allons d'abord calculer le discriminant:</p>
 			<p>\[ \begin{equation*}
 					\begin{split}
 						\Delta & = b^{2} - 4ac\\
-							   & = 1^{2} - 4 \times 3 \times (-4)\\
-							   & = 1 + 48\\
-							   & = 49
+							   & = 5^{2} - 4 \times 4 \times (-4)\\
+							   & = 25 + 64\\
+							   & = 89
 					\end{split}
 				\end{equation*} \]
 			</p>
 			<p>Sachant que le discriminant est positif, nous avons deux solutions réelles:</p>
 			<p>\[ \begin{equation*}
 					\begin{split}
-						x_{1} & = \frac{-b + \sqrt{\Delta}}{2a}\\
-							  & = \frac{-1 + \sqrt{49}}{2 \times 3}\\
-							  & = \frac{8}{6}\\
-							  & = \frac{4}{3}
+						x_{1} & = \frac{-b - \sqrt{\Delta}}{2a}\\
+							& = \frac{-5 - \sqrt{89}}{2 \times 4}\\
+							& = \frac{-5 - \sqrt{89}}{8}
 					\end{split}
 				\end{equation*} \]
 			</p>
 			<p>\[ \begin{equation*}
 					\begin{split}
-						x_{2} & = \frac{-b - \sqrt{\Delta}}{2a}\\
-							& = \frac{-1 - \sqrt{49}}{2 \times 3}\\
-							& = \frac{-8}{6}\\
-							& = \frac{-4}{3}
+						x_{2} & = \frac{-b + \sqrt{\Delta}}{2a}\\
+							  & = \frac{-5 + \sqrt{89}}{2 \times 4}\\
+							  & = \frac{-5 + \sqrt{89}}{8}
 					\end{split}
 				\end{equation*} \]
 			</p>
-			<div class="chart" id="quadratic-equation-chart"></div>
-			<script>
-				var x = [];
-				for (var i = -6; i <= 6; i+=0.5) {
-					x.push(i);
-				}
-				var y = [];
-				for (var i = 0; i < x.length; i++) {
-                    y.push(3*x[i]**2 + x[i] - 4);
-                }
-				var seriesData = [];
-				for (var i = 0; i < x.length; i++) {
-					seriesData.push([x[i], y[i]]);
-				}
-
-				var options = {
-					chart: {
-						type: 'line',
-						height: '400px'
-					},
-					series: [{
-						name: '3x² + x - 4',
-						data: seriesData
-					}, {
-						name: 'racines',
-						data: [[-4/3, 0]]
-					}, {
-						name: 'racines',
-						data: [[4/3, 0]]
-					}],
-					xaxis: {
-						title: {
-							text: 'x'
-						},
-						labels: {
-							formatter: function (value) {
-							return value;
-							}
-						}
-					},
-					yaxis: {
-						title: {
-							text: 'f(x)'
-						}
-					}
-				};
-				var chart = new ApexCharts(document.querySelector("#quadratic-equation-chart"), options);
-				chart.render();
-			</script>
+			<div style="display: flex; justify-content: center;">
+				<img src="Images/resolutionEquationSecondDegre.png"/>
+			</div>
 
 			<!-- Ajouter d'autres types d'équations ici, comme les équations exponentielles, logarithmiques, etc. -->
 		</div>
