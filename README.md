@@ -12,6 +12,12 @@ Cette page couvre une variété de sujets mathématiques, y compris :
 - **Résolutions d'Équations** : Techniques pour résoudre des équations.
 - **Trigonométrie** : Angles, triangles, fonctions trigonométriques.
 - **Dérivées et Intégrales** : Calcul différentiel et intégral.
+- **Minimum et maximum de fonction** : Recherche de minimum et de maximum sur un intervalle.
+- **Factorisation et développement** : Factorisation et développement d'expressions, identités remarquables
+- **Nombres complexes** : Présentation du calcul complexe
+- **Calcul vectoriel** : Présentation du calcul vectoriel
+- **Calcul matriciel** : Présentation du calcul matriciel
+- **Géométrie Euclidienne** : Présentation des bases de la géométrie euclidienne
 
 ## Caractéristiques
 
