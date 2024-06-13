@@ -149,6 +149,7 @@
 			<ul>
 				<li><a href="#introduction">Introduction</a></li>
 				<li><a href="#scientific-notation">Écriture Scientifique</a></li>
+				<li><a href="#homogeneity-physics">Homogénéité des expressions</a></li>
 				<li><a href="#functions">Fonctions</a></li>
 				<li><a href="#equations">Résolutions d'équations</a></li>
 				<li><a href="#trigonometry">Trigonométrie</a></li>
@@ -156,7 +157,6 @@
 				<li><a href="#min-max-functions">Minimum et Maximum de Fonctions</a></li>
 				<li><a href="#factorization-development">Factorisation et Développement</a></li>
 				<li><a href="#complex-numbers">Nombres Complexes</a></li>
-				<li><a href="#homogeneity-physics">Homogénéité en Physique</a></li>
 				<li><a href="#vector-calculus">Calcul Vectoriel</a></li>
 				<li><a href="#matrix-calculus">Calcul Matriciel</a></li>
 				<li><a href="#euclidean-geometry">Géométrie Euclidienne</a></li>
@@ -182,6 +182,18 @@
 			<p>Le nombre \( 300,000,000 \) peut être écrit en notation scientifique comme \( 3 \times 10^8 \).</p>
 			<p>De même, le nombre \( 0.0000000023 \) peut être écrit comme \( 2.3 \times 10^{-9} \).</p>
 		</div>
+        
+        <div class="section" id="homogeneity-physics">
+            <h2>Homogénéité des expressions</h2>
+			<p>\[ \begin{equation*}
+					\begin{split}
+						F & = ma\\
+						F (Newton) & = kg.m.s^{-2}\\
+					\end{split}
+				\end{equation*} \]
+			</p>
+			<p>Les unités sont cohérentes.</p>
+        </div>
 
 		<div class="section" id="functions">
 			<h2>Fonctions</h2>
@@ -364,19 +376,24 @@
 			<div id="log-chart" class="chart"></div>
 			<script>
 				var x = [];
+				var labels = [];
 			
-				for (var i = 0; i <= 10; i += 0.1) {
-					if (i != 0) {
-						x.push(Math.round(i));
+				for (var i = 0.1; i <= 10; i += 0.1) {
+					if (Math.abs(i - Math.round(i)) < 0.01) { // Comparaison avec une petite tolérance
+						labels.push(Math.round(i));
+					} else {
+						labels.push('');
 					}
+					x.push(i.toFixed(2));
 				}
+
 			
 				var yminus = [];
 				var yplus = [];
 			
 				for (var i = 0; i < x.length; i++) {
-					yminus.push(Math.log10(x[i]).toFixed(2));
-					yplus.push(Math.log2(x[i]).toFixed(2));
+					yminus.push(Math.log10(x[i]));
+					yplus.push(Math.log2(x[i]));
 				}
 			
 				var options = {
@@ -392,7 +409,7 @@
 						data: yplus
 					}],
 					xaxis: {
-						categories: x,
+						categories: labels,
 						title: {
 							text: 'x'
 						},
@@ -1025,18 +1042,6 @@
 					\end{split}
 				\end{equation*} \]
 			</p>
-        </div>
-        
-        <div class="section" id="homogeneity-physics">
-            <h2>Homogénéité en Physique</h2>
-			<p>\[ \begin{equation*}
-					\begin{split}
-						F & = ma\\
-						F (Newton) & = kg.m.s^{-2}\\
-					\end{split}
-				\end{equation*} \]
-			</p>
-			<p>Les unités sont cohérentes.</p>
         </div>
 
 		<div class="section" id="vector-calculus">
