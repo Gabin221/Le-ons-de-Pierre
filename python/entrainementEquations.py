@@ -65,18 +65,19 @@ def generate_equation(choice):
         while a == 0 or b == 0:
             a = random.randint(-10, 10)
             b = random.randint(-10, 10)
+        c = random.randint(-10, 10)
         
         if selected_type == "cos":
-            equation = f"{a}*cos({b}*x)"
-            solutions = sp.solve(a*sp.cos(b*sp.Symbol('x')), sp.Symbol('x'))
+            equation = f"{a}*cos({b}*x) + {c}"
+            solutions = sp.solve(a*sp.cos(b*sp.Symbol('x')) + c, sp.Symbol('x'))
             solutions = [sol for sol in solutions if sol.is_real]
         elif selected_type == "sin":
-            equation = f"{a}*sin({b}*x)"
-            solutions = sp.solve(a*sp.sin(b*sp.Symbol('x')), sp.Symbol('x'))
+            equation = f"{a}*sin({b}*x) + {c}"
+            solutions = sp.solve(a*sp.sin(b*sp.Symbol('x')) + c, sp.Symbol('x'))
             solutions = [sol for sol in solutions if sol.is_real]
         elif selected_type == "tan":
-            equation = f"{a}*tan({b}*x)"
-            solutions = sp.solve(a*sp.tan(b*sp.Symbol('x')), sp.Symbol('x'))
+            equation = f"{a}*tan({b}*x) + {c}"
+            solutions = sp.solve(a*sp.tan(b*sp.Symbol('x')) + c, sp.Symbol('x'))
             solutions = [sol for sol in solutions if sol.is_real]
         
     return sp.pretty(equation), solutions
