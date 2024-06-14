@@ -1,6 +1,6 @@
 # Mathematics Learner
 
-Bienvenue sur Mathematics Learner, une ressource en ligne dédiée à l'apprentissage des mathématiques.
+Bienvenue sur Mathematics Learner, une ressource en ligne dédiée à la révision de certains chapitres mathématiques.
 
 ## Contenu
 
