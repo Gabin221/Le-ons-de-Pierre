@@ -1204,12 +1204,6 @@
 			<p>Un nombre complexe \( z = a + bi \) peut être représenté sur un plan complexe, où l'axe des abscisses représente la partie réelle \( a \) et l'axe des ordonnées représente la partie imaginaire \( b \).</p>
 			<p>Considérons le nombre complexe \( z = 3 + 4i \). La partie réelle est \( 3 \) et la partie imaginaire est \( 4 \). Dans ce cas nous notons \( z = 3 + 4i = Re(z) + Im(z)i \).</p>
 		
-			<h4>Représentation graphique</h4>
-			<p>Pour mieux visualiser, nous pouvons tracer les nombres complexes dans le plan complexe. Voici un exemple de graphique représentant \( z = 3 + 4i \) :</p>
-			<div style="display: flex; justify-content: center;">
-				<img src="Images/complexes.png"/>
-			</div>
-		
 			<h4>Module et argument d'un nombre complexe</h4>
 			<p>Le module d'un nombre complexe \( z = a + bi \) est donné par \( |z| = \sqrt{a^2 + b^2} \). Il représente la distance entre le point \( z \) et l'origine dans le plan complexe.</p>
 			<p>Pour \( z = 3 + 4i \), le module est :</p>
@@ -1220,7 +1214,7 @@
 						& = 5
 				\end{split}
 			\end{equation*} \]</p>
-			<p>L'argument d'un nombre complexe \( z \) est l'angle \( \theta \) que fait le segment reliant \( z \) à l'origine avec l'axe des abscisses, mesuré dans le sens anti-horaire. Il est donné par \( \arg(z) = \tan^{-1}\left(\frac{b}{a}\right) \).</p>
+			<p>L'argument d'un nombre complexe \( z \) est l'angle \( \theta \) que fait le segment reliant \( z \) à l'origine avec l'axe des abscisses, mesuré dans le sens anti-horaire. Il est donné par \( \theta = \arg(z) = arctan\left(\frac{b}{a}\right) \) si \( a > 0 \) et par \( \theta = \arg(z) = arctan\left(\frac{b}{a}\right) + \pi \) si \( a < 0 \).</p>
 			<p>Pour \( z = 3 + 4i \), l'argument est :</p>
 			<p>\[ \begin{equation*}
 				\begin{split}
@@ -1228,19 +1222,64 @@
 							& \approx 53.13^\circ
 				\end{split}
 			\end{equation*} \]</p>
-			
+
+			<h4>Représentation graphique</h4>
+			<p>Pour mieux visualiser, nous pouvons tracer les nombres complexes dans le plan complexe. Voici un exemple de graphique représentant \( z = 3 + 4i \) :</p>
+			<div style="display: flex; justify-content: center;">
+				<img src="Images/complexes.png"/>
+			</div>
+		
+			<h4>Ecritures</h4>
+			<p>Les nombres complexes peuvent être écrits sous différentes formes. Une forme algébrique, une forme exponentielle et une forme trigonométrique.</p>
+			<ul>
+				<li>forme algébrique: \( z = a + ib \)</li>
+				<li>forme exponentielle: \( z = |z|e^{i\theta} \)</li>
+				<li>forme trigonométrique: \( z = |z|(cos(\theta) + i sin(\theta)) \)</li>
+				<li>forme polaire: \( z = \left[ |z|; \theta \right] \)</li>
+			</ul>
+
+			<p>Nous avons noté que \( |z| = \sqrt{a^2 + b^2} \) et que \( \theta = \arg(z) \). Nous pouvons ajouter que en utilisant le théorème de Pythagore sur la figure ci-dessus, nous pouvons trouver les expressions de \( a \) et \( b \) en fonction de \( |z| \) et \( \theta \). Nous pouvons utiliser <b>SoCaTo</b>, cette méthode sera détaillée dans la partie sur la géométrie euclidienne. En faisant cela, nous obtenons:</p>
+			<p>\[ \begin{equation*}
+					\begin{split}
+						a & = |z|cos(\theta)\\
+						b & = |z|sin(\theta)
+					\end{split}
+				\end{equation*} \]
+			</p>
+			<p>Nous devons aussi noter que l'identité d'Euler est importante: \( e^{i\theta} = cos(\theta) + i sin(\theta) \).</p>
+
+			<p>Nous avons donc tout ce qui nous faut pour déduire les autres expressions à partir de la forme algébrique:</p>
+			<p>\[ \begin{equation*}
+					\begin{split}
+						z & = a + ib\\
+						  & = |z|cos(\theta) + i|z|sin(\theta)\\
+						  & = |z|(cos(\theta) + isin(\theta))
+					\end{split}
+				\end{equation*} \]
+			</p>
+			<p>Nous obtenons donc l'expressions de l'écriture trigonométrique d'un nombre complexe. En utilisant l'identité d'Euler, nous avons:</p>
+			<p>\[ \begin{equation*}
+					\begin{split}
+						z & = |z|(cos(\theta) + isin(\theta))\\
+						& = |z|e^{i\theta}
+					\end{split}
+				\end{equation*} \]
+			</p>
+			<p>Nous avons ainsi l'expression de l'écriture exponentielle d'un nombre complexe.</p>
+
 			<h3>Opérations sur les nombres complexes</h3>
 			<p>Les opérations sur les nombres complexes incluent l'addition, la soustraction, la multiplication et la division. Voici des exemples pour deux nombres complexes \( z_1 = 3 + 4i \) et \( z_2 = 1 - 2i \).</p>
 		
 			<h4>Addition et soustraction</h4>
 			<p>L'addition de deux nombres complexes \( z_1 = a_1 + b_1i \) et \( z_2 = a_2 + b_2i \) se fait en additionnant leurs parties réelles et leurs parties imaginaires :</p>
 			<p>\[ \begin{equation*}
-				\begin{split}
-					z_1 + z_2 & = (3 + 4i) + (1 - 2i)\\
-							  & = (3 + 1) + (4 - 2)i\\
-							  & = 4 + 2i
-				\end{split}
-			\end{equation*} \]</p>
+					\begin{split}
+						z_1 + z_2 & = (3 + 4i) + (1 - 2i)\\
+								& = (3 + 1) + (4 - 2)i\\
+								& = 4 + 2i
+					\end{split}
+				\end{equation*} \]
+			</p>
 			<p>La soustraction se fait de manière similaire :</p>
 			<p>\[ \begin{equation*}
 				\begin{split}
@@ -1251,48 +1290,68 @@
 			\end{equation*} \]</p>
 		
 			<h4>Multiplication</h4>
-			<p>La multiplication de deux nombres complexes utilise la distributivité et la relation \( i^2 = -1 \) :</p>
-			<p>\[ \begin{equation*}
-				\begin{split}
-					z_1 \cdot z_2 & = (3 + 4i)(1 - 2i)\\
-								  & = 3 \cdot 1 + 3 \cdot (-2i) + 4i \cdot 1 + 4i \cdot (-2i)\\
-								  & = 3 - 6i + 4i - 8i^2\\
-								  & = 3 - 2i - 8(-1)\\
-								  & = 3 - 2i + 8\\
-								  & = 11 - 2i
-				\end{split}
-			\end{equation*} \]</p>
-		
+			<p>La multiplication de deux nombres complexes peut être simplifiée en utilisant leur forme polaire \( z = \left[ |z|; \theta \right] \).</p>
+			<p>Soient \( z_1 = 3 + 4i \) et \( z_2 = 1 - 2i \), calculons \( (3 + 4i)(1 - 2i) \). Calculons leurs modules et arguments:</p>
+            <ul>
+                <li>\( |z_1| = 5 \), \( \theta_1 \approx 0.93 \) radians</li>
+                <li>\( |z_2| = \sqrt{5} \), \( \theta_2 \approx -1.11 \) radians</li>
+            </ul>
+            <p>La multiplication en forme polaire donne :</p>
+            <p>\[ z_1 \cdot z_2 = \left[ 5\sqrt{5}; 0.93 - 1.11 \right] \approx 11 - 2i \]</p>
+
 			<h4>Division</h4>
-			<p>La division de deux nombres complexes \( z_1 = a + bi \) et \( z_2 = c + di \) se fait en multipliant le numérateur et le dénominateur par le conjugué de \( z_2 \) :</p>
-			<p>\[ \begin{equation*}
-				\begin{split}
-					\frac{z_1}{z_2} & = \frac{3 + 4i}{1 - 2i} \cdot \frac{1 + 2i}{1 + 2i}\\
-									& = \frac{(3 + 4i)(1 + 2i)}{(1 - 2i)(1 + 2i)}\\
-									& = \frac{3 + 6i + 4i + 8i^2}{1 - 4i^2}\\
-									& = \frac{3 + 10i + 8(-1)}{1 + 4}\\
-									& = \frac{3 + 10i - 8}{5}\\
-									& = \frac{-5 + 10i}{5}\\
-									& = -1 + 2i
-				\end{split}
-			\end{equation*} \]</p>
+			<p>De même, la division de deux nombres complexes utilise leur forme polaire pour simplifier les calculs.</p>
+			<p>Soit \( z_1 = 3 + 4i \) et \( z_2 = 1 - 2i \), calculons \( \frac{3 + 4i}{1 - 2i} \).</p>
+			<p>Calculons leurs modules et arguments comme précédemment :</p>
+            <ul>
+                <li>\( |z_1| = 5 \), \( \theta_1 \approx 0.93 \) radians</li>
+                <li>\( |z_2| = \sqrt{5} \), \( \theta_2 \approx -1.11 \) radians</li>
+            </ul>
+            <p>La division en forme polaire donne :</p>
+            <p>\[ \frac{z_1}{z_2} = \left[ \sqrt{5}; 0.93 - (-1.11) \right] \approx -1 + 2i \]</p>
 		</div>		
 
 		<div class="section" id="vector-calculus">
 			<h2>Calcul Vectoriel</h2>
-			<p>Le calcul vectoriel est une branche des mathématiques qui traite des vecteurs, qui sont des quantités
-				ayant à la fois une magnitude et une direction. Il est largement utilisé en physique, en ingénierie et
-				en informatique pour modéliser et résoudre des problèmes impliquant des grandeurs physiques telles que
-				la vitesse, la force et le champ électrique.</p>
-
-			<h3>Opérations de base sur les vecteurs</h3>
-			<ul>
-				<li>Addition de vecteurs</li>
-				<li>Soustraction de vecteurs</li>
-				<li>Produit scalaire</li>
-				<li>Produit vectoriel</li>
-			</ul>
+			<p>Le calcul vectoriel est une branche des mathématiques qui traite des vecteurs, des quantités ayant à la fois une magnitude et une direction. Il est largement utilisé en physique, en ingénierie et en informatique pour modéliser et résoudre des problèmes impliquant des grandeurs physiques telles que la vitesse, la force et le champ électrique.</p>
+		
+			<h3>Représentation des vecteurs</h3>
+			<p>Un vecteur peut être représenté graphiquement comme une flèche dans l'espace, avec une magnitude (longueur) et une direction définie par un angle par rapport à un axe de référence.</p>
+		
+			<h4>Coordonnées cartésiennes et composantes</h4>
+			<p>Un vecteur dans l'espace peut être défini par ses composantes dans un système de coordonnées cartésiennes \( \vec{v} = (v_x, v_y, v_z) \), où \( v_x, v_y, \) et \( v_z \) représentent les composantes dans les directions des axes \( x, y, \) et \( z \) respectivement.</p>
+		
+			<h4>Norme d'un vecteur</h4>
+			<p>La norme d'un vecteur \( \vec{v} = (v_x, v_y, v_z) \) correspond à la longueur de la flèche et est calculée comme :</p>
+			<p>\[ |\vec{v}| = \sqrt{v_x^2 + v_y^2 + v_z^2} \]</p>
+			<p>Nous pouvons noter qu'il s'agit de la même manière de calculer que le module d'un complexe. Ceci n'est pas un hasard, il s'agit d'un lien fort entre les complexes et les vecteurs. En effet, à partir d'un complexe nous pouvons dire que l'origine du plan complexe et le segment qui va jusqu'au point \( z \) correspond à un vecteur. Ainsi, le module d'un complexe correspond à la norme d'un vecteur. Nous pouvons faire une chose similaire dans l'autre sens, en plaçant l'origine d'un plan complexe à la base d'un vecteur, nous avons dans ce cas au bout du vecteur un point complexe. Nous avons de nouveau une égalité entre la norme d'un vecteur et le module d'un complexe.</p>
+		
+			<h4>Produit scalaire</h4>
+			<p>Le produit scalaire de deux vecteurs \( \vec{v} = (v_x, v_y, v_z) \) et \( \vec{w} = (w_x, w_y, w_z) \) est défini comme :</p>
+			<p>\[ \vec{v} \cdot \vec{w} = v_x \cdot w_x + v_y \cdot w_y + v_z \cdot w_z \]</p>
+			<p>Le produit scalaire permet de calculer le sens et la taille de la projection d'un vecteur sur un autre. Si le produit scalaire est positif, le vecteur \( \vec{v} \) est orienté dans le sens du vecteur \( \vec{w} \), et si il est négatif, il est orienté dans le sens inverse. Si le produit scalaire est nul, les vecteurs sont donc colinéaires.</p>
+		
+			<h4>Produit vectoriel</h4>
+			<p>Le produit vectoriel de deux vecteurs \( \vec{v} = (v_x, v_y, v_z) \) et \( \vec{w} = (w_x, w_y, w_z) \) est défini comme :</p>
+			<p>\[ \vec{v} \times \vec{w} = (v_y \cdot w_z - v_z \cdot w_y, v_z \cdot w_x - v_x \cdot w_z, v_x \cdot w_y - v_y \cdot w_x) \]</p>
+		
+			<h3>Opérations sur les vecteurs</h3>
+			<p>Les opérations de base sur les vecteurs incluent l'addition, la soustraction, le produit scalaire et le produit vectoriel. Voici des exemples pour deux vecteurs \( \vec{u} \) et \( \vec{v} \) :</p>
+		
+			<h4>Addition et soustraction de vecteurs</h4>
+			<p>L'addition et la soustraction de deux vecteurs \( \vec{u} = (u_x, u_y, u_z) \) et \( \vec{v} = (v_x, v_y, v_z) \) se font composante par composante :</p>
+			<p>\[ \begin{align*}
+				\vec{u} + \vec{v} &= (u_x + v_x, u_y + v_y, u_z + v_z) \\
+				\vec{u} - \vec{v} &= (u_x - v_x, u_y - v_y, u_z - v_z)
+			\end{align*} \]</p>
+		
+			<h4>Multiplication de vecteurs</h4>
+			<p>La multiplication de deux vecteurs peut être effectuée par le produit scalaire ou le produit vectoriel, selon le contexte et l'application spécifique.</p>
+		
+			<h4>Applications en physique et en ingénierie</h4>
+			<p>Le calcul vectoriel est utilisé pour résoudre une variété de problèmes, y compris le calcul de la trajectoire d'un projectile, la détermination de la force résultante sur un objet, et la modélisation de champs comme le champ électrique et magnétique.</p>
 		</div>
+		
 
 		<div class="section" id="matrix-calculus">
 			<h2>Calcul Matriciel</h2>
@@ -1321,6 +1380,7 @@
 			<ul>
 				<li>Points, lignes et plans</li>
 				<li>Angles et triangles</li>
+				<li><b>SoCaTo</b></li>
 				<li>Cercles et coniques</li>
 				<li>Transformations géométriques : translation, rotation, homothétie</li>
 				<li>Théorèmes fondamentaux : théorème de Pythagore, théorème de Thalès</li>
