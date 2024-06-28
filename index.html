@@ -1161,55 +1161,122 @@
 
 		<div class="section" id="min-max-functions">
 			<h2>Recherche des minimums et des maximums d'une fonction</h2>
-			<p>Dans l'analyse mathématique, trouver les minimums et les maximums d'une fonction est essentiel pour
-				comprendre le comportement de cette fonction. Ces points critiques peuvent être utilisés pour résoudre
-				des problèmes d'optimisation dans divers domaines.</p>
+			<p>Dans l'analyse mathématique, trouver les minimums et les maximums d'une fonction est essentiel pour comprendre le comportement de cette fonction. Ces points critiques peuvent être utilisés pour résoudre des problèmes d'optimisation dans divers domaines.</p>
 
-			<h3>Exemple de recherche de minimum et maximum</h3>
-			<p>Considérons la fonction \( f(x) = x^2 - 4x + 3 \).</p>
-			<div class="chart" id="min-max-function-chart"></div>
-			<script>
-				var options = {
-					chart: {
-						type: 'line',
-						height: '400px'
-					},
-					series: [{
-						name: 'f(x)',
-						data: [[-1, 8], [2, -1]] // Points pour tracer la fonction
-					}],
-					xaxis: {
-						title: {
-							text: 'x'
-						}
-					},
-					yaxis: {
-						title: {
-							text: 'f(x)'
-						}
-					}
-				};
-				var chart = new ApexCharts(document.querySelector("#min-max-function-chart"), options);
-				chart.render();
-			</script>
-			<p>Pour trouver les minimums et maximums, nous devons d'abord calculer les dérivées de la fonction et
-				trouver ses points critiques. Ensuite, nous examinons la concavité de la fonction pour déterminer si ces
-				points sont des minimums ou des maximums.</p>
-		</div>
-
-		<div class="section" id="complex-numbers">
-            <h2>Nombres Complexes</h2>
+			<h3>Exemple de recherche d'extrémum</h3>
+			<p>Pour trouver les minimums et maximums, nous devons d'abord calculer la dérivée de la fonction. Ensuite, nous examinons la concavité de la fonction pour déterminer si ces points sont des minimums ou des maximums.</p>
+			<p>Une fois la dérivée trouvée, nous résolvons l'équation où la dérivée s'annule afin de trouver l'abscisse de l'extrémum. Ensuite on remplace dans l'équation de base la valeur trouvée et on obtient l'ordonnée de l'extrémum.</p>
+			<p>Considérons la fonction \( f(x) = x^2 - 4x - 3 \). Sa dérivée vaut \( y = 2x - 4 \). Retrouvons le point d'annulation de la tangente:</p>
 			<p>\[ \begin{equation*}
 					\begin{split}
-						z & = 3 + 4i\\
-						|z| & = √(3^2 + 4^2)\\
-							& = 5\\
-						arg(z) & = tan^(-1)(4/3)\\
-							   & \approx 53.13°
+						2x - 4 & = 0\\
+						2x & = 4\\
+						x & = 2
 					\end{split}
 				\end{equation*} \]
 			</p>
-        </div>
+			<p>Nous pouvons noter à ce stade que l'extrémum se situe en \( x = 2 \). Pour trouver l'ordonnée de cet extrémum, on utilise l'expression de \( f(x) \):</p>
+			<p>\[ \begin{equation*}
+					\begin{split}
+						f(2) & = (2)^2 - 4(2) - 3\\
+						& = 4 - 8 - 3\\
+						& = -7
+					\end{split}
+				\end{equation*} \]
+			</p>
+			<p>Nous trouvons donc que l'extrémum se situe au point \( A = (2; -7) \).</p>
+			<div style="display: flex; justify-content: center;">
+				<img src="Images/minimumMaximum.png"/>
+			</div>
+			<p>Ensuite, étant donné que dans l'expression de \( f(x) \) nous avons \( a > 0 \) donc la fonction est dirigée vers le haut. Nous venons donc de trouver un minimum. Il faut cependant nuancer quelque chose. L'extrémum que nous venons de trouver est un extrémum global ET local. En effet, de toute la courbe ce point est le plus bas situé entre les deux infinis. Prenons le cas suivant pour comprendre la différence.</p>
+			<p>Considérons la fonction \( f(x) = x^3 - 10x^2 - 3x + 30 \). Sa dérivée vaut \( y = 3x^2 - 20x - 3 \). Dans le graphique ci-dessous nous avons les extrémums de la fonction.</p>
+			<div style="display: flex; justify-content: center;">
+				<img src="Images/minimumMaximum2.png"/>
+			</div>
+			<p>Nous avons donc deux points extrêmes: \( A \) et \( B \). Prenons par exemple le point B. Nous constatons graphiquement qu'il s'agit bien d'un minimum cette fois-ci. Cependant cette fois-ci il s'agit d'un minimum local mais pas global. En effet, la distinction est cette fois-ci très importante car nous avons désormais un minimum global qui est distinct du point \( B \). Il s'agit du point situé en \( -\infty \). Ce point est quand-à-lui un minimum global. Nous avons la même chose avec le point \( A \). Il s'agit d'un maximum local, mais le point situé en \(  +\infty \) est le maximum global.</p>
+		</div>
+
+		<div class="section" id="complex-numbers">
+			<h2>Nombres Complexes</h2>
+			<p>Les nombres complexes sont une extension des nombres réels et sont utilisés pour résoudre des équations qui n'ont pas de solutions dans l'ensemble des réels. Un nombre complexe est de la forme \( z = a + bi \), où \( a \) et \( b \) sont des réels, et \( i \) est l'unité imaginaire telle que \( i^2 = -1 \).</p>
+		
+			<h3>Représentation et opérations de base</h3>
+			<p>Un nombre complexe \( z = a + bi \) peut être représenté sur un plan complexe, où l'axe des abscisses représente la partie réelle \( a \) et l'axe des ordonnées représente la partie imaginaire \( b \).</p>
+			<p>Considérons le nombre complexe \( z = 3 + 4i \). La partie réelle est \( 3 \) et la partie imaginaire est \( 4 \). Dans ce cas nous notons \( z = 3 + 4i = Re(z) + Im(z)i \).</p>
+		
+			<h4>Représentation graphique</h4>
+			<p>Pour mieux visualiser, nous pouvons tracer les nombres complexes dans le plan complexe. Voici un exemple de graphique représentant \( z = 3 + 4i \) :</p>
+			<div style="display: flex; justify-content: center;">
+				<img src="Images/complexes.png"/>
+			</div>
+		
+			<h4>Module et argument d'un nombre complexe</h4>
+			<p>Le module d'un nombre complexe \( z = a + bi \) est donné par \( |z| = \sqrt{a^2 + b^2} \). Il représente la distance entre le point \( z \) et l'origine dans le plan complexe.</p>
+			<p>Pour \( z = 3 + 4i \), le module est :</p>
+			<p>\[ \begin{equation*}
+				\begin{split}
+					|z| & = \sqrt{3^2 + 4^2}\\
+						& = \sqrt{9 + 16}\\
+						& = 5
+				\end{split}
+			\end{equation*} \]</p>
+			<p>L'argument d'un nombre complexe \( z \) est l'angle \( \theta \) que fait le segment reliant \( z \) à l'origine avec l'axe des abscisses, mesuré dans le sens anti-horaire. Il est donné par \( \arg(z) = \tan^{-1}\left(\frac{b}{a}\right) \).</p>
+			<p>Pour \( z = 3 + 4i \), l'argument est :</p>
+			<p>\[ \begin{equation*}
+				\begin{split}
+					\arg(z) & = \tan^{-1}\left(\frac{4}{3}\right)\\
+							& \approx 53.13^\circ
+				\end{split}
+			\end{equation*} \]</p>
+			
+			<h3>Opérations sur les nombres complexes</h3>
+			<p>Les opérations sur les nombres complexes incluent l'addition, la soustraction, la multiplication et la division. Voici des exemples pour deux nombres complexes \( z_1 = 3 + 4i \) et \( z_2 = 1 - 2i \).</p>
+		
+			<h4>Addition et soustraction</h4>
+			<p>L'addition de deux nombres complexes \( z_1 = a_1 + b_1i \) et \( z_2 = a_2 + b_2i \) se fait en additionnant leurs parties réelles et leurs parties imaginaires :</p>
+			<p>\[ \begin{equation*}
+				\begin{split}
+					z_1 + z_2 & = (3 + 4i) + (1 - 2i)\\
+							  & = (3 + 1) + (4 - 2)i\\
+							  & = 4 + 2i
+				\end{split}
+			\end{equation*} \]</p>
+			<p>La soustraction se fait de manière similaire :</p>
+			<p>\[ \begin{equation*}
+				\begin{split}
+					z_1 - z_2 & = (3 + 4i) - (1 - 2i)\\
+							  & = (3 - 1) + (4 + 2)i\\
+							  & = 2 + 6i
+				\end{split}
+			\end{equation*} \]</p>
+		
+			<h4>Multiplication</h4>
+			<p>La multiplication de deux nombres complexes utilise la distributivité et la relation \( i^2 = -1 \) :</p>
+			<p>\[ \begin{equation*}
+				\begin{split}
+					z_1 \cdot z_2 & = (3 + 4i)(1 - 2i)\\
+								  & = 3 \cdot 1 + 3 \cdot (-2i) + 4i \cdot 1 + 4i \cdot (-2i)\\
+								  & = 3 - 6i + 4i - 8i^2\\
+								  & = 3 - 2i - 8(-1)\\
+								  & = 3 - 2i + 8\\
+								  & = 11 - 2i
+				\end{split}
+			\end{equation*} \]</p>
+		
+			<h4>Division</h4>
+			<p>La division de deux nombres complexes \( z_1 = a + bi \) et \( z_2 = c + di \) se fait en multipliant le numérateur et le dénominateur par le conjugué de \( z_2 \) :</p>
+			<p>\[ \begin{equation*}
+				\begin{split}
+					\frac{z_1}{z_2} & = \frac{3 + 4i}{1 - 2i} \cdot \frac{1 + 2i}{1 + 2i}\\
+									& = \frac{(3 + 4i)(1 + 2i)}{(1 - 2i)(1 + 2i)}\\
+									& = \frac{3 + 6i + 4i + 8i^2}{1 - 4i^2}\\
+									& = \frac{3 + 10i + 8(-1)}{1 + 4}\\
+									& = \frac{3 + 10i - 8}{5}\\
+									& = \frac{-5 + 10i}{5}\\
+									& = -1 + 2i
+				\end{split}
+			\end{equation*} \]</p>
+		</div>		
 
 		<div class="section" id="vector-calculus">
 			<h2>Calcul Vectoriel</h2>
