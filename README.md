@@ -28,4 +28,27 @@ Cette page couvre une variété de sujets mathématiques, y compris :
 
 ## Fichier Python : solveur_equations.py
 
-Dans le dossier `python`, nous avons un fichier `solveur_equations.py` qui contient un solveur d'équations mathématiques générées aléatoirement. 
+Dans le dossier `python`, nous avons un fichier `solveur_equations.py` qui contient un solveur d'équations mathématiques générées aléatoirement.
+
+## A savoir
+
+Il y a dans certaines parties des possibilités de saisir des calculs afin d'obtenir un résulat en ligne, de manière interactive. Pour cela, on utilise l'(API)[https://github.com/aunyks/newton-api/tree/master]
+
+| Symbole        | Description                   | Encodage URL   |
+|----------------|-------------------------------|----------------|
+| `(`            | Parenthèse ouvrante           | `%28`          |
+| `)`            | Parenthèse fermante           | `%29`          |
+| `+`            | Addition                      | `%2B`          |
+| `-`            | Soustraction/Signe négatif    | `%2D`          |
+| `*`            | Multiplication                | `%2A`          |
+| `/`            | Division                      | `%2F`          |
+| `^`            | Exposant                      | `%5E`          |
+| `π`            | Pi                            | `%CF%80` ou `pi` |
+| `√`            | Racine carrée                 | `%E2%88%9A`    |
+| `≤`            | Inférieur ou égal à           | `%E2%89%A4`    |
+| `≥`            | Supérieur ou égal à           | `%E2%89%A5`    |
+| `∠`            | Angle                         | `%E2%88%A0`    |
+| `°`            | Degré                         | `%C2%B0`       |
+| `≠`            | Différent de                  | `%E2%89%A0`    |
+| `∞`            | Infini                        | `%E2%88%9E`    |
+| ` ` (espace)   | Espace                        | `%20`          |
