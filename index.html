@@ -1075,7 +1075,9 @@
 				\end{equation*} \]
 			</p>
 
-			<p>Nous pouvons noter que nous avons attendu d'avoir une exponentielle seule d'un côté de l'équation. En effet, si on a une exponentielle ajoutée avec quelque chose, l'application du logarithme va être sur une somme ce qui sera insoluble.</p>
+			<div class="remarque">
+				<p>Nous pouvons noter que nous avons attendu d'avoir une exponentielle seule d'un côté de l'équation avant d'appliquer le logarithme. En effet, si on a une exponentielle ajoutée avec quelque chose, l'application du logarithme va être sur une somme ce qui sera insoluble.</p>
+			</div>
 			<p>Pour les équations impliquants une fonction trigonométrique, le principe reste le même. Nous allons isoler la fonction trigonométrique afin de pouvoir appliquer la fonction réciproque. Cependant, il faut aussi noter que avec la trigonométrie nous pouvons nous en sortir en utilisant les formules trigonométriques.</p>
 
 		</div>
@@ -1260,12 +1262,15 @@
 			<div style="display: flex; justify-content: center;">
 				<img src="Images/minimumMaximum.png"/>
 			</div>
-			<p>Ensuite, étant donné que dans l'expression de \( f(x) \) nous avons \( a > 0 \) donc la fonction est dirigée vers le haut. Nous venons donc de trouver un minimum. Il faut cependant nuancer quelque chose. L'extrémum que nous venons de trouver est un extrémum global ET local. En effet, de toute la courbe ce point est le plus bas situé entre les deux infinis. Prenons le cas suivant pour comprendre la différence.</p>
-			<p>Considérons la fonction \( f(x) = x^3 - 10x^2 - 3x + 30 \). Sa dérivée vaut \( y = 3x^2 - 20x - 3 \). Dans le graphique ci-dessous nous avons les extrémums de la fonction.</p>
-			<div style="display: flex; justify-content: center;">
-				<img src="Images/minimumMaximum2.png"/>
+			<p>Ensuite, étant donné que dans l'expression de \( f(x) \) nous avons \( a > 0 \) donc la fonction est dirigée vers le haut. Nous venons donc de trouver un minimum.</p>
+			<div class="remarque">
+				<p>Il faut cependant nuancer quelque chose. L'extrémum que nous venons de trouver est un extrémum global ET local. En effet, de toute la courbe ce point est le plus bas situé entre les deux infinis. Prenons le cas suivant pour comprendre la différence.</p>
+				<p>Considérons la fonction \( f(x) = x^3 - 10x^2 - 3x + 30 \). Sa dérivée vaut \( y = 3x^2 - 20x - 3 \). Dans le graphique ci-dessous nous avons les extrémums de la fonction.</p>
+				<div style="display: flex; justify-content: center;">
+					<img src="Images/minimumMaximum2.png"/>
+				</div>
+				<p>Nous avons donc deux points extrêmes: \( A \) et \( B \). Prenons par exemple le point B. Nous constatons graphiquement qu'il s'agit bien d'un minimum cette fois-ci. Cependant cette fois-ci il s'agit d'un minimum local mais pas global. En effet, la distinction est cette fois-ci très importante car nous avons désormais un minimum global qui est distinct du point \( B \). Il s'agit du point situé en \( -\infty \). Ce point est quand-à-lui un minimum global. Nous avons la même chose avec le point \( A \). Il s'agit d'un maximum local, mais le point situé en \(  +\infty \) est le maximum global.</p>
 			</div>
-			<p>Nous avons donc deux points extrêmes: \( A \) et \( B \). Prenons par exemple le point B. Nous constatons graphiquement qu'il s'agit bien d'un minimum cette fois-ci. Cependant cette fois-ci il s'agit d'un minimum local mais pas global. En effet, la distinction est cette fois-ci très importante car nous avons désormais un minimum global qui est distinct du point \( B \). Il s'agit du point situé en \( -\infty \). Ce point est quand-à-lui un minimum global. Nous avons la même chose avec le point \( A \). Il s'agit d'un maximum local, mais le point situé en \(  +\infty \) est le maximum global.</p>
 		</div>
 
 		<div class="section" id="complex-numbers">
@@ -1396,13 +1401,18 @@
 			<h4>Norme d'un vecteur</h4>
 			<p>La norme d'un vecteur \( \vec{v} = (v_x, v_y, v_z) \) correspond à la longueur de la flèche et est calculée comme :</p>
 			<p>\[ |\vec{v}| = \sqrt{v_x^2 + v_y^2 + v_z^2} \]</p>
-			<p>Nous pouvons noter qu'il s'agit de la même manière de calculer que le module d'un complexe. Ceci n'est pas un hasard, il s'agit d'un lien fort entre les complexes et les vecteurs. En effet, à partir d'un complexe nous pouvons dire que l'origine du plan complexe et le segment qui va jusqu'au point \( z \) correspond à un vecteur. Ainsi, le module d'un complexe correspond à la norme d'un vecteur. Nous pouvons faire une chose similaire dans l'autre sens, en plaçant l'origine d'un plan complexe à la base d'un vecteur, nous avons dans ce cas au bout du vecteur un point complexe. Nous avons de nouveau une égalité entre la norme d'un vecteur et le module d'un complexe.</p>
+
+			<div class="remarque">
+				<p>Nous pouvons noter qu'il s'agit de la même manière de calculer que le module d'un complexe. Ceci n'est pas un hasard, il s'agit d'un lien fort entre les complexes et les vecteurs. En effet, à partir d'un complexe nous pouvons dire que l'origine du plan complexe et le segment qui va jusqu'au point \( z \) correspond à un vecteur. Ainsi, le module d'un complexe correspond à la norme d'un vecteur. Nous pouvons faire une chose similaire dans l'autre sens, en plaçant l'origine d'un plan complexe à la base d'un vecteur, nous avons dans ce cas au bout du vecteur un point complexe. Nous avons de nouveau une égalité entre la norme d'un vecteur et le module d'un complexe.</p>
+			</div>
 		
 			<h4>Produit scalaire</h4>
 			<p>Le produit scalaire de deux vecteurs \( \vec{v} = (v_x, v_y, v_z) \) et \( \vec{w} = (w_x, w_y, w_z) \) est défini comme :</p>
 			<p>\[ \vec{v} \cdot \vec{w} = v_x \cdot w_x + v_y \cdot w_y + v_z \cdot w_z \]</p>
 			<p>Le produit scalaire permet de calculer le sens et la taille de la projection d'un vecteur sur un autre. Si le produit scalaire est positif, le vecteur \( \vec{v} \) est orienté dans le sens du vecteur \( \vec{w} \), et si il est négatif, il est orienté dans le sens inverse. Si le produit scalaire est nul, les vecteurs sont donc orthogonaux. Si nous avons l'égalité \( | \vec{v} \cdot \vec{w} | = v \times w \), \( v \) et \( w \) étant les segments des vecteurs correspondants.</p>
-			<p>Il faut cependant noter que cette façon de calculer le produit scalaire n'est pas la meilleure car elle n'est valable que dans un repère orthogonal, c'est-à-dire que les axes sont perpendiculaires entre eux, ce qui n'est pas toujours le cas. Dans un repère général, nous pouvons calculer le produit scalaire en utilisant la formule suivante: \( \vec{v} \cdot \vec{w} = | \vec{v} | \cdot | \vec{w} | \cdot cos(\theta) \)</p>
+			<div class="remarque">
+				<p>Il faut cependant noter que cette façon de calculer le produit scalaire n'est pas la meilleure car elle n'est valable que dans un repère orthogonal, c'est-à-dire que les axes sont perpendiculaires entre eux, ce qui n'est pas toujours le cas. Dans un repère général, nous pouvons calculer le produit scalaire en utilisant la formule suivante: \( \vec{v} \cdot \vec{w} = | \vec{v} | \cdot | \vec{w} | \cdot cos(\theta) \)</p>
+			</div>			
 		
 			<h4>Produit vectoriel</h4>
 			<p>Le produit vectoriel de deux vecteurs \( \vec{v} = (v_x, v_y, v_z) \) et \( \vec{w} = (w_x, w_y, w_z) \) est défini comme :</p>
