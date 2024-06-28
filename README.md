@@ -6,18 +6,18 @@ Bienvenue sur Mathematics Learner, une ressource en ligne dédiée à la révisi
 
 Cette page couvre une variété de sujets mathématiques, y compris :
 
+- **Factorisation et Développement** : Techniques de factorisation et de développement d'expressions, identités remarquables.
 - **Écriture Scientifique** : Utilisation de la notation scientifique pour représenter des nombres.
 - **Homogénéité des Expressions** : Importance de la cohérence des unités dans les équations.
+- **Trigonométrie** : Angles, triangles, fonctions trigonométriques.
 - **Fonctions** : Fonctions linéaires, exponentielles, logarithmiques, etc.
 - **Résolutions d'Équations** : Techniques pour résoudre des équations.
-- **Trigonométrie** : Angles, triangles, fonctions trigonométriques.
 - **Dérivées et Intégrales** : Calcul différentiel et intégral.
-- **Minimum et maximum de fonction** : Recherche de minimum et de maximum sur un intervalle.
-- **Factorisation et développement** : Factorisation et développement d'expressions, identités remarquables
-- **Nombres complexes** : Présentation du calcul complexe
-- **Calcul vectoriel** : Présentation du calcul vectoriel
-- **Calcul matriciel** : Présentation du calcul matriciel
-- **Géométrie Euclidienne** : Présentation des bases de la géométrie euclidienne
+- **Minimum et Maximum de Fonctions** : Recherche de minimum et de maximum sur un intervalle.
+- **Nombres Complexes** : Présentation du calcul complexe.
+- **Calcul Vectoriel** : Présentation du calcul vectoriel.
+- **Calcul Matriciel** : Présentation du calcul matriciel.
+- **Géométrie Euclidienne** : Présentation des bases de la géométrie euclidienne.
 
 ## Caractéristiques
 
