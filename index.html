@@ -1329,11 +1329,39 @@
 			<h4>Produit scalaire</h4>
 			<p>Le produit scalaire de deux vecteurs \( \vec{v} = (v_x, v_y, v_z) \) et \( \vec{w} = (w_x, w_y, w_z) \) est défini comme :</p>
 			<p>\[ \vec{v} \cdot \vec{w} = v_x \cdot w_x + v_y \cdot w_y + v_z \cdot w_z \]</p>
-			<p>Le produit scalaire permet de calculer le sens et la taille de la projection d'un vecteur sur un autre. Si le produit scalaire est positif, le vecteur \( \vec{v} \) est orienté dans le sens du vecteur \( \vec{w} \), et si il est négatif, il est orienté dans le sens inverse. Si le produit scalaire est nul, les vecteurs sont donc colinéaires.</p>
+			<p>Le produit scalaire permet de calculer le sens et la taille de la projection d'un vecteur sur un autre. Si le produit scalaire est positif, le vecteur \( \vec{v} \) est orienté dans le sens du vecteur \( \vec{w} \), et si il est négatif, il est orienté dans le sens inverse. Si le produit scalaire est nul, les vecteurs sont donc orthogonaux. Si nous avons l'égalité \( | \vec{v} \cdot \vec{w} | = v \times w \), \( v \) et \( w \) étant les segments des vecteurs correspondants.</p>
+			<p>Il faut cependant noter que cette façon de calculer le produit scalaire n'est pas la meilleure car elle n'est valable que dans un repère orthogonal, c'est-à-dire que les axes sont perpendiculaires entre eux, ce qui n'est pas toujours le cas. Dans un repère général, nous pouvons calculer le produit scalaire en utilisant la formule suivante: \( \vec{v} \cdot \vec{w} = | \vec{v} | \cdot | \vec{w} | \cdot cos(\theta) \)</p>
 		
 			<h4>Produit vectoriel</h4>
 			<p>Le produit vectoriel de deux vecteurs \( \vec{v} = (v_x, v_y, v_z) \) et \( \vec{w} = (w_x, w_y, w_z) \) est défini comme :</p>
-			<p>\[ \vec{v} \times \vec{w} = (v_y \cdot w_z - v_z \cdot w_y, v_z \cdot w_x - v_x \cdot w_z, v_x \cdot w_y - v_y \cdot w_x) \]</p>
+			<p>\[ \vec{v} \times \vec{w} = \begin{pmatrix}
+				v_y \cdot w_z - v_z \cdot w_y \\
+				v_z \cdot w_x - v_x \cdot w_z \\
+				v_x \cdot w_y - v_y \cdot w_x
+			\end{pmatrix} \]</p>
+			<p>Nous pouvons noter que la croix entre les deux vecteurs n'est pas la multiplication au sens usuel du terme avec les nombres. C'est pour ça que nous lisons cela <b>v croix w</b>.</p>
+			<p>Pour calculer ce produit vectoriel, nous pouvons utiliser la règle du gamma (ɣ). Cette règle est illustrée par les <a href="http://jam.bouguechal.free.fr/upload/file/IPSA%20%20produit%20scalaire%20et%20vectoriel%20%202010-2011%20version%202.pdf">trois images</a> ci-dessous:</p>
+			<div style="display: flex; justify-content: space-around;">
+				<img src="Images/produitVectoriel1.png"/>
+				<img src="Images/produitVectoriel2.png"/>
+				<img src="Images/produitVectoriel3.png"/>
+			</div>
+			<p>\[ \begin{align*} \vec{v} \times \vec{w} & = \begin{pmatrix}
+					v_x\\
+					v_y\\
+					v_z
+				\end{pmatrix} \times \begin{pmatrix}
+				w_x\\
+				w_y\\
+				w_z
+			\end{pmatrix}\\
+			& = \begin{pmatrix}
+			v_y \cdot w_z - v_z \cdot w_y \\
+			v_z \cdot w_x - v_x \cdot w_z \\
+			v_x \cdot w_y - v_y \cdot w_x
+			\end{pmatrix} \end{align*} \]
+			</p>
+			<p>L'idée est que nous avons deux vecteurs de trois lignes chacun. Le produit vectoriel donne un autre vecteur de trois lignes, la question est donc de savoir ce qu'on met dans chaque composante du produit vectoriel. Nous notons donc les deux vecteurs sous forme de vecteur colonne et pour trouver quoi mettre sur chaque ligne Pour la ligne \( x \), nous pouvons noter que nous allons faire la différence du produit des composantes \( y \) et \( z \) des deux vecteurs. Nous trouvons ainsi dans un premier cas \( v_y \cdot w_z - v_z \cdot w_y \). En faisant quelque chose de similaire pour les autres composantes, nous trouvons le résultat du profuit vectoriel. Il faut cependant noter la multiplication par \( -1 \) pour la deuxième composante du produit vectoriel.</p>
 		
 			<h3>Opérations sur les vecteurs</h3>
 			<p>Les opérations de base sur les vecteurs incluent l'addition, la soustraction, le produit scalaire et le produit vectoriel. Voici des exemples pour deux vecteurs \( \vec{u} \) et \( \vec{v} \) :</p>
