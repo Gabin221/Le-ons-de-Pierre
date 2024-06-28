@@ -50,6 +50,10 @@
 			text-align: justify;
 		}
 
+		a {
+			color: #007BFF;
+		}
+
 		.chart {
 			margin: 20px 0;
 		}
@@ -88,7 +92,6 @@
 
 		.remarque {
 			border-left: 5px solid #007BFF;
-			border-right: 5px solid #007BFF;
 			padding-left: 20px;
 		}
 
@@ -176,7 +179,7 @@
 				variés pour vous aider à mieux comprendre et maîtriser ces concepts.</p>
 		</div>
 
-		<div class="section" id="factorisation-development">
+		<div class="section" id="factorization-development">
 			<h2>Factorisation et Développement</h2>
 
 			<h3>Présentation</h3>
@@ -248,6 +251,19 @@
 					<p>Nous pouvons écrire \( 2x^2 + 8x \) comme \( 2x(x + 4) \).</p>
 				</li>
 			</ul>
+
+			<div class="remarque">
+				<p><b>Remarque:</b></p>
+				<p>Il est possible d'utiliser l'API <a href="https://github.com/aunyks/newton-api?tab=readme-ov-file">newton-api</a> afin de s'entraîner à factoriser.</p>
+				<p>Pour représenter une fraction, il faut remplacer le trait de fraction par <b>(over)</b>. Par exemple, pour écrire <b>2/4</b> il faut écrire <b>2(over)4</b>.</p>
+				<form onsubmit="event.preventDefault(); factorizeExpression();">
+					<label for="expression">Expression à factoriser:</label>
+					<input type="text" id="expression" name="expression" required>
+					<p style="margin: 0; color: grey; font-size: 15px;">Par exemple: 2x^2 + 8x</p>
+					<button type="submit">Factoriser</button>
+				</form>
+				<div id="resultFactorize"></div>
+			</div>
 		</div>
 
 		<div class="section" id="scientific-notation">
@@ -326,6 +342,20 @@
 					<td>Indéfini</td>
 				</tr>
 			</table>
+
+			<div class="remarque">
+				<p><b>Remarque:</b></p>
+				<p>Il est possible d'utiliser l'API <a href="https://github.com/aunyks/newton-api?tab=readme-ov-file">newton-api</a> afin de s'entraîner à calculer des valeurs pour la fonction cosinus, sinus et tangente ainsi que leur inverse.</p>
+				<p>Pour représenter une fraction, il faut remplacer le trait de fraction par <b>(over)</b>. Par exemple, pour écrire <b>2/4</b> il faut écrire <b>2(over)4</b>.</p>
+				<p>⚠️ Il faut cependant noter que cette API n'est pas une calculatrice. Il faut mettre en paramètre de la fonction une valeur remarquable sinon l'API va retourner la question posée. Par exemple, \( sin(0) \) retourne une valeur mais pas \( sin(1) \).</p>
+				<form onsubmit="event.preventDefault(); trigoExpression();">
+					<label for="expressionTrigo">Valeur à trouver:</label>
+					<input type="text" id="expressionTrigo" name="expressionTrigo" required>
+					<p style="margin: 0; color: grey; font-size: 15px;">Par exemple: arcsin(3pi) ou tan(5)</p>
+					<button type="submit">Calculer</button>
+				</form>
+				<div id="resultTrigo"></div>
+			</div>
 
 			<h3>Cercle trigonométrique</h3>
 			<p>Le cercle trigonométrique est un outil visuel utile pour comprendre les relations trigonométriques. Il
@@ -935,6 +965,19 @@
 			<div style="display: flex; justify-content: center;">
 				<img src="Images/resolutionEquationSecondDegre.png"/>
 			</div>
+			
+			<div class="remarque">
+				<p><b>Remarque:</b></p>
+				<p>Il est possible d'utiliser l'API <a href="https://github.com/aunyks/newton-api?tab=readme-ov-file">newton-api</a> afin de s'entraîner à calculer les racines d'un polynôme.</p>
+				<p>Pour représenter une fraction, il faut remplacer le trait de fraction par <b>(over)</b>. Par exemple, pour écrire <b>2/4</b> il faut écrire <b>2(over)4</b>.</p>
+				<form onsubmit="event.preventDefault(); zeroesExpression();">
+					<label for="expressionZeroes">Polynôme à résoudre:</label>
+					<input type="text" id="expressionZeroes" name="expressionZeroes" required>
+					<p style="margin: 0; color: grey; font-size: 15px;">Par exemple: 2x^2 + 8x</p>
+					<button type="submit">Calculer</button>
+				</form>
+				<div id="resultZeroes"></div>
+			</div>
 
 			<h3>Équations contenant une exponentielle</h3>
 			<p>Une équation contenant une exponentielle est de la forme \( ae^{bx} + c = d \), où \( a \), \( b \), \( c \) et \( d \) sont des constantes. Pour retrouver la solution à une équation de ce type, il faut juste retenir que la fonction réciproque de l'exponentielle est la fonction \( ln(x) \). Ceci signifie que \( e^{ln(x)} = x \). Ceci signifie que l'une est symétrique de l'autre par rapport à la fonction \( y = x \), comme illustré ci-dessous:</p>
@@ -1160,6 +1203,144 @@
 			</ul>
 		</div>
 	</div>
+
+	<script>
+        async function factorizeExpression() {
+            const expression = document.getElementById('expression').value;
+            const encodedExpression = encodeURIComponent(expression);
+            const apiUrl = `https://newton.now.sh/api/v2/factor/${encodedExpression}`;
+            
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                
+                // Utilisation de KaTeX pour afficher le résultat formaté
+                const resultParagraph = document.createElement('p');
+                resultParagraph.innerHTML = `Résultat: \\( ${data.result} \\)`;
+                
+                // Ajout du nouvel élément enfant à la div "result"
+                const resultDiv = document.getElementById('resultFactorize');
+                resultDiv.innerHTML = ''; // Nettoyage du contenu précédent
+                resultDiv.appendChild(resultParagraph);
+                
+                // Rendre l'expression mathématique avec KaTeX
+                renderMathInElement(resultDiv, {
+                    delimiters: [
+                        {left: "\\(", right: "\\)", display: false},
+                        {left: "\\[", right: "\\]", display: true}
+                    ]
+                });
+            } catch (error) {
+                const errorParagraph = document.createElement('p');
+                errorParagraph.innerText = 'Erreur lors de la récupération des données';
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = '';
+                resultDiv.appendChild(errorParagraph);
+                console.error('Erreur:', error);
+            }
+        }
+
+		async function trigoExpression() {
+			const expression = document.getElementById('expressionTrigo').value;
+			let fonction = "";
+			let valeur = "";
+
+			// Vérification et extraction de la fonction et de la valeur
+			if (expression.includes("arccos")) {
+				fonction = "arccos";
+			} else if (expression.includes("arcsin")){
+				fonction = "arcsin";
+			} else if (expression.includes("arctan")){
+				fonction = "arctan";
+			} else if (expression.includes("cos")) {
+				fonction = "cos";
+			} else if (expression.includes("sin")){
+				fonction = "sin";
+			} else if (expression.includes("tan")){
+				fonction = "tan";
+			} 
+			let startIndex = expression.indexOf("(");
+			let endIndex = expression.indexOf(")");
+			if (startIndex !== -1 && endIndex !== -1 && endIndex > startIndex) {
+				valeur = expression.substring(startIndex + 1, endIndex);
+			}
+
+			// Encodage de la valeur uniquement si elle n'est pas vide
+			const encodedExpression = valeur !== "" ? encodeURIComponent(valeur) : "";
+
+			// Construction de l'URL de l'API
+			const apiUrl = `https://newton.now.sh/api/v2/${fonction}/${encodedExpression}`;
+
+			try {
+				const response = await fetch(apiUrl);
+				const data = await response.json();
+
+				if (data.error) {
+					throw new Error(data.error);
+				}
+
+				// Utilisation de KaTeX pour afficher le résultat formaté
+				const resultParagraph = document.createElement('p');
+				resultParagraph.innerHTML = `Résultat: \\( ${data.result} \\)`;
+
+				// Ajout du nouvel élément enfant à la div "result"
+				const resultDiv = document.getElementById('resultTrigo');
+				resultDiv.innerHTML = ''; // Nettoyage du contenu précédent
+				resultDiv.appendChild(resultParagraph);
+
+				// Rendre l'expression mathématique avec KaTeX
+				renderMathInElement(resultDiv, {
+					delimiters: [
+						{left: "\\(", right: "\\)", display: false},
+						{left: "\\[", right: "\\]", display: true}
+					]
+				});
+			} catch (error) {
+				const errorParagraph = document.createElement('p');
+				errorParagraph.innerText = 'Erreur lors de la récupération des données';
+				const resultDiv = document.getElementById('result');
+				resultDiv.innerHTML = '';
+				resultDiv.appendChild(errorParagraph);
+				console.error('Erreur:', error);
+			}
+		}
+
+		async function zeroesExpression() {
+            const expression = document.getElementById('expressionZeroes').value;
+            const encodedExpression = encodeURIComponent(expression);
+            const apiUrl = `https://newton.now.sh/api/v2/zeroes/${encodedExpression}`;
+            
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                
+                // Utilisation de KaTeX pour afficher le résultat formaté
+                const resultParagraph = document.createElement('p');
+                resultParagraph.innerHTML = `Résultat: [\\( ${data.result} \\)]`;
+                
+                // Ajout du nouvel élément enfant à la div "result"
+                const resultDiv = document.getElementById('resultZeroes');
+                resultDiv.innerHTML = ''; // Nettoyage du contenu précédent
+                resultDiv.appendChild(resultParagraph);
+                
+                // Rendre l'expression mathématique avec KaTeX
+                renderMathInElement(resultDiv, {
+                    delimiters: [
+                        {left: "\\(", right: "\\)", display: false},
+                        {left: "\\[", right: "\\]", display: true}
+                    ]
+                });
+            } catch (error) {
+                const errorParagraph = document.createElement('p');
+                errorParagraph.innerText = 'Erreur lors de la récupération des données';
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = '';
+                resultDiv.appendChild(errorParagraph);
+                console.error('Erreur:', error);
+            }
+        }
+
+    </script>
 </body>
 
 </html>
