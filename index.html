@@ -1079,6 +1079,39 @@
 					<td>\( \sin(u) + C \)</td>
 				</tr>
 			</table>
+
+			<div class="remarque">
+				<p><b>Remarque:</b></p>
+				<p>Il est possible d'utiliser l'API <a href="https://github.com/aunyks/newton-api?tab=readme-ov-file">newton-api</a> afin de s'entraîner à calculer les dérivées et les primitives. Il est également possible d'utiliser cette API afin de calculer une intégrale numérique.</p>
+				<p>Pour représenter une fraction, il faut remplacer le trait de fraction par <b>(over)</b>. Par exemple, pour écrire <b>2/4</b> il faut écrire <b>2(over)4</b>.</p>
+				<form onsubmit="event.preventDefault(); deriveesExpression();">
+					<label for="expressionDerivees">Valeur à trouver:</label>
+					<input type="text" id="expressionDerivees" name="expressionDerivees" required>
+					<p style="margin: 0; color: grey; font-size: 15px;">Par exemple: 2x^2 + 8x</p>
+					<button type="submit">Dériver</button>
+				</form>
+				<div id="resultDerivees"></div>
+				<hr style="width: 60%; margin-left: 0; border: 1px solid black;">
+				<form onsubmit="event.preventDefault(); integralesExpression();">
+					<label for="expressionIntegrales">Valeur à trouver:</label>
+					<input type="text" id="expressionIntegrales" name="expressionIntegrales" required>
+					<p style="margin: 0; color: grey; font-size: 15px;">Par exemple: 2x^2 + 8x</p>
+					<button type="submit">Intégrer</button>
+				</form>
+				<div id="resultIntegrales"></div>
+				<hr style="width: 60%; margin-left: 0; border: 1px solid black;">
+				<form onsubmit="event.preventDefault(); integralesNumExpression();">
+					<label for="borneInf">Borne inférieur:</label>
+					<input type="text" id="borneInf" name="borneInf" required><br>
+					<label for="borneSup">Borne supérieur:</label>
+					<input type="text" id="borneSup" name="borneSup" required><br>
+					<label for="expressionIntegralesNum">Valeur à trouver:</label>
+					<input type="text" id="expressionIntegralesNum" name="expressionIntegralesNum" required>
+					<p style="margin: 0; color: grey; font-size: 15px;">Par exemple: 2x^2 + 8x</p>
+					<button type="submit">Calculer</button>
+				</form>
+				<div id="resultIntegralesNum"></div>
+			</div>
 			
 			<div class="remarque">
 				<p><b>Remarque:</b></p>
@@ -1098,8 +1131,27 @@
 				</ul>
 			</div>
 			
-			
 			<p>En mathématiques, toutes les primitives sont trouvées à une constante additionnelle près. Cependant, en physique on verra très souvent que nous considèrerons que les constantes sont nulles car nous pouvons toujours prendre des valeurs de conditions initiales telles que la constante s'annule. Ainsi, nous avons dans tous les cas une infinité de primitives possible pour une même fonction.</p>
+			<p>On peut utiliser les dérivées afin de déterminer l'équation d'une tangente. L'équation d'une tangente permet de tracer une droite qui est évaluée en un point donné et qui épouse une courbe. Pour calculer la tangente à la fonction \( f(x) \) au point \( a \), nous allons utiliser l'expression suivante: \( y = f'(a)(x-a) + f(a) \). Par exemple:</p>
+			<ul>
+				<li>
+					\( f(x) = 3x^{2} - 3 \) au point \( a = 2 \)
+					<div style="display: flex; justify-content: center;">
+						<img src="Images/fonctionEtTangente.png"/>
+					</div>
+						<p>La dérivée de \( f(x) = 3x^2 - 3 \) est \( f'(x) = 6x \).</p>
+						<p>Au point \( x = 2 \) : \( f'(2) = 12 \).</p>
+						<p>La valeur de la fonction au point \( x = 2 \) : \( f(2) = 9 \).</p>
+						<p>L'équation de la tangente au point \( x = 2 \) est \( y = 12x - 15 \).</p>
+				</li>
+				<li>
+					\( f(x) = 3e^x + 2 \) au point \( a = 2 \)
+						<p>La dérivée de \( f(x) = 3e^x + 2 \) est \( f'(x) = 3e^x \).</p>
+						<p>Au point \( x = 2 \) : \( f'(2) = 3e^2 \).</p>
+						<p>La valeur de la fonction au point \( x = 2 \) : \( f(2) = 3e^2 + 2 \).</p>
+						<p>L'équation de la tangente au point \( x = 2 \) est \( y = 3e^2(x - 2) + (3e^2 + 2) \), soit \( y = 3e^2x - 4e^2 + 2 \approx 22.17x − 27.56 \).</p>
+				</li>
+			</ul>
 		</div>
 
 		<div class="section" id="min-max-functions">
@@ -1233,7 +1285,7 @@
             } catch (error) {
                 const errorParagraph = document.createElement('p');
                 errorParagraph.innerText = 'Erreur lors de la récupération des données';
-                const resultDiv = document.getElementById('result');
+                const resultDiv = document.getElementById('resultFactorize');
                 resultDiv.innerHTML = '';
                 resultDiv.appendChild(errorParagraph);
                 console.error('Erreur:', error);
@@ -1298,7 +1350,7 @@
 			} catch (error) {
 				const errorParagraph = document.createElement('p');
 				errorParagraph.innerText = 'Erreur lors de la récupération des données';
-				const resultDiv = document.getElementById('result');
+				const resultDiv = document.getElementById('resultTrigo');
 				resultDiv.innerHTML = '';
 				resultDiv.appendChild(errorParagraph);
 				console.error('Erreur:', error);
@@ -1333,7 +1385,114 @@
             } catch (error) {
                 const errorParagraph = document.createElement('p');
                 errorParagraph.innerText = 'Erreur lors de la récupération des données';
-                const resultDiv = document.getElementById('result');
+                const resultDiv = document.getElementById('resultZeroes');
+                resultDiv.innerHTML = '';
+                resultDiv.appendChild(errorParagraph);
+                console.error('Erreur:', error);
+            }
+        }
+		
+		async function deriveesExpression() {
+            const expression = document.getElementById('expressionDerivees').value;
+            const encodedExpression = encodeURIComponent(expression);
+            const apiUrl = `https://newton.now.sh/api/v2/derive/${encodedExpression}`;
+            
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                
+                // Utilisation de KaTeX pour afficher le résultat formaté
+                const resultParagraph = document.createElement('p');
+                resultParagraph.innerHTML = `Résultat: \\( ${data.result} \\)`;
+                
+                // Ajout du nouvel élément enfant à la div "result"
+                const resultDiv = document.getElementById('resultDerivees');
+                resultDiv.innerHTML = ''; // Nettoyage du contenu précédent
+                resultDiv.appendChild(resultParagraph);
+                
+                // Rendre l'expression mathématique avec KaTeX
+                renderMathInElement(resultDiv, {
+                    delimiters: [
+                        {left: "\\(", right: "\\)", display: false},
+                        {left: "\\[", right: "\\]", display: true}
+                    ]
+                });
+            } catch (error) {
+                const errorParagraph = document.createElement('p');
+                errorParagraph.innerText = 'Erreur lors de la récupération des données';
+                const resultDiv = document.getElementById('resultDerivees');
+                resultDiv.innerHTML = '';
+                resultDiv.appendChild(errorParagraph);
+                console.error('Erreur:', error);
+            }
+        }
+
+		async function integralesExpression() {
+            const expression = document.getElementById('expressionIntegrales').value;
+            const encodedExpression = encodeURIComponent(expression);
+            const apiUrl = `https://newton.now.sh/api/v2/integrate/${encodedExpression}`;
+            
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                
+                // Utilisation de KaTeX pour afficher le résultat formaté
+                const resultParagraph = document.createElement('p');
+                resultParagraph.innerHTML = `Résultat: \\( ${data.result} \\)`;
+                
+                // Ajout du nouvel élément enfant à la div "result"
+                const resultDiv = document.getElementById('resultIntegrales');
+                resultDiv.innerHTML = ''; // Nettoyage du contenu précédent
+                resultDiv.appendChild(resultParagraph);
+                
+                // Rendre l'expression mathématique avec KaTeX
+                renderMathInElement(resultDiv, {
+                    delimiters: [
+                        {left: "\\(", right: "\\)", display: false},
+                        {left: "\\[", right: "\\]", display: true}
+                    ]
+                });
+            } catch (error) {
+                const errorParagraph = document.createElement('p');
+                errorParagraph.innerText = 'Erreur lors de la récupération des données';
+                const resultDiv = document.getElementById('resultIntegrales');
+                resultDiv.innerHTML = '';
+                resultDiv.appendChild(errorParagraph);
+                console.error('Erreur:', error);
+            }
+        }
+
+		async function integralesNumExpression() {
+            const expression = document.getElementById('expressionIntegralesNum').value;
+            const borneSup = document.getElementById('borneSup').value;
+            const borneInf = document.getElementById('borneInf').value;
+            const encodedExpression = encodeURIComponent(expression);
+            const apiUrl = `https://newton.now.sh/api/v2/area/${borneInf}:${borneSup}|${encodedExpression}`;
+            
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                
+                // Utilisation de KaTeX pour afficher le résultat formaté
+                const resultParagraph = document.createElement('p');
+                resultParagraph.innerHTML = `Résultat: \\( ${data.result} \\)`;
+                
+                // Ajout du nouvel élément enfant à la div "result"
+                const resultDiv = document.getElementById('resultIntegralesNum');
+                resultDiv.innerHTML = ''; // Nettoyage du contenu précédent
+                resultDiv.appendChild(resultParagraph);
+                
+                // Rendre l'expression mathématique avec KaTeX
+                renderMathInElement(resultDiv, {
+                    delimiters: [
+                        {left: "\\(", right: "\\)", display: false},
+                        {left: "\\[", right: "\\]", display: true}
+                    ]
+                });
+            } catch (error) {
+                const errorParagraph = document.createElement('p');
+                errorParagraph.innerText = 'Erreur lors de la récupération des données';
+                const resultDiv = document.getElementById('resultIntegralesNum');
                 resultDiv.innerHTML = '';
                 resultDiv.appendChild(errorParagraph);
                 console.error('Erreur:', error);
