@@ -273,27 +273,87 @@
 
 		<div class="section" id="scientific-notation">
 			<h2>Écriture Scientifique</h2>
-			<p>L'écriture scientifique est une notation utilisée pour représenter des nombres très grands ou très petits
-				de manière concise. Elle est couramment utilisée en sciences et en ingénierie pour faciliter les calculs
-				et la communication de valeurs numériques.</p>
-
-			<h3>Exemple d'écriture scientifique</h3>
-			<p>En notation scientifique, un nombre est écrit sous la forme \( a \times 10^n \), où \( a \) est un nombre décimal avec un seul chiffre non nul avant la virgule, et \( n \) est un entier.</p>
-			<p>Le nombre \( 300,000,000 \) peut être écrit en notation scientifique comme \( 3 \times 10^8 \).</p>
-			<p>De même, le nombre \( 0.0000000023 \) peut être écrit comme \( 2.3 \times 10^{-9} \).</p>
+			<p>L'écriture scientifique est une notation utilisée pour représenter des nombres très grands ou très petits de manière concise. Elle est couramment utilisée en sciences et en ingénierie pour faciliter les calculs et la communication de valeurs numériques. Cette notation permet de simplifier les manipulations mathématiques en rendant les calculs avec de très grands ou de très petits nombres plus gérables.</p>
+	
+			<h3>Principes de base de l'écriture scientifique</h3>
+			<p>En notation scientifique, un nombre est écrit sous la forme \( a \times 10^n \), où \( a \) est un nombre décimal avec un seul chiffre non nul avant la virgule, et \( n \) est un entier. Cette forme standardisée permet de comparer facilement des nombres de grandeurs très différentes et de simplifier les opérations arithmétiques.</p>
+	
+			<h4>Conversion en notation scientifique</h4>
+			<p>Pour convertir un nombre en notation scientifique, il faut :</p>
+			<ul>
+				<li>Placer la virgule après le premier chiffre non nul.</li>
+				<li>Compter le nombre de places que la virgule a été déplacée pour obtenir l'exposant \( n \).</li>
+				<li>Si la virgule a été déplacée vers la gauche, \( n \) est positif. Si la virgule a été déplacée vers la droite, \( n \) est négatif.</li>
+			</ul>
+			<p>Par exemple :</p>
+			<ul>
+				<li>Le nombre \( 300,000,000 \) peut être écrit en notation scientifique comme \( 3 \times 10^8 \).</li>
+				<li>Le nombre \( 0.0000000023 \) peut être écrit comme \( 2.3 \times 10^{-9} \).</li>
+			</ul>
+	
+			<h3>Exemples pratiques</h3>
+			<p>Considérons les applications de la notation scientifique dans différents domaines :</p>
+			<h4>En astronomie</h4>
+			<p>La distance entre la Terre et le Soleil est d'environ \( 149,600,000 \) kilomètres, ce qui peut être écrit comme \( 1.496 \times 10^8 \) kilomètres en notation scientifique.</p>
+	
+			<h4>En physique</h4>
+			<p>La charge élémentaire (la charge d'un proton) est \( 0.00000000000000000016 \) coulombs, soit \( 1.6 \times 10^{-19} \) coulombs en notation scientifique.</p>
+	
+			<h4>En chimie</h4>
+			<p>La masse d'une molécule d'eau est environ \( 0.00000000000000000000003 \) grammes, ce qui peut être écrit comme \( 3 \times 10^{-23} \) grammes en notation scientifique.</p>
 		</div>
-        
-        <div class="section" id="homogeneity-physics">
-            <h2>Homogénéité des expressions</h2>
-			<p>\[ \begin{equation*}
-					\begin{split}
-						F & = ma\\
-						F (Newton) & = kg.m.s^{-2}\\
-					\end{split}
-				\end{equation*} \]
+		
+		<div class="section" id="homogeneity-physics">
+			<h2>Homogénéité des expressions en physique</h2>
+			<p>L'homogénéité des expressions est un principe fondamental en physique qui stipule que toutes les équations physiques doivent avoir des termes de mêmes dimensions et unités. Cela garantit la cohérence des équations et permet de vérifier leur validité.</p>
+			
+			<h3>Concept de base</h3>
+			<p>Une expression physique est dite homogène si toutes les quantités de l'expression ont les mêmes dimensions. Par exemple, dans l'équation de la seconde loi de Newton :</p>
+			<p>
+				\[
+				F = ma
+				\]
 			</p>
-			<p>Les unités sont cohérentes.</p>
-        </div>
+			<p>où \( F \) est la force, \( m \) est la masse et \( a \) est l'accélération, les unités doivent être cohérentes. En unités SI, la force \( F \) est mesurée en newtons (N), la masse \( m \) en kilogrammes (kg) et l'accélération \( a \) en mètres par seconde carrée (m/s²).</p>
+	
+			<h3>Vérification de l'homogénéité</h3>
+			<p>Pour vérifier l'homogénéité d'une expression, on peut remplacer les grandeurs physiques par leurs dimensions. Par exemple, pour l'équation \( F = ma \) :</p>
+			<p>
+				\[
+				\begin{equation*}
+					\begin{split}
+						[F] & = [m][a] \\
+						[F] & = \text{kg} \cdot \text{m/s}^2 \\
+						F (Newton) & = \text{kg} \cdot \text{m} \cdot \text{s}^{-2} \\
+					\end{split}
+				\end{equation*}
+				\]
+			</p>
+			<p>Les unités de la force (Newton) sont donc cohérentes avec les unités de masse et d'accélération.</p>
+	
+			<h4>Exemple de vérification</h4>
+			<p>Considérons l'équation de l'énergie cinétique :</p>
+			<p>
+				\[
+				E_k = \frac{1}{2}mv^2
+				\]
+			</p>
+			<p>où \( E_k \) est l'énergie cinétique, \( m \) est la masse et \( v \) est la vitesse. En remplaçant les grandeurs physiques par leurs dimensions :</p>
+			<p>
+				\[
+				\begin{equation*}
+					\begin{split}
+						[E_k] & = \left[ \frac{1}{2}mv^2 \right] \\
+						[E_k] & = [m][v]^2 \\
+						[E_k] & = \text{kg} \cdot (\text{m/s})^2 \\
+						[E_k] & = \text{kg} \cdot \text{m}^2 \cdot \text{s}^{-2} \\
+						E_k & = \text{Joules} \ (J) \\
+					\end{split}
+				\end{equation*}
+				\]
+			</p>
+			<p>Les unités de l'énergie cinétique sont donc cohérentes, confirmant que l'expression est homogène.</p>
+		</div>
 
 		<div class="section" id="trigonometry">
 			<h2>Trigonométrie</h2>
@@ -361,6 +421,18 @@
 				</form>
 				<div id="resultTrigo"></div>
 			</div>
+
+			<h3>Formules trigonométriques importantes</h3>
+			<p>Voici quelques formules trigonométriques importantes utilisées pour résoudre divers problèmes en géométrie et en trigonométrie :</p>
+			<ul>
+				<li>\( \sin^2(x) + \cos^2(x) = 1 \)</li>
+				<li>\( \sin(2x) = 2 \sin(x) \cos(x) \)</li>
+				<li>\( \cos(2x) = \cos^2(x) - \sin^2(x) \)</li>
+				<li>\( \tan(2x) = \frac{2 \tan(x)}{1 - \tan^2(x)} \)</li>
+				<li>\( \sin(x \pm y) = \sin(x) \cos(y) \pm \cos(x) \sin(y) \)</li>
+				<li>\( \cos(x \pm y) = \cos(x) \cos(y) \mp \sin(x) \sin(y) \)</li>
+				<li>\( \tan(x \pm y) = \frac{\tan(x) \pm \tan(y)}{1 \mp \tan(x) \tan(y)} \)</li>
+			</ul>
 
 			<h3>Cercle trigonométrique</h3>
 			<p>Le cercle trigonométrique est un outil visuel utile pour comprendre les relations trigonométriques. Il
@@ -1372,48 +1444,165 @@
 				\vec{u} + \vec{v} &= (u_x + v_x, u_y + v_y, u_z + v_z) \\
 				\vec{u} - \vec{v} &= (u_x - v_x, u_y - v_y, u_z - v_z)
 			\end{align*} \]</p>
-		
-			<h4>Multiplication de vecteurs</h4>
-			<p>La multiplication de deux vecteurs peut être effectuée par le produit scalaire ou le produit vectoriel, selon le contexte et l'application spécifique.</p>
-		
+
 			<h4>Applications en physique et en ingénierie</h4>
 			<p>Le calcul vectoriel est utilisé pour résoudre une variété de problèmes, y compris le calcul de la trajectoire d'un projectile, la détermination de la force résultante sur un objet, et la modélisation de champs comme le champ électrique et magnétique.</p>
 		</div>
-		
 
 		<div class="section" id="matrix-calculus">
 			<h2>Calcul Matriciel</h2>
-			<p>Le calcul matriciel est une branche des mathématiques qui étudie les matrices, qui sont des tableaux
-				rectangulaires de nombres. Il est largement utilisé dans divers domaines tels que l'algèbre linéaire,
-				les statistiques, l'ingénierie et l'informatique pour résoudre des systèmes d'équations linéaires,
-				effectuer des transformations géométriques, et bien plus encore.</p>
-
+			<p>Le calcul matriciel est une branche des mathématiques qui étudie les matrices, qui sont des tableaux rectangulaires de nombres. Il est largement utilisé dans divers domaines tels que l'algèbre linéaire, les statistiques, l'ingénierie et l'informatique pour résoudre des systèmes d'équations linéaires, effectuer des transformations géométriques, et bien plus encore.</p>
+	
 			<h3>Opérations de base sur les matrices</h3>
+			<p>Voici les principales opérations de base que l'on peut effectuer sur des matrices :</p>
 			<ul>
 				<li>Addition de matrices</li>
 				<li>Soustraction de matrices</li>
 				<li>Multiplication de matrices</li>
 				<li>Inversion de matrices</li>
 			</ul>
+	
+			<h4>Addition et soustraction de matrices</h4>
+			<p>L'addition et la soustraction de matrices de même dimension se font élément par élément :</p>
+			<p>
+				\[
+				\begin{equation*}
+					\begin{split}
+						A & = \begin{pmatrix}
+							a_{11} & a_{12} \\
+							a_{21} & a_{22}
+						\end{pmatrix}, \quad B = \begin{pmatrix}
+							b_{11} & b_{12} \\
+							b_{21} & b_{22}
+						\end{pmatrix} \\
+						A + B & = \begin{pmatrix}
+							a_{11} + b_{11} & a_{12} + b_{12} \\
+							a_{21} + b_{21} & a_{22} + b_{22}
+						\end{pmatrix} \\
+						A - B & = \begin{pmatrix}
+							a_{11} - b_{11} & a_{12} - b_{12} \\
+							a_{21} - b_{21} & a_{22} - b_{22}
+						\end{pmatrix}
+					\end{split}
+				\end{equation*}
+				\]
+			</p>
+	
+			<h4>Multiplication de matrices</h4>
+			<p>La multiplication de matrices n'est pas commutative et se fait en multipliant les lignes de la première matrice par les colonnes de la seconde :</p>
+			<p>
+				\[
+				\begin{equation*}
+					\begin{split}
+						A & = \begin{pmatrix}
+							a_{11} & a_{12} \\
+							a_{21} & a_{22}
+						\end{pmatrix}, \quad B = \begin{pmatrix}
+							b_{11} & b_{12} \\
+							b_{21} & b_{22}
+						\end{pmatrix} \\
+						AB & = \begin{pmatrix}
+							a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\
+							a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22}
+						\end{pmatrix}
+					\end{split}
+				\end{equation*}
+				\]
+			</p>
+	
+			<h4>Inversion de matrices</h4>
+			<p>Pour une matrice carrée \( A \), l'inverse \( A^{-1} \) est telle que \( AA^{-1} = A^{-1}A = I \) où \( I \) est la matrice identité. Pour une matrice 2x2, l'inverse se calcule comme suit :</p>
+			<p>
+				\[
+				\begin{equation*}
+					A = \begin{pmatrix}
+						a & b \\
+						c & d
+					\end{pmatrix}, \quad A^{-1} = \frac{1}{ad - bc}\begin{pmatrix}
+						d & -b \\
+						-c & a
+					\end{pmatrix}
+				\end{equation*}
+				\]
+			</p>
+	
+			<h4>Applications pratiques</h4>
+			<p>Les matrices sont utilisées dans divers domaines. Par exemple, en algèbre linéaire, elles permettent de résoudre des systèmes d'équations linéaires. En informatique, elles sont utilisées pour le traitement d'images, où chaque pixel peut être représenté par une matrice de valeurs. En physique, elles modélisent des transformations géométriques telles que la rotation, la translation et l'homothétie.</p>
+	
+			<h4>Exemples complets</h4>
+			<p>Considérons les matrices suivantes :</p>
+			<p>
+				\[
+				A = \begin{pmatrix}
+					1 & 2 \\
+					3 & 4
+				\end{pmatrix}, \quad B = \begin{pmatrix}
+					5 & 6 \\
+					7 & 8
+				\end{pmatrix}
+				\]
+			</p>
+			<p>Leur addition est :</p>
+			<p>
+				\[
+				A + B = \begin{pmatrix}
+					1 + 5 & 2 + 6 \\
+					3 + 7 & 4 + 8
+				\end{pmatrix} = \begin{pmatrix}
+					6 & 8 \\
+					10 & 12
+				\end{pmatrix}
+				\]
+			</p>
+			<p>Leur multiplication est :</p>
+			<p>
+				\[
+				AB = \begin{pmatrix}
+					1 \cdot 5 + 2 \cdot 7 & 1 \cdot 6 + 2 \cdot 8 \\
+					3 \cdot 5 + 4 \cdot 7 & 3 \cdot 6 + 4 \cdot 8
+				\end{pmatrix} = \begin{pmatrix}
+					19 & 22 \\
+					43 & 50
+				\end{pmatrix}
+				\]
+			</p>
+			<p>L'inverse de \( A \) est :</p>
+			<p>
+				\[
+				A^{-1} = \frac{1}{1 \cdot 4 - 2 \cdot 3}\begin{pmatrix}
+					4 & -2 \\
+					3 & -1
+				\end{pmatrix} = \begin{pmatrix}
+					-2 & 1 \\
+					1.5 & -0.5
+				\end{pmatrix}
+				\]
+			</p>
 		</div>
-
+	
 		<div class="section" id="euclidean-geometry">
 			<h2>Géométrie Euclidienne</h2>
-			<p>La géométrie euclidienne est une branche des mathématiques qui étudie les propriétés et les relations des
-				figures géométriques dans un espace à nombre fini de dimensions. Elle est fondée sur les axiomes
-				d'Euclide et est utilisée pour analyser les formes, les grandeurs et les transformations dans l'espace.
-			</p>
-
-			<h3>Principales concepts en géométrie euclidienne</h3>
+			<p>La géométrie euclidienne est une branche des mathématiques qui étudie les propriétés et les relations des figures géométriques dans un espace à nombre fini de dimensions. Elle est fondée sur les axiomes d'Euclide et est utilisée pour analyser les formes, les grandeurs et les transformations dans l'espace.</p>
+	
+			<h3>Principaux concepts en géométrie euclidienne</h3>
+	
+			<h4>Points, lignes et plans</h4>
+			<p>En géométrie euclidienne, les points, lignes et plans sont les objets géométriques de base. Un point est une position unique dans l'espace, une ligne est une série infinie de points alignés, et un plan est une surface bidimensionnelle infinie. Ces éléments sont utilisés pour définir des formes et des structures géométriques.</p>
+			<p>Les relations entre points, lignes et plans incluent l'intersection, la parallélisme et la perpendicularité. Par exemple, deux lignes qui se croisent en un point sont dites sécantes, tandis que deux lignes qui ne se croisent jamais sont parallèles.</p>
+	
+			<h4>Angles et triangles</h4>
+			<p>Un angle est formé par deux lignes qui se rencontrent en un point. Les triangles sont des polygones à trois côtés et trois angles. Les propriétés des angles et des triangles sont fondamentales pour la géométrie euclidienne. Par exemple, la somme des angles internes d'un triangle est toujours égale à 180 degrés.</p>
+			<p>Les triangles peuvent être classifiés selon leurs angles (aigu, droit, obtus) ou selon leurs côtés (équilatéral, isocèle, scalène). Des théorèmes importants comme le théorème de Pythagore et les relations trigonométriques (sinus, cosinus, tangente) sont utilisés pour résoudre des problèmes impliquant des triangles.</p>
+	
+			<h4><b>SoCaTo</b></h4>
+			<p><b>SoCaTo</b> est une méthode mnémonique pour se souvenir des relations dans les triangles rectangles entre les côtés et les angles :</p>
 			<ul>
-				<li>Points, lignes et plans</li>
-				<li>Angles et triangles</li>
-				<li><b>SoCaTo</b></li>
-				<li>Cercles et coniques</li>
-				<li>Transformations géométriques : translation, rotation, homothétie</li>
-				<li>Théorèmes fondamentaux : théorème de Pythagore, théorème de Thalès</li>
+				<li><b>So</b> : Sinus = Opposé / Hypoténuse</li>
+				<li><b>Ca</b> : Cosinus = Adjacent / Hypoténuse</li>
+				<li><b>To</b> : Tangente = Opposé / Adjacent</li>
 			</ul>
-		</div>
+			<p>Ces relations sont essentielles pour résoudre des problèmes de trigonométrie en géométrie euclidienne.</p>
+		</div>	
 	</div>
 
 	<script>
