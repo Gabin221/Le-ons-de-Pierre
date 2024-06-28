@@ -32,7 +32,7 @@ Dans le dossier `python`, nous avons un fichier `solveur_equations.py` qui conti
 
 ## A savoir
 
-Il y a dans certaines parties des possibilités de saisir des calculs afin d'obtenir un résulat en ligne, de manière interactive. Pour cela, on utilise l'API <a href="https://github.com/aunyks/newton-api/tree/master">Newton-API</a>.
+Il y a dans certaines parties des possibilités de saisir des calculs afin d'obtenir un résulat en ligne, de manière interactive. Pour cela, on utilise l'API <a href="https://github.com/aunyks/newton-api/tree/master">Newton-API</a>. Le tableau ci-dessous permet, au cas où on cherche à utiliser l'API dans le navigateur, d'encoder comme il faut les caractères spéciaux.
 
 | Symbole        | Description                   | Encodage URL   |
 |----------------|-------------------------------|----------------|
