@@ -32,7 +32,7 @@ Dans le dossier `python`, nous avons un fichier `solveur_equations.py` qui conti
 
 ## A savoir
 
-Il y a dans certaines parties des possibilités de saisir des calculs afin d'obtenir un résulat en ligne, de manière interactive. Pour cela, on utilise l'(API)[https://github.com/aunyks/newton-api/tree/master]
+Il y a dans certaines parties des possibilités de saisir des calculs afin d'obtenir un résulat en ligne, de manière interactive. Pour cela, on utilise l'<a href="[https://smartcar.com/docs/getting-started/introduction](https://github.com/aunyks/newton-api/tree/master)">API</a>.
 
 | Symbole        | Description                   | Encodage URL   |
 |----------------|-------------------------------|----------------|
